@@ -1,12 +1,4 @@
-res://Menu/Main_menu.tscn
+res://Menu/main.tscn
 res://texture/House_floor.tres
 res://texture/Wall_1.tres
 res://Others/world_enviroment.tres
-res://Others/player.tscn
-res://Menu/main.tscn
-res://Models/house_1.tscn
-res://Others/voxel_gi.tscn
-res://Models/character_body_3d.tscn
-res://Models/cube.tscn
-res://scripts/other_scripts/GravityComponent.tscn
-res://scripts/other_scripts/gravity_component.gd
