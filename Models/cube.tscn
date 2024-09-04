@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cppfoov4tda2m"]
+
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="1_f0oty"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fupwe"]
+
+[node name="Cube" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+scale = Vector2(0.983876, 0.678514)
+shape = SubResource("CapsuleShape2D_fupwe")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-1.49012e-06, 1.43051e-06)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_f0oty")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+rotation = -1.57229
+scale = Vector2(1.00784, 0.671077)
+shape = SubResource("CapsuleShape2D_fupwe")

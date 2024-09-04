@@ -1,0 +1,14 @@
+CollisionShape2D
+Sprite2D
+CharacterBody2D
+CollisionShape3D
+Label
+Button
+Control
+BoxContainer
+TextureRect
+Container
+Node2D
+RigidBody2D
+StaticBody2D
+StaticBody3D
