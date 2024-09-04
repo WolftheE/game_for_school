@@ -202,7 +202,6 @@ scale = Vector2(1, 0.998238)
 text = "X"
 
 [node name="fps" parent="." instance=ExtResource("6_f3350")]
-visible = false
 
 [connection signal="pressed" from="play_lowgf" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=4 uid="uid://c6gdwotl6vfdx"]
+[gd_scene load_steps=14 format=4 uid="uid://c6gdwotl6vfdx"]
 
 [ext_resource type="PackedScene" uid="uid://o6y6c8sxauhy" path="res://Models/house_1.tscn" id="1_20tx1"]
 [ext_resource type="Script" path="res://scripts/Options_manager.gd" id="1_b08mo"]
 [ext_resource type="PackedScene" uid="uid://derqlrst53qpy" path="res://Others/world_enviroment.tscn" id="1_cmxv1"]
 [ext_resource type="PackedScene" uid="uid://snusbmh24hwo" path="res://Others/voxel_gi.tscn" id="5_414ym"]
 [ext_resource type="PackedScene" uid="uid://5xf7dbx2dg4k" path="res://Models/character_body_3d.tscn" id="5_jwan2"]
+[ext_resource type="PackedScene" uid="uid://civmlno5ncoy1" path="res://Others/fps.tscn" id="6_1tcy0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0b7y8"]
 metallic = 0.7
@@ -79,3 +80,18 @@ transform = Transform3D(0.699651, 0, 0.714485, 0, 1, 0, -0.714485, 0, 0.699651, 
 [node name="VoxelGI2" parent="." instance=ExtResource("5_414ym")]
 visible = false
 data = SubResource("VoxelGIData_atb4g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 34.0
+offset_top = 223.0
+offset_right = 74.0
+offset_bottom = 263.0
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="fps" parent="." instance=ExtResource("6_1tcy0")]
+visible = true
