@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://flijevvthfaj"]
+
+[ext_resource type="FontFile" uid="uid://dchtwuqobbqec" path="res://texture/fonts/Handjet-Light.ttf" id="1_438vl"]
+
+[resource]
+default_font = ExtResource("1_438vl")
+default_font_size = 21

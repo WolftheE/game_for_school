@@ -1,11 +1,27 @@
-[gd_scene load_steps=9 format=4 uid="uid://duifkuov8aqmq"]
+[gd_scene load_steps=27 format=4 uid="uid://duifkuov8aqmq"]
 
 [ext_resource type="Script" path="res://scripts/Main_menu.gd" id="1_3t6rt"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="2_msj5m"]
 [ext_resource type="PackedScene" uid="uid://derqlrst53qpy" path="res://Others/world_enviroment.tscn" id="2_wue4d"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="3_0wrcm"]
 [ext_resource type="Script" path="res://scripts/world_enviroment.gd" id="3_wgfvn"]
 [ext_resource type="PackedScene" uid="uid://snusbmh24hwo" path="res://Others/voxel_gi.tscn" id="4_wc7v1"]
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="5_hm8g3"]
 [ext_resource type="PackedScene" uid="uid://civmlno5ncoy1" path="res://Others/fps.tscn" id="6_f3350"]
+[ext_resource type="Texture2D" uid="uid://bhstsnyggtv5d" path="res://texture/Arrow thing.png" id="6_jpqq1"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="8_r36ep"]
+[ext_resource type="Texture2D" uid="uid://4rtpy6kbpkva" path="res://texture/topdown_icon.png" id="9_abme7"]
+[ext_resource type="Texture2D" uid="uid://bir3twm63xovt" path="res://texture/cube_icon.png" id="9_sbh8x"]
+[ext_resource type="Texture2D" uid="uid://bmsudos3wx813" path="res://texture/pissman_icon.png" id="10_pwlgu"]
+[ext_resource type="Texture2D" uid="uid://beo8kh6f6kx7s" path="res://texture/PROTOGEN_PIXELART.png" id="14_iyy10"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="15_nbpul"]
+[ext_resource type="FontFile" uid="uid://dchtwuqobbqec" path="res://texture/fonts/Handjet-Light.ttf" id="16_ces08"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_upr5q"]
+font = ExtResource("2_msj5m")
+font_size = 51
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ypfac"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_aqrtt"]
 resource_local_to_scene = true
@@ -24,53 +40,70 @@ propagation = 0.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n6at"]
 size = Vector2(100, 100)
 
+[sub_resource type="Theme" id="Theme_vwynq"]
+default_font = ExtResource("2_msj5m")
+default_font_size = 35
+
+[sub_resource type="Theme" id="Theme_chgvb"]
+default_font = ExtResource("2_msj5m")
+default_font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_1yehn"]
+font = ExtResource("2_msj5m")
+font_size = 30
+
+[sub_resource type="Theme" id="Theme_26cmr"]
+default_font = ExtResource("2_msj5m")
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_kusq5"]
+default_font = ExtResource("16_ces08")
+default_font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_7rxuq"]
+font = ExtResource("16_ces08")
+font_size = 20
+
 [node name="Node3D" type="Node2D"]
 script = ExtResource("1_3t6rt")
 
 [node name="Title" type="Label" parent="."]
-offset_left = 43.0
-offset_top = 30.0
-offset_right = 178.0
-offset_bottom = 53.0
-text = "Idk what to name this..."
-
-[node name="play_lowgf" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 97.0
-offset_right = 311.0
-offset_bottom = 174.0
-scale = Vector2(0.998646, 0.996803)
-text = "Force Play without Voexl GL 
-(for low end devices)"
+texture_filter = 1
+offset_left = 33.0
+offset_top = 18.0
+offset_right = 426.0
+offset_bottom = 75.0
+text = "The Cube I think..."
+label_settings = SubResource("LabelSettings_upr5q")
 
 [node name="play" type="Button" parent="."]
-offset_left = 46.0
-offset_top = 61.0
-offset_right = 308.0
-offset_bottom = 92.0
-text = "Play"
+texture_filter = 1
+offset_left = 35.0
+offset_top = 87.0
+offset_right = 278.0
+offset_bottom = 118.0
+theme = ExtResource("3_0wrcm")
+text = "Start a new game
+"
+icon = SubResource("ViewportTexture_ypfac")
 
 [node name="settings" type="Button" parent="."]
-offset_left = 178.0
-offset_top = 182.0
-offset_right = 301.0
-offset_bottom = 213.0
+texture_filter = 1
+offset_left = 35.0
+offset_top = 161.0
+offset_right = 279.0
+offset_bottom = 192.0
+theme = ExtResource("3_0wrcm")
 text = "Options"
 
-[node name="quit" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 182.0
-offset_right = 168.0
-offset_bottom = 213.0
-text = "Quit"
-
 [node name="Credits" type="Label" parent="."]
-offset_left = 915.0
-offset_top = 581.0
-offset_right = 1138.0
-offset_bottom = 630.0
-text = "Made and Coded By : Daniel
-Textures and 2d assets : Alex"
+offset_left = 933.0
+offset_top = 531.0
+offset_right = 1156.0
+offset_bottom = 658.0
+text = "Ver 0.00000000001 Alpha
+TEST BUILD
+PRE PRE PRE PRE TEST"
 
 [node name="World_enviroment" parent="." instance=ExtResource("2_wue4d")]
 script = ExtResource("3_wgfvn")
@@ -121,63 +154,79 @@ visible = false
 z_index = 1
 layout_mode = 3
 anchors_preset = 0
-offset_left = 599.0
+offset_left = 624.0
 offset_top = 17.0
-offset_right = 639.0
+offset_right = 664.0
 offset_bottom = 57.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-modulate = Color(0.351563, 0.351563, 0.351563, 1)
+modulate = Color(0.364706, 0.364706, 0.364706, 1)
 layout_mode = 1
 offset_left = -280.0
-offset_right = 28.0
+offset_right = -72.0
 offset_bottom = 154.0
 scale = Vector2(2.63541, 4.08928)
 texture = ExtResource("5_hm8g3")
 expand_mode = 1
 
+[node name="Label" type="Label" parent="Control"]
+texture_filter = 1
+layout_mode = 2
+offset_left = -273.0
+offset_top = 1.0
+offset_right = 254.0
+offset_bottom = 50.0
+theme = SubResource("Theme_vwynq")
+text = "Settings
+"
+
 [node name="BoxContainer" type="BoxContainer" parent="Control"]
 z_index = 1
 layout_mode = 1
-offset_left = -273.0
-offset_top = 1.0
-offset_right = 71.0
-offset_bottom = 617.0
+offset_left = -274.0
+offset_top = 63.0
+offset_right = 253.0
+offset_bottom = 679.0
 vertical = true
 
-[node name="Label" type="Label" parent="Control/BoxContainer"]
-layout_mode = 2
-text = "          Settings right
-."
-
 [node name="SDFGI_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "SDFGI (RTX BETA)
 EXTREAM IMPACT 
-NOTE: NEVER USE THIS WITH VOXEL GI"
+NOTE: NEVER USE THIS WITH THE \"The intro (but high quality)\""
 
 [node name="SSAO_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = " Screen Space Ambient Occlusion
 (mid to ver y high)"
 
 [node name="SSR_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Screen Space Reflection
 (low to mid depending on resolution)"
 
 [node name="SSIL_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Screen-space indirect lighting 
 (low to mid) 
 Note: Please dont use it, 
 it doesnt even look good"
 
 [node name="VoxelGI_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 disabled = true
 button_pressed = true
 text = "Voxel GI (RTX)
@@ -185,28 +234,358 @@ Extreamly high
 Note: DO NOT USE WITH SDFGI"
 
 [node name="GLOW_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Bloom/Glow (mid)"
 
 [node name="showfps_button" type="CheckButton" parent="Control/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Show fps"
 
 [node name="Close_options_menu" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = -1.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 27.0
+offset_left = 232.0
+offset_top = 3.0
+offset_right = 261.0
+offset_bottom = 34.0
 scale = Vector2(1, 0.998238)
 text = "X"
 
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+modulate = Color(0.362829, 0.362829, 0.362829, 1)
+layout_mode = 0
+offset_left = -341.0
+offset_top = 141.0
+offset_right = -257.0
+offset_bottom = 178.0
+scale = Vector2(1.21059, 1.00855)
+texture = ExtResource("6_jpqq1")
+expand_mode = 1
+
 [node name="fps" parent="." instance=ExtResource("6_f3350")]
 
-[connection signal="pressed" from="play_lowgf" to="." method="_on_play_pressed"]
+[node name="level_menu" type="Control" parent="."]
+z_index = 5
+layout_mode = 3
+anchors_preset = 0
+offset_left = 340.0
+offset_top = 58.0
+offset_right = 380.0
+offset_bottom = 98.0
+
+[node name="background" type="TextureRect" parent="level_menu"]
+modulate = Color(0.396889, 0.396889, 0.396889, 1)
+layout_mode = 0
+offset_right = 768.0
+offset_bottom = 574.0
+texture = ExtResource("8_r36ep")
+
+[node name="arrowthing" type="TextureRect" parent="level_menu"]
+modulate = Color(0.396078, 0.396078, 0.396078, 1)
+layout_mode = 0
+offset_left = -64.0
+offset_top = 66.0
+offset_right = 2.0
+offset_bottom = 106.0
+scale = Vector2(1.61021, 1.00758)
+texture = ExtResource("6_jpqq1")
+expand_mode = 1
+
+[node name="Part4_thefinalcube" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 344.0
+offset_right = 555.0
+offset_bottom = 558.0
+text = "Part 4: The Final of Cube"
+icon = ExtResource("9_abme7")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Part3_pissman" type="Button" parent="level_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 542.0
+offset_top = 49.0
+offset_right = 750.0
+offset_bottom = 264.0
+text = "Part 3: The Piss Man"
+icon = ExtResource("10_pwlgu")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="part1_intro" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 75.0
+offset_right = 241.0
+offset_bottom = 313.0
+text = "Part 1: The intro 
+(But high quality)"
+icon = ExtResource("9_sbh8x")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="play_lowgf" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 323.0
+offset_right = 242.0
+offset_bottom = 400.0
+scale = Vector2(0.998646, 0.996803)
+text = "Part 1: The intro 
+(but it can actually
+ run at 60 fps)..."
+
+[node name="level_title" type="Label" parent="level_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 184.0
+offset_bottom = 49.0
+theme = SubResource("Theme_chgvb")
+text = "Level Selector"
+
+[node name="part2" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 98.0
+offset_right = 500.0
+offset_bottom = 230.0
+text = "Part 2: The Wrong"
+
+[node name="close" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 716.0
+offset_top = 4.0
+offset_right = 763.0
+offset_bottom = 44.0
+text = "X"
+
+[node name="ArrowThing" type="Sprite2D" parent="level_menu"]
+visible = false
+position = Vector2(278, 175)
+rotation = 2.81585
+scale = Vector2(0.037, 0.0217501)
+texture = ExtResource("6_jpqq1")
+
+[node name="Levels" type="Button" parent="."]
+texture_filter = 1
+offset_left = 37.0
+offset_top = 125.0
+offset_right = 278.0
+offset_bottom = 156.0
+theme = ExtResource("3_0wrcm")
+text = "Levels "
+
+[node name="credits" type="Button" parent="."]
+texture_filter = 1
+offset_left = 167.0
+offset_top = 199.0
+offset_right = 279.0
+offset_bottom = 230.0
+theme = ExtResource("3_0wrcm")
+text = "Credits"
+
+[node name="credits_menu" type="Control" parent="."]
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 342.0
+offset_top = 128.0
+offset_right = 382.0
+offset_bottom = 168.0
+
+[node name="background" type="TextureRect" parent="credits_menu"]
+modulate = Color(0.396889, 0.396889, 0.396889, 1)
+layout_mode = 0
+offset_right = 779.0
+offset_bottom = 507.0
+texture = ExtResource("8_r36ep")
+
+[node name="arrowthing" type="TextureRect" parent="credits_menu"]
+modulate = Color(0.396078, 0.396078, 0.396078, 1)
+layout_mode = 0
+offset_left = -64.0
+offset_top = 66.0
+offset_right = 2.0
+offset_bottom = 106.0
+scale = Vector2(1.61021, 1.00758)
+texture = ExtResource("6_jpqq1")
+expand_mode = 1
+
+[node name="protogen" type="TextureRect" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 151.0
+offset_top = 103.0
+offset_right = 175.0
+offset_bottom = 131.0
+scale = Vector2(-5, 5)
+texture = ExtResource("14_iyy10")
+
+[node name="pissman" type="TextureRect" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 335.0
+offset_top = 223.0
+offset_right = 399.0
+offset_bottom = 287.0
+scale = Vector2(4, 4)
+texture = ExtResource("15_nbpul")
+
+[node name="credits_title" type="Label" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = 9.0
+offset_right = 149.0
+offset_bottom = 62.0
+text = "Credits goes Too..."
+label_settings = SubResource("LabelSettings_1yehn")
+
+[node name="exit_close_button" type="Button" parent="credits_menu"]
+layout_mode = 0
+offset_left = 729.0
+offset_top = 6.0
+offset_right = 770.0
+offset_bottom = 46.0
+text = "x"
+
+[node name="alex" type="Label" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 36.0
+offset_top = 342.0
+offset_right = 454.0
+offset_bottom = 377.0
+theme = SubResource("Theme_26cmr")
+text = "Alex (\"\")"
+
+[node name="Label" type="Label" parent="credits_menu/alex"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 35.0
+offset_right = 316.0
+offset_bottom = 70.0
+theme = SubResource("Theme_kusq5")
+text = "For the 2d textures and sound effect"
+
+[node name="Daniel" type="Label" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 168.0
+offset_top = 122.0
+offset_right = 595.0
+offset_bottom = 157.0
+theme = SubResource("Theme_26cmr")
+text = "Daniel (\"I'm not a furry I swear\" also him: ...)"
+
+[node name="Label" type="Label" parent="credits_menu/Daniel"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 32.0
+offset_right = 305.0
+offset_bottom = 67.0
+theme = SubResource("Theme_kusq5")
+text = "For all of that bad coding and 3d modding."
+
+[node name="Label" type="Label" parent="credits_menu"]
+layout_mode = 0
+offset_left = 553.0
+offset_top = 206.0
+offset_right = 766.0
+offset_bottom = 489.0
+text = "A Group poject that I had to 
+make for school.
+It took a total of \"DAY\" to 
+make. In the end,
+this is what happen. But if 
+you are reading this,
+thanks for playing. If you
+ could... can you take
+a screenshot and sent it to
+ my discord
+\"@wolfthee\". Thanks"
+label_settings = SubResource("LabelSettings_7rxuq")
+
+[node name="quit_menu" type="Button" parent="."]
+texture_filter = 1
+offset_left = 40.0
+offset_top = 198.0
+offset_right = 161.0
+offset_bottom = 230.0
+theme = ExtResource("3_0wrcm")
+text = "Quit"
+
+[node name="quit_comfirm" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 63.0
+offset_top = 287.0
+offset_right = 103.0
+offset_bottom = 327.0
+
+[node name="background" type="TextureRect" parent="quit_comfirm"]
+modulate = Color(0.396889, 0.396889, 0.396889, 1)
+layout_mode = 0
+offset_right = 446.0
+offset_bottom = 80.0
+texture = ExtResource("8_r36ep")
+
+[node name="arrowthing" type="TextureRect" parent="quit_comfirm"]
+modulate = Color(0.396078, 0.396078, 0.396078, 1)
+layout_mode = 0
+offset_left = 49.0
+offset_top = -63.0
+offset_right = 115.0
+offset_bottom = -23.0
+rotation = 1.59922
+scale = Vector2(1.61021, 1.00758)
+texture = ExtResource("6_jpqq1")
+expand_mode = 1
+
+[node name="quit" type="Button" parent="quit_comfirm"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 270.0
+offset_top = 43.0
+offset_right = 393.0
+offset_bottom = 75.0
+theme = ExtResource("3_0wrcm")
+text = "Yes. Quit"
+
+[node name="Button" type="Button" parent="quit_comfirm"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 68.0
+offset_top = 45.0
+offset_right = 198.0
+offset_bottom = 77.0
+theme = ExtResource("3_0wrcm")
+text = "Nah, stay "
+
+[node name="credits_title" type="Label" parent="quit_comfirm"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 158.0
+offset_top = 3.0
+offset_right = 431.0
+offset_bottom = 56.0
+text = "Are you sure?"
+label_settings = SubResource("LabelSettings_1yehn")
+
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="toggled" from="Control/BoxContainer/SDFGI_button" to="." method="_on_sdfgi_button_toggled"]
 [connection signal="toggled" from="Control/BoxContainer/SSAO_button" to="." method="_on_ssao_button_toggled"]
 [connection signal="toggled" from="Control/BoxContainer/SSR_button" to="." method="_on_ssr_button_toggled"]
@@ -215,3 +594,13 @@ text = "X"
 [connection signal="toggled" from="Control/BoxContainer/GLOW_button" to="." method="_on_glow_button_toggled"]
 [connection signal="toggled" from="Control/BoxContainer/showfps_button" to="." method="_on_showfps_button_toggled"]
 [connection signal="pressed" from="Control/Close_options_menu" to="." method="_on_close_options_menu_pressed"]
+[connection signal="pressed" from="level_menu/Part4_thefinalcube" to="." method="_on_testlevel_2_pressed"]
+[connection signal="pressed" from="level_menu/Part3_pissman" to="." method="_on_testlevel_1_pressed"]
+[connection signal="pressed" from="level_menu/play_lowgf" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="level_menu/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Levels" to="." method="_on_levels_pressed"]
+[connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="credits_menu/exit_close_button" to="." method="_on_exit_close_button_pressed"]
+[connection signal="pressed" from="quit_menu" to="." method="_on_quit_menu_pressed"]
+[connection signal="pressed" from="quit_comfirm/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="quit_comfirm/Button" to="." method="_on_button_pressed"]

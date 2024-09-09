@@ -1,19 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://iog44ou6rn43"]
+[gd_scene load_steps=8 format=3 uid="uid://iog44ou6rn43"]
 
-[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="1_be6so"]
 [ext_resource type="Script" path="res://scripts/player2d.gd" id="1_bh8hx"]
 [ext_resource type="PackedScene" uid="uid://cd4ttwaebwpxw" path="res://scripts/other_scripts/GravityComponent.tscn" id="2_5ucxw"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="3_behon"]
+[ext_resource type="Texture2D" uid="uid://db6iayhgsw5st" path="res://texture/pissmanframe2.png" id="4_lxmhg"]
+[ext_resource type="Texture2D" uid="uid://2hwx8yqdbpl0" path="res://texture/pissmanframe3.png" id="5_lp3k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxq81"]
+size = Vector2(23, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m5vxw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_behon")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_behon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lxmhg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lp3k4")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_bh8hx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_be6so")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -8)
 shape = SubResource("RectangleShape2D_hxq81")
 
 [node name="GravityComponent" parent="." instance=ExtResource("2_5ucxw")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(0, 3)
+sprite_frames = SubResource("SpriteFrames_m5vxw")
+animation = &"walking"
+frame = 2
+frame_progress = 0.648584
+offset = Vector2(20, -25)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)

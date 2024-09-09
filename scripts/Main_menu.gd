@@ -1,7 +1,6 @@
 extends Node2D
 # Main Menu Code by Daniel 
 # TODO FIX THE MAIN MENU IT LOOKS HORIBLE 
-# TODO Make a level selections
 var simultaneous_scene = preload("res://Menu/main.tscn").instantiate()
 var cube = preload("res://Models/cube.tscn")
 var world_environment = WorldEnvironment
@@ -37,29 +36,57 @@ func _on_settings_pressed() -> void:
 func _on_close_options_menu_pressed() -> void:
 	$Control.visible = false
 
+func _on_testlevel_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menu/2dtopdownfps.tscn")
 
+func _on_testlevel_1_pressed() -> void:
+	get_tree().change_scene_to_file("res://Menu/2d_piss_man_level.tscn")
 
 ## WHOLE SETTING PART
 func _on_play_lowgf_pressed():
 	get_tree().change_scene_to_file("res://Menu/main_lowgx.tscn")
 
-func _on_sdfgi_button_toggled(toggled_on: bool) -> void:
-	Graphics.world_environment.environment.sdfgi_enabled = toggled_on
+func _on_sdfgi_button_toggled(button_pressed):
+	Graphics.world_environment.environment.sdfgi_enabled = button_pressed
 
-func _on_glow_button_toggled(toggled_on: bool) -> void:
+func _on_glow_button_toggled(toggled_on):
 	Graphics.world_environment.environment.glow_enabled = toggled_on
 
-func _on_ssao_button_toggled(toggled_on: bool) -> void:
+func _on_ssao_button_toggled(toggled_on):
 	Graphics.world_environment.environment.ssao_enabled = toggled_on
 
-func _on_ssr_button_toggled(toggled_on: bool) -> void:
+func _on_ssr_button_toggled(toggled_on):
 	Graphics.world_environment.environment.ssr_enabled = toggled_on
 
-func _on_ssil_button_toggled(toggled_on: bool) -> void:
+func _on_ssil_button_toggled(toggled_on):
 	Graphics.world_environment.environment.ssil_enabled = toggled_on
 
-func _on_voxel_gi_button_toggled(toggled_on: bool) -> void:
-	get_node("VoxelGI").visible = false
+func _on_voxel_gi_button_toggled(toggled_on):
+	pass
 
-func _on_showfps_button_toggled(toggled_on: bool) -> void:
+func _on_showfps_button_toggled(toggled_on):
 	get_node("fps").visible = true
+
+
+func _on_levels_pressed() -> void:
+	$level_menu.visible = true
+
+
+func _on_close_pressed() -> void:
+	$level_menu.visible = false
+
+
+func _on_quit_menu_pressed() -> void:
+	$quit_comfirm.visible = true
+
+
+func _on_button_pressed() -> void:
+	$quit_comfirm.visible = false
+
+
+func _on_credits_pressed() -> void:
+	$credits_menu.visible = true
+
+
+func _on_exit_close_button_pressed() -> void:
+	$credits_menu.visible = false

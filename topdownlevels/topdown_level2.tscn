@@ -1,0 +1,164 @@
+[gd_scene load_steps=10 format=3 uid="uid://c63juh21kccq8"]
+
+[ext_resource type="Script" path="res://scripts/playertopdown_2d.gd" id="1_8qkw1"]
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="2_oed3h"]
+[ext_resource type="Texture2D" uid="uid://c2njhvsrbyicn" path="res://texture/lightthing.png" id="3_hlob5"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="4_fhtf2"]
+[ext_resource type="PackedScene" uid="uid://lgkp04wa7ott" path="res://Others/white_cube_thing.tscn" id="5_cq711"]
+[ext_resource type="PackedScene" uid="uid://cm0n4t4ifmide" path="res://Others/enemyfor2dtopdown.tscn" id="6_jjcob"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jipvo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63hku"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q0605"]
+
+[node name="stuff" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Playertopdown2d" type="CharacterBody2D" parent="."]
+position = Vector2(103, 32)
+script = ExtResource("1_8qkw1")
+
+[node name="Sprite2D" type="Sprite2D" parent="Playertopdown2d"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_oed3h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Playertopdown2d"]
+shape = SubResource("RectangleShape2D_jipvo")
+
+[node name="Area2D" type="Area2D" parent="Playertopdown2d"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Playertopdown2d/Area2D"]
+shape = SubResource("RectangleShape2D_63hku")
+
+[node name="PointLight2D" type="PointLight2D" parent="Playertopdown2d"]
+shadow_enabled = true
+texture = ExtResource("3_hlob5")
+texture_scale = 0.4
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.62, 0.31, 0.315167, 1)
+z_index = -1
+position = Vector2(1810, 311)
+scale = Vector2(86.0984, -83.6339)
+texture = ExtResource("4_fhtf2")
+
+[node name="Map parts" type="Node2D" parent="."]
+
+[node name="cube3" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(708, 873)
+rotation = 1.5708
+scale = Vector2(0.41302, 22.8351)
+
+[node name="cube2" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(716.032, -45)
+rotation = 1.5708
+scale = Vector2(0.41302, 22.8351)
+
+[node name="cube1" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(-10, 412)
+scale = Vector2(0.5, 14.4688)
+
+[node name="cube4" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(1434, 425)
+scale = Vector2(0.5, 14.4688)
+
+[node name="cube5" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(118, 135)
+scale = Vector2(0.906249, 0.927735)
+
+[node name="cube6" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(302, 38.1563)
+scale = Vector2(0.375, 2.27637)
+
+[node name="cube7" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(336, 117)
+scale = Vector2(1.45312, 0.382812)
+
+[node name="cube8" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(304, 292)
+scale = Vector2(0.375, 2.27637)
+
+[node name="cube9" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(337, 228)
+scale = Vector2(1.45312, 0.382812)
+
+[node name="cube9" parent="Map parts/cube9" instance=ExtResource("5_cq711")]
+position = Vector2(756, 693)
+scale = Vector2(2.16406, 0.495056)
+
+[node name="cube10" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(155.5, 396.656)
+scale = Vector2(1.82812, 1.57324)
+
+[node name="cube11" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(605, 33)
+scale = Vector2(0.375, 2.27637)
+
+[node name="cube12" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(606, 248)
+scale = Vector2(0.375, 2.27637)
+
+[node name="cube13" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(606, 467)
+scale = Vector2(0.375, 2.27637)
+
+[node name="cube13" parent="Map parts/cube13" instance=ExtResource("5_cq711")]
+position = Vector2(946, 426)
+scale = Vector2(1.42187, 1.73316)
+
+[node name="cube13" parent="Map parts/cube13/cube13" instance=ExtResource("5_cq711")]
+position = Vector2(1101, 153)
+scale = Vector2(1.42187, 1.73316)
+
+[node name="cube13" parent="Map parts/cube13/cube13/cube13" instance=ExtResource("5_cq711")]
+position = Vector2(1055.25, 710)
+scale = Vector2(1.94531, 1.73316)
+
+[node name="cube14" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(263.75, 529)
+scale = Vector2(8.17969, 0.382812)
+
+[node name="cube15" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(497.5, 645.938)
+scale = Vector2(0.421875, 3.56445)
+
+[node name="cube16" parent="Map parts" instance=ExtResource("5_cq711")]
+position = Vector2(946.203, 99)
+scale = Vector2(10.8374, 0.282226)
+
+[node name="cube16" parent="Map parts/cube16" instance=ExtResource("5_cq711")]
+position = Vector2(1082, 540)
+scale = Vector2(10.8374, 0.282226)
+
+[node name="cube16" parent="Map parts/cube16/cube16" instance=ExtResource("5_cq711")]
+position = Vector2(1084, 301)
+scale = Vector2(10.8374, 0.282226)
+
+[node name="enemy" parent="." instance=ExtResource("6_jjcob")]
+position = Vector2(429, 44)
+
+[node name="enemy3" parent="." instance=ExtResource("6_jjcob")]
+position = Vector2(374, 292)
+
+[node name="enemy4" parent="." instance=ExtResource("6_jjcob")]
+position = Vector2(676, 234)
+
+[node name="enemy5" parent="." instance=ExtResource("6_jjcob")]
+position = Vector2(130, 493)
+
+[node name="enemy6" parent="." instance=ExtResource("6_jjcob")]
+position = Vector2(448, 411)
+
+[node name="exit_level1_trigger" type="Area2D" parent="."]
+position = Vector2(676, 23)
+scale = Vector2(2.93247, 3.18863)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit_level1_trigger"]
+shape = SubResource("RectangleShape2D_q0605")
+
+[connection signal="body_entered" from="Playertopdown2d/Area2D" to="Playertopdown2d" method="_on_area_2d_body_entered"]
