@@ -90,3 +90,15 @@ func _on_credits_pressed() -> void:
 
 func _on_exit_close_button_pressed() -> void:
 	$credits_menu.visible = false
+
+
+func _on_part_1_intro_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_part_1_rtxcon_pressed() -> void:
+	$level_menu/Control.visible = true
+
+
+func _on_nah_pressed() -> void:
+	$level_menu/Control.visible = false

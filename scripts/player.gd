@@ -27,6 +27,7 @@ func _physics_process(delta):
 	# Gravity or somthing idk
 	if not is_on_floor():
 		velocity.y -= gravity * delta  
+		move_and_slide()
 	
 	# Jump thingy
 	if Input.is_action_just_pressed("jump") and is_on_floor():
@@ -46,3 +47,4 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	# the amount of times i fogot to include the "move_and_slide()" thing....
 	move_and_slide()
+	

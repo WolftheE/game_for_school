@@ -87,6 +87,5 @@ arrow_right={
 [rendering]
 
 global_illumination/voxel_gi/quality=1
-global_illumination/sdfgi/probe_ray_count=3
-global_illumination/sdfgi/frames_to_converge=4
-global_illumination/sdfgi/frames_to_update_lights=3
+environment/subsurface_scattering/subsurface_scattering_quality=2
+global_illumination/sdfgi/probe_ray_count=5

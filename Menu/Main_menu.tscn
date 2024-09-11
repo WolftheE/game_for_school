@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://duifkuov8aqmq"]
+[gd_scene load_steps=30 format=4 uid="uid://duifkuov8aqmq"]
 
 [ext_resource type="Script" path="res://scripts/Main_menu.gd" id="1_3t6rt"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="2_msj5m"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://4rtpy6kbpkva" path="res://texture/topdown_icon.png" id="9_abme7"]
 [ext_resource type="Texture2D" uid="uid://bir3twm63xovt" path="res://texture/cube_icon.png" id="9_sbh8x"]
 [ext_resource type="Texture2D" uid="uid://bmsudos3wx813" path="res://texture/pissman_icon.png" id="10_pwlgu"]
+[ext_resource type="FontFile" uid="uid://c52vhnbx88vyo" path="res://texture/fonts/Handjet-Regular.ttf" id="14_8mftl"]
 [ext_resource type="Texture2D" uid="uid://beo8kh6f6kx7s" path="res://texture/PROTOGEN_PIXELART.png" id="14_iyy10"]
 [ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="15_nbpul"]
 [ext_resource type="FontFile" uid="uid://dchtwuqobbqec" path="res://texture/fonts/Handjet-Light.ttf" id="16_ces08"]
@@ -47,6 +48,14 @@ default_font_size = 35
 [sub_resource type="Theme" id="Theme_chgvb"]
 default_font = ExtResource("2_msj5m")
 default_font_size = 40
+
+[sub_resource type="Theme" id="Theme_ybhm1"]
+default_font = ExtResource("14_8mftl")
+default_font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_t3x84"]
+font = ExtResource("2_msj5m")
+font_size = 60
 
 [sub_resource type="LabelSettings" id="LabelSettings_1yehn"]
 font = ExtResource("2_msj5m")
@@ -296,10 +305,10 @@ expand_mode = 1
 
 [node name="Part4_thefinalcube" type="Button" parent="level_menu"]
 layout_mode = 0
-offset_left = 354.0
-offset_top = 344.0
-offset_right = 555.0
-offset_bottom = 558.0
+offset_left = 500.0
+offset_top = 341.0
+offset_right = 701.0
+offset_bottom = 555.0
 text = "Part 4: The Final of Cube"
 icon = ExtResource("9_abme7")
 icon_alignment = 1
@@ -326,22 +335,11 @@ offset_top = 75.0
 offset_right = 241.0
 offset_bottom = 313.0
 text = "Part 1: The intro 
-(But high quality)"
+(normal graphics)"
 icon = ExtResource("9_sbh8x")
 icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
-
-[node name="play_lowgf" type="Button" parent="level_menu"]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 323.0
-offset_right = 242.0
-offset_bottom = 400.0
-scale = Vector2(0.998646, 0.996803)
-text = "Part 1: The intro 
-(but it can actually
- run at 60 fps)..."
 
 [node name="level_title" type="Label" parent="level_menu"]
 texture_filter = 1
@@ -355,10 +353,10 @@ text = "Level Selector"
 
 [node name="part2" type="Button" parent="level_menu"]
 layout_mode = 0
-offset_left = 326.0
-offset_top = 98.0
-offset_right = 500.0
-offset_bottom = 230.0
+offset_left = 316.0
+offset_top = 216.0
+offset_right = 490.0
+offset_bottom = 348.0
 text = "Part 2: The Wrong"
 
 [node name="close" type="Button" parent="level_menu"]
@@ -369,12 +367,86 @@ offset_right = 763.0
 offset_bottom = 44.0
 text = "X"
 
+[node name="part1_rtxcon" type="Button" parent="level_menu"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 320.0
+offset_right = 243.0
+offset_bottom = 397.0
+text = "Part 1: The intro
+(but with RTX and  
+fps eater)..."
+
 [node name="ArrowThing" type="Sprite2D" parent="level_menu"]
 visible = false
 position = Vector2(278, 175)
 rotation = 2.81585
 scale = Vector2(0.037, 0.0217501)
 texture = ExtResource("6_jpqq1")
+
+[node name="Control" type="Control" parent="level_menu"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="TextureRect" parent="level_menu/Control"]
+modulate = Color(0.171039, 0.171039, 0.171039, 1)
+layout_mode = 0
+offset_left = 281.0
+offset_top = 3.0
+offset_right = 767.0
+offset_bottom = 570.0
+texture = ExtResource("8_r36ep")
+
+[node name="arrowthing" type="TextureRect" parent="level_menu/Control"]
+modulate = Color(0.172549, 0.172549, 0.172549, 1)
+layout_mode = 0
+offset_left = 222.0
+offset_top = 348.0
+offset_right = 288.0
+offset_bottom = 388.0
+scale = Vector2(1.61021, 1.00758)
+texture = ExtResource("6_jpqq1")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="level_menu/Control"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 365.0
+offset_top = 271.0
+offset_right = 738.0
+offset_bottom = 351.0
+scale = Vector2(0.902937, 1.08855)
+theme = SubResource("Theme_ybhm1")
+text = "If the game lags, crash or have visual issues,
+please try the option \"normal graphics\""
+
+[node name="play_lowgf" type="Button" parent="level_menu/Control"]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 423.0
+offset_right = 744.0
+offset_bottom = 500.0
+scale = Vector2(0.998646, 0.996803)
+text = "Yes, ik ok...."
+
+[node name="nah" type="Button" parent="level_menu/Control"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 425.0
+offset_right = 510.0
+offset_bottom = 499.0
+text = "Nah, take me back"
+
+[node name="Label2" type="Label" parent="level_menu/Control"]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 182.0
+offset_right = 611.0
+offset_bottom = 251.0
+text = "WARNING!"
+label_settings = SubResource("LabelSettings_t3x84")
 
 [node name="Levels" type="Button" parent="."]
 texture_filter = 1
@@ -596,8 +668,11 @@ label_settings = SubResource("LabelSettings_1yehn")
 [connection signal="pressed" from="Control/Close_options_menu" to="." method="_on_close_options_menu_pressed"]
 [connection signal="pressed" from="level_menu/Part4_thefinalcube" to="." method="_on_testlevel_2_pressed"]
 [connection signal="pressed" from="level_menu/Part3_pissman" to="." method="_on_testlevel_1_pressed"]
-[connection signal="pressed" from="level_menu/play_lowgf" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="level_menu/part1_intro" to="." method="_on_part_1_intro_pressed"]
 [connection signal="pressed" from="level_menu/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="level_menu/part1_rtxcon" to="." method="_on_part_1_rtxcon_pressed"]
+[connection signal="pressed" from="level_menu/Control/play_lowgf" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="level_menu/Control/nah" to="." method="_on_nah_pressed"]
 [connection signal="pressed" from="Levels" to="." method="_on_levels_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="credits_menu/exit_close_button" to="." method="_on_exit_close_button_pressed"]
