@@ -1,0 +1,458 @@
+[gd_scene load_steps=26 format=3 uid="uid://bnq72plhh2bsw"]
+
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_qjfxk"]
+[ext_resource type="Script" path="res://scripts/startup_splash.gd" id="1_v4dx7"]
+[ext_resource type="Texture2D" uid="uid://beo8kh6f6kx7s" path="res://texture/PROTOGEN_PIXELART.png" id="3_4c2ij"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="4_sgft8"]
+[ext_resource type="FontFile" uid="uid://c52vhnbx88vyo" path="res://texture/fonts/Handjet-Regular.ttf" id="5_6xqoi"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="5_nl3x6"]
+[ext_resource type="Texture2D" uid="uid://blk8tsvuer27o" path="res://texture/Redot Logo & Wordmark - Horizontal - Red Orange (no outline).svg" id="7_racrq"]
+[ext_resource type="AudioStream" uid="uid://oo5ibohx3poy" path="res://sound/intro_sound.wav" id="8_ehfhh"]
+[ext_resource type="AudioStream" uid="uid://cnuyp6lap6k7q" path="res://sound/redot_sound_effect.wav" id="9_3po3m"]
+[ext_resource type="AudioStream" uid="uid://dw7pw77ge6fst" path="res://sound/fartmeme.mp3" id="9_32wb1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bdkcp"]
+font = ExtResource("4_sgft8")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_upnwh"]
+line_spacing = 4.0
+font = ExtResource("5_6xqoi")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6cwa"]
+font = ExtResource("5_6xqoi")
+font_size = 200
+
+[sub_resource type="Animation" id="Animation_wfaow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wolfe logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s6ly3"]
+resource_name = "logo Intro"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5, 3.5, 5, 7.63333, 8.36667, 10.5, 11.5, 15.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(2, 2), Vector2(1.5, 1.5), Vector2(1.5, 1.5), Vector2(0.8, 0.8), Vector2(0.7, 0.7), Vector2(0.3, 0.3), Vector2(0.27, 0.27), Vector2(0.15, 0.15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("wolfe logo:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(17.7333, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 4000)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1.5, 3.5, 5, 7.63333, 8.36667, 10.4667, 11.5, 15.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -300), Vector2(0, -300), Vector2(0, -100), Vector2(0, -100), Vector2(0, 100), Vector2(0, 100), Vector2(0, 500), Vector2(0, 500), Vector2(0, 1250)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l7i8y"]
+_data = {
+"RESET": SubResource("Animation_wfaow"),
+"logo Intro": SubResource("Animation_s6ly3")
+}
+
+[sub_resource type="Animation" id="Animation_juq25"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2/Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mxqmp"]
+resource_name = "text"
+length = 5.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2/Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fs6v"]
+_data = {
+"RESET": SubResource("Animation_juq25"),
+"text": SubResource("Animation_mxqmp")
+}
+
+[sub_resource type="Animation" id="Animation_ixily"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dkev4"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kfwi3"]
+_data = {
+"RESET": SubResource("Animation_ixily"),
+"fade": SubResource("Animation_dkev4")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_egkox"]
+font = ExtResource("5_6xqoi")
+font_size = 400
+
+[sub_resource type="LabelSettings" id="LabelSettings_pw45l"]
+font = ExtResource("5_6xqoi")
+font_size = 400
+
+[sub_resource type="LabelSettings" id="LabelSettings_qjh8h"]
+font = ExtResource("5_6xqoi")
+font_size = 100
+
+[node name="StartupSplash" type="Node2D"]
+script = ExtResource("1_v4dx7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = -1
+offset_left = -9548.0
+offset_top = -7163.0
+offset_right = 9226.0
+offset_bottom = 7750.0
+texture = ExtResource("1_qjfxk")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 10
+zoom = Vector2(2, 2)
+
+[node name="wolfe logo" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 17.0
+offset_top = -267.0
+offset_right = 57.0
+offset_bottom = -227.0
+scale = Vector2(2, 2)
+texture = ExtResource("3_4c2ij")
+
+[node name="Label" type="Label" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -81.0
+offset_top = -237.0
+offset_right = -8.0
+offset_bottom = -191.0
+text = "Wolfe"
+label_settings = SubResource("LabelSettings_bdkcp")
+
+[node name="pissman" type="Label" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -186.0
+offset_top = -71.0
+offset_right = 15.0
+offset_bottom = -25.0
+rotation = 0.445265
+text = "And this guy ->"
+label_settings = SubResource("LabelSettings_bdkcp")
+
+[node name="name" type="Label" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 25.0
+offset_right = 221.0
+offset_bottom = 71.0
+text = "MrCrip"
+label_settings = SubResource("LabelSettings_bdkcp")
+
+[node name="guy" type="TextureRect" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 84.0
+offset_top = -99.0
+offset_right = 194.0
+offset_bottom = -7.00001
+rotation = -0.241312
+scale = Vector2(2, 2)
+texture = ExtResource("5_nl3x6")
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -151.0
+offset_top = 378.0
+offset_right = 167.0
+offset_bottom = 491.0
+text = "Presents "
+label_settings = SubResource("LabelSettings_upnwh")
+
+[node name="Label3" type="Label" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -705.0
+offset_top = 858.0
+offset_right = 707.0
+offset_bottom = 1083.0
+text = "A Project made with..."
+label_settings = SubResource("LabelSettings_i6cwa")
+
+[node name="TextureRect2" type="TextureRect" parent="wolfe logo"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1944.0
+offset_top = 1805.0
+offset_right = 1935.0
+offset_bottom = 3275.0
+texture = ExtResource("7_racrq")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l7i8y")
+}
+
+[node name="text" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Control")
+libraries = {
+"": SubResource("AnimationLibrary_6fs6v")
+}
+speed_scale = 0.4
+
+[node name="fade screen" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kfwi3")
+}
+
+[node name="screen_fade" type="TextureRect" parent="."]
+visible = false
+modulate = Color(0, 0, 0, 0)
+z_index = 1
+offset_left = -4218.0
+offset_top = -3065.0
+offset_right = 4180.0
+offset_bottom = 3471.0
+texture = ExtResource("1_qjfxk")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = 928.0
+offset_right = 44.0
+offset_bottom = 968.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -56.5
+offset_right = 244.0
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "A crappy game called.."
+label_settings = SubResource("LabelSettings_egkox")
+
+[node name="Label2" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.5
+offset_top = -112.5
+offset_right = 432.5
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "The Piss Man!"
+label_settings = SubResource("LabelSettings_pw45l")
+
+[node name="Label3" type="Label" parent="Control/Label2"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -937.0
+offset_top = 482.0
+offset_right = 992.0
+offset_bottom = 707.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "! Btw press \"s\" to skip this in the future !"
+label_settings = SubResource("LabelSettings_qjh8h")
+horizontal_alignment = 1
+
+[node name="IntroSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ehfhh")
+volume_db = 15.0
+
+[node name="Fartmeme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_32wb1")
+volume_db = -3.0
+bus = &"sfx"
+
+[node name="RedotSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_3po3m")

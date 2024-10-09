@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://khgpj6ruioa0"]
+
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="1_ljac8"]
+
+[resource]
+default_font = ExtResource("1_ljac8")
+default_font_size = 40

@@ -1,0 +1,849 @@
+[gd_scene load_steps=37 format=3 uid="uid://dynt3lodq1cno"]
+
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="1_gco03"]
+[ext_resource type="Script" path="res://scripts/fight_1.gd" id="1_i3p12"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="2_5t401"]
+[ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="3_v6ql5"]
+[ext_resource type="Texture2D" uid="uid://c8t8m1d8kwpql" path="res://texture/heart.png" id="4_7uu67"]
+[ext_resource type="FontFile" uid="uid://c52vhnbx88vyo" path="res://texture/fonts/Handjet-Regular.ttf" id="5_fgjak"]
+[ext_resource type="Script" path="res://scripts/player_heath.gd" id="7_78exf"]
+[ext_resource type="Script" path="res://scripts/null_heath.gd" id="7_lypd0"]
+[ext_resource type="Texture2D" uid="uid://city0gat22koj" path="res://texture/nullman.png" id="8_xvil2"]
+[ext_resource type="Texture2D" uid="uid://cuar7rtfpgolg" path="res://texture/null_heart.png" id="9_bk375"]
+[ext_resource type="Texture2D" uid="uid://i0n4uvlbyce3" path="res://texture/null_bullet.png" id="11_f0q14"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wunp3"]
+size = Vector2(357, 7.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iu6sd"]
+size = Vector2(393, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mxiol"]
+font = ExtResource("5_fgjak")
+font_size = 70
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dbsab"]
+size = Vector2(64, 8)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s2qnd"]
+font = ExtResource("5_fgjak")
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35vn8"]
+size = Vector2(394.5, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmphj"]
+size = Vector2(480, 13)
+
+[sub_resource type="Animation" id="Animation_qng6p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_7t86j"]
+resource_name = "dialog_fight1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "", "Piss Man did an attack and it was effective! 
+Dealing 1 damage!"]
+}
+
+[sub_resource type="Animation" id="Animation_ov8p4"]
+resource_name = "dialog_nullman_died"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": ["", "Null Man Defeated!"]
+}
+
+[sub_resource type="Animation" id="Animation_o011r"]
+resource_name = "dialog_talk1"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 6.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "Piss Man tried to talk it trought but he just looked at you
+and contuine fighting", "Piss Man tried to talk it trought but he just looked at you
+and contuine fighting ..."]
+}
+
+[sub_resource type="Animation" id="Animation_u3cgd"]
+resource_name = "intro_dialog"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": ["", "Um it looks like I'm in some kind of boss fight"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nsxyx"]
+_data = {
+"RESET": SubResource("Animation_qng6p"),
+"dialog_fight1": SubResource("Animation_7t86j"),
+"dialog_nullman_died": SubResource("Animation_ov8p4"),
+"dialog_talk1": SubResource("Animation_o011r"),
+"intro_dialog": SubResource("Animation_u3cgd")
+}
+
+[sub_resource type="Animation" id="Animation_ike7r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-14, 15)]
+}
+
+[sub_resource type="Animation" id="Animation_ighue"]
+resource_name = "lava_up"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 6.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-14, 15), Vector2(-14, 15), Vector2(-9, -289)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6v6l"]
+_data = {
+"RESET": SubResource("Animation_ike7r"),
+"lava_up": SubResource("Animation_ighue")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_se6vk"]
+font = ExtResource("5_fgjak")
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_bhfgj"]
+font_size = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x7hhw"]
+size = Vector2(14, 21)
+
+[sub_resource type="Animation" id="Animation_1f1wh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(199, 67)]
+}
+
+[sub_resource type="Animation" id="Animation_fi3pt"]
+resource_name = "bullet_move"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.7, 1.13333, 1.77, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(199, 67), Vector2(175, 67), Vector2(184, 67), Vector2(172, 67), Vector2(184, 67), Vector2(-200, 67)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2kcel"]
+_data = {
+"RESET": SubResource("Animation_1f1wh"),
+"bullet_move": SubResource("Animation_fi3pt")
+}
+
+[sub_resource type="Animation" id="Animation_iqunj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e16uw"]
+resource_name = "fade"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rwue"]
+_data = {
+"RESET": SubResource("Animation_iqunj"),
+"fade": SubResource("Animation_e16uw")
+}
+
+[node name="Fight1" type="Node2D"]
+script = ExtResource("1_i3p12")
+
+[node name="bg" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -98.0
+offset_right = 40.0
+offset_bottom = -58.0
+
+[node name="outlineofbg" type="TextureRect" parent="bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.5
+offset_top = -224.0
+offset_right = 158.5
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+
+[node name="bg_main" type="TextureRect" parent="bg"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -216.5
+offset_right = 150.0
+offset_bottom = 176.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+
+[node name="bg1" type="TextureRect" parent="bg"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 159.0
+offset_top = -1105.0
+offset_right = 822.0
+offset_bottom = 1108.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gco03")
+
+[node name="bg2" type="TextureRect" parent="bg"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -368.0
+offset_top = -2437.0
+offset_right = 295.0
+offset_bottom = -224.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gco03")
+
+[node name="bg3" type="TextureRect" parent="bg"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -861.0
+offset_top = -1191.0
+offset_right = -198.0
+offset_bottom = 1022.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gco03")
+
+[node name="bg4" type="TextureRect" parent="bg"]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -323.0
+offset_top = 184.0
+offset_right = 340.0
+offset_bottom = 2397.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gco03")
+
+[node name="border" type="StaticBody2D" parent="bg"]
+position = Vector2(1, 206)
+
+[node name="b1" type="CollisionShape2D" parent="bg/border"]
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_wunp3")
+one_way_collision = true
+
+[node name="b2" type="CollisionShape2D" parent="bg/border"]
+position = Vector2(-175, -205.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_iu6sd")
+one_way_collision = true
+
+[node name="b4" type="CollisionShape2D" parent="bg/border"]
+position = Vector2(173, -209)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_iu6sd")
+one_way_collision = true
+
+[node name="b3" type="CollisionShape2D" parent="bg/border"]
+position = Vector2(-1, -405.75)
+rotation = -3.14159
+shape = SubResource("RectangleShape2D_wunp3")
+one_way_collision = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+z_index = 2
+
+[node name="player" parent="." instance=ExtResource("3_v6ql5")]
+scale = Vector2(1.5, 1.5)
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+z_index = 2
+texture_filter = 1
+offset_left = -540.0
+offset_top = 105.0
+offset_right = -289.0
+offset_bottom = 186.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_7uu67")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_7uu67")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="BoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_7uu67")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+z_index = 2
+offset_left = -453.0
+offset_top = 210.0
+offset_right = -373.0
+offset_bottom = 289.0
+text = "3/3"
+label_settings = SubResource("LabelSettings_mxiol")
+
+[node name="lava_part" type="Node2D" parent="."]
+position = Vector2(6, 1361)
+
+[node name="1" type="StaticBody2D" parent="lava_part"]
+position = Vector2(-101, 47)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/1"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/1"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="2" type="StaticBody2D" parent="lava_part"]
+position = Vector2(-45, -25)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/2"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="4" type="StaticBody2D" parent="lava_part"]
+position = Vector2(145, -1)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/4"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/4"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="5" type="StaticBody2D" parent="lava_part"]
+position = Vector2(39, -59)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/5"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="6" type="StaticBody2D" parent="lava_part"]
+position = Vector2(-116, -90)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/6"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/6"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="7" type="StaticBody2D" parent="lava_part"]
+position = Vector2(139, -117)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/7"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/7"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="8" type="StaticBody2D" parent="lava_part"]
+position = Vector2(-15, -134)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/8"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/8"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="9" type="StaticBody2D" parent="lava_part"]
+position = Vector2(79, -206)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/9"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/9"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="10" type="StaticBody2D" parent="lava_part"]
+position = Vector2(-99, -203)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/10"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/10"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="3" type="StaticBody2D" parent="lava_part"]
+position = Vector2(77, 65)
+
+[node name="TextureRect" type="TextureRect" parent="lava_part/3"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -4.0
+offset_right = 32.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5t401")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lava_part/3"]
+shape = SubResource("RectangleShape2D_dbsab")
+one_way_collision = true
+
+[node name="Label" type="Label" parent="lava_part"]
+z_index = 2
+texture_filter = 1
+offset_left = 339.0
+offset_top = 229.0
+offset_right = 553.0
+offset_bottom = 275.0
+text = "The Floor Is lava!"
+label_settings = SubResource("LabelSettings_s2qnd")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-14, 15)
+
+[node name="TextureRect" type="TextureRect" parent="Node2D"]
+modulate = Color(1, 0.466667, 0, 1)
+offset_left = -217.0
+offset_top = 121.0
+offset_right = 225.0
+offset_bottom = 479.0
+texture = ExtResource("1_gco03")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
+position = Vector2(7, 178)
+shape = SubResource("RectangleShape2D_35vn8")
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+position = Vector2(20, 127.5)
+shape = SubResource("RectangleShape2D_tmphj")
+debug_color = Color(0.957295, 1.05888e-06, 0.533344, 0.42)
+
+[node name="null_heath" type="Node" parent="."]
+script = ExtResource("7_lypd0")
+
+[node name="player_heath" type="Node" parent="."]
+script = ExtResource("7_78exf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nsxyx")
+}
+
+[node name="lava_animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f6v6l")
+}
+
+[node name="options" type="BoxContainer" parent="."]
+visible = false
+z_index = 1
+z_as_relative = false
+offset_left = -164.0
+offset_top = 170.0
+offset_right = 167.0
+offset_bottom = 245.0
+vertical = true
+
+[node name="Label" type="Label" parent="options"]
+texture_filter = 1
+layout_mode = 2
+text = "Which one will Piss Man use?"
+label_settings = SubResource("LabelSettings_se6vk")
+
+[node name="VBoxContainer2" type="HBoxContainer" parent="options"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="options/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "FIGHT!"
+
+[node name="Button2" type="Button" parent="options/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Talk?"
+
+[node name="dialog" type="Panel" parent="."]
+z_index = 1
+offset_left = -238.0
+offset_top = 130.0
+offset_right = 247.0
+offset_bottom = 279.0
+
+[node name="Label" type="Label" parent="dialog"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 8.0
+offset_right = 450.0
+offset_bottom = 57.0
+
+[node name="Nullman" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+position = Vector2(420, -282)
+scale = Vector2(3, 3)
+texture = ExtResource("8_xvil2")
+
+[node name="Label" type="Label" parent="Nullman"]
+texture_filter = 2
+offset_left = -6.00001
+offset_top = -1.0
+offset_right = 214.0
+offset_bottom = 68.0
+scale = Vector2(0.25, 0.25)
+text = "Null man"
+label_settings = SubResource("LabelSettings_bhfgj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Nullman"]
+offset_left = -7.00001
+offset_top = 14.6667
+offset_right = 46.0
+offset_bottom = 29.6667
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Nullman/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_bk375")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Nullman/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_bk375")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Nullman/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_bk375")
+expand_mode = 2
+
+[node name="bullet" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(199, 67)
+rotation = -1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="bullet"]
+scale = Vector2(2, 2)
+texture = ExtResource("11_f0q14")
+
+[node name="Area2D" type="Area2D" parent="bullet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet/Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_x7hhw")
+
+[node name="move_bullet" type="AnimationPlayer" parent="bullet"]
+libraries = {
+"": SubResource("AnimationLibrary_2kcel")
+}
+
+[node name="bullet2" type="CharacterBody2D" parent="."]
+texture_filter = 1
+position = Vector2(199, 67)
+rotation = -1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="bullet2"]
+scale = Vector2(2, 2)
+texture = ExtResource("11_f0q14")
+
+[node name="Area2D" type="Area2D" parent="bullet2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bullet2/Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_x7hhw")
+
+[node name="move_bullet" type="AnimationPlayer" parent="bullet2"]
+libraries = {
+"": SubResource("AnimationLibrary_2kcel")
+}
+
+[node name="screen_fade" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0)
+z_index = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -667.0
+offset_top = -445.5
+offset_right = 667.0
+offset_bottom = 445.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_5t401")
+
+[node name="screen_fade_transmistion" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3rwue")
+}
+
+[connection signal="body_shape_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="pressed" from="options/VBoxContainer2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="options/VBoxContainer2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="body_shape_entered" from="bullet/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="bullet2/Area2D" to="." method="_on_area_2d_body_shape_entered"]

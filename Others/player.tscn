@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://2hwx8yqdbpl0" path="res://texture/pissmanframe3.png" id="5_lp3k4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hxq81"]
-size = Vector2(23, 36)
+size = Vector2(23, 37)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m5vxw"]
 animations = [{
@@ -41,7 +41,7 @@ script = ExtResource("1_bh8hx")
 scale = Vector2(0.2, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -8)
+position = Vector2(-1.5, -7.5)
 shape = SubResource("RectangleShape2D_hxq81")
 
 [node name="GravityComponent" parent="." instance=ExtResource("2_5ucxw")]
@@ -52,9 +52,6 @@ texture_repeat = 1
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_m5vxw")
 animation = &"walking"
-frame = 2
-frame_progress = 0.648584
-offset = Vector2(20, -25)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+frame_progress = 0.707117
+offset = Vector2(-20, -25)
+flip_h = true

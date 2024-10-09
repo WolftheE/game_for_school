@@ -1,0 +1,225 @@
+[gd_scene load_steps=10 format=3 uid="uid://dbn88iv63rntk"]
+
+[ext_resource type="Script" path="res://scripts/boss_fight.gd" id="1_0gwu0"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="2_27of0"]
+[ext_resource type="FontFile" uid="uid://b7lha7kprboi" path="res://texture/fonts/Handjet-Bold.ttf" id="3_wdwjs"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="4_ypara"]
+[ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="5_vlmmk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5l112"]
+font = ExtResource("3_wdwjs")
+font_size = 125
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_grhch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg stuff/line:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-70, 444)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("null_boss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(611, 522)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("pissman:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1888, -14)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bg stuff/name_left:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-720, -315)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bg stuff/name_right:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(619, -318)]
+}
+
+[sub_resource type="Animation" id="Animation_x480h"]
+resource_name = "cool_intro"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pissman:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.26667, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-2044, 131), Vector2(-1569, -462), Vector2(-1569, -462)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("null_boss:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.26667, 4.2, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(739, 792), Vector2(456, 629), Vector2(114, -152), Vector2(114, -152)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bg stuff/line:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.63333, 2.83333, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-337, 531), Vector2(-337, 531), Vector2(202.75, -845), Vector2(202.75, -845)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("bg stuff/name_left:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-720, -315), Vector2(-720, -315), Vector2(-486, -277), Vector2(-486, -277)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("bg stuff/name_right:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.56667, 4.46667, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(619, -318), Vector2(619, -318), Vector2(436, -292), Vector2(436, -292)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5qeww"]
+_data = {
+"RESET": SubResource("Animation_grhch"),
+"cool_intro": SubResource("Animation_x480h")
+}
+
+[node name="BossFight" type="Node2D"]
+script = ExtResource("1_0gwu0")
+
+[node name="bg stuff" type="Node2D" parent="."]
+z_index = -1
+
+[node name="bg" type="TextureRect" parent="bg stuff"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -1230.0
+offset_top = -1038.0
+offset_right = 1638.0
+offset_bottom = 850.0
+texture = ExtResource("2_27of0")
+
+[node name="line" type="TextureRect" parent="bg stuff"]
+offset_left = -70.0
+offset_top = 444.0
+offset_right = 1953.0
+offset_bottom = 468.0
+rotation = 1.82257
+texture = ExtResource("2_27of0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="bg stuff/line"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 818.632
+offset_top = 79.5716
+offset_right = 921.632
+offset_bottom = 220.572
+rotation = -1.83609
+text = "Vs"
+label_settings = SubResource("LabelSettings_5l112")
+
+[node name="name_left" type="Label" parent="bg stuff"]
+offset_left = -720.0
+offset_top = -315.0
+offset_right = -651.0
+offset_bottom = -292.0
+text = "Piss Man"
+
+[node name="name_right" type="Label" parent="bg stuff"]
+offset_left = 619.0
+offset_top = -318.0
+offset_right = 659.0
+offset_bottom = -295.0
+text = "Null"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="pissman" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -1888.0
+offset_top = -14.0
+offset_right = -537.0
+offset_bottom = 1252.0
+rotation = -0.15209
+texture = ExtResource("4_ypara")
+stretch_mode = 4
+flip_h = true
+
+[node name="null_boss" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 611.0
+offset_top = 522.0
+offset_right = 1962.0
+offset_bottom = 1788.0
+rotation = 0.0436332
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_vlmmk")
+stretch_mode = 4
+flip_h = true
+
+[node name="cool_ass_startup" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5qeww")
+}

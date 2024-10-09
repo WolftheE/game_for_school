@@ -8,7 +8,7 @@ const JUMP_VELOCTIY = 4.5
 @onready var pivot = $pivot
 
 #TODO DANIEL PLEASE REMEBER TO CHANGE THE SENS TO BE A OPTION ON THE MAIN MENU
-@export var sens = 0.5
+@export var sens = -0.3
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -27,14 +27,11 @@ func _physics_process(delta):
 	# Gravity or somthing idk
 	if not is_on_floor():
 		velocity.y -= gravity * delta  
-		move_and_slide()
 	
 	# Jump thingy
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCTIY
 	
-	if Input.is_action_just_pressed("esc"):
-		get_tree().quit()
 	
 	# Player Movement Script that came with godot so i did not code this
 	var input_dir = Input.get_vector("left", "right", "forward", "back")

@@ -1,32 +1,706 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ofrblh47n5q"]
+[gd_scene load_steps=36 format=3 uid="uid://c4ofrblh47n5q"]
 
+[ext_resource type="Script" path="res://scripts/2d_piss_man_level1.gd" id="1_jtbho"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="1_p0xso"]
-[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="2_cbwo8"]
+[ext_resource type="Texture2D" uid="uid://bt8q38iegkdb1" path="res://texture/pixil-frame-0.png" id="2_1mayj"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="3_8qons"]
+[ext_resource type="Texture2D" uid="uid://bhxpwi45a4ao8" path="res://texture/flag.png" id="4_jw63b"]
+[ext_resource type="Material" uid="uid://p5ibbvxbqjpd" path="res://texture/blurshader.tres" id="6_oo4rm"]
+[ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="7_t1sh5"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="8_umn0o"]
+[ext_resource type="Theme" uid="uid://khgpj6ruioa0" path="res://texture/Bold_text.tres" id="9_eyhue"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="10_ajexw"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="11_ix65q"]
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="12_3ljk8"]
+[ext_resource type="AudioStream" uid="uid://dy73p5bykq4qf" path="res://sound/Pissman lvl 1.mp3" id="13_6dwma"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p2uf"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yb6x2"]
+size = Vector2(564, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pi2p"]
+size = Vector2(82, 77)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3qe0"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pt0rw"]
+size = Vector2(46, 47)
+
+[sub_resource type="Animation" id="Animation_g5ypu"]
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vofkp"]
+resource_name = "camera_move"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.133333, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfj0d"]
+_data = {
+"RESET": SubResource("Animation_g5ypu"),
+"camera_move": SubResource("Animation_vofkp")
+}
+
+[sub_resource type="Animation" id="Animation_awwdd"]
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_kghk5"]
+resource_name = "cam_zoom_out"
+length = 7.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(2, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.96667, 4.53333, 5.46667, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(500, -50), Vector2(500, -50), Vector2(0, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vqluk"]
+_data = {
+"RESET": SubResource("Animation_awwdd"),
+"cam_zoom_out": SubResource("Animation_kghk5")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdqk0"]
+size = Vector2(17, 854.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_brq1e"]
+size = Vector2(29, 16.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1eg4d"]
+shader = ExtResource("7_t1sh5")
+shader_parameter/blur_amount = 3.191
+shader_parameter/mix_amount = 0.079
+shader_parameter/color_over = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_qndyx"]
+font = ExtResource("10_ajexw")
+font_size = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55ifk"]
+shader = ExtResource("7_t1sh5")
+shader_parameter/blur_amount = 3.014
+shader_parameter/mix_amount = 0.642
+shader_parameter/color_over = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwlki"]
+shader = ExtResource("7_t1sh5")
+shader_parameter/blur_amount = 2.739
+shader_parameter/mix_amount = 0.774
+shader_parameter/color_over = Color(0.523532, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ii863"]
+font = ExtResource("10_ajexw")
+font_size = 40
+
+[sub_resource type="Animation" id="Animation_ybj5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Um where am I?"]
+}
+
+[sub_resource type="Animation" id="Animation_68l5w"]
+resource_name = "dialog"
+length = 0.35
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["", "U", "Um", "Um W", "Um Wh", "Um Whe", "Um Wher", "Um Where ", "Um Where a", "Um Where am I", "Um Where am I?"]
+}
+
+[sub_resource type="Animation" id="Animation_qnm8l"]
+resource_name = "dialog_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["", ".", "..", "..."]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kdxhu"]
+_data = {
+"RESET": SubResource("Animation_ybj5a"),
+"dialog": SubResource("Animation_68l5w"),
+"dialog_2": SubResource("Animation_qnm8l")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m3t84"]
+size = Vector2(3682, 40)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_jtbho")
+
+[node name="sky thing" type="TextureRect" parent="."]
+modulate = Color(0, 0.75, 1, 1)
+z_index = -10
+offset_left = -1480.0
+offset_top = -1179.0
+offset_right = 2270.0
+offset_bottom = 1080.0
+texture = ExtResource("3_8qons")
 
 [node name="player2d" parent="." instance=ExtResource("1_p0xso")]
+position = Vector2(1, -789)
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(274, 178)
-scale = Vector2(2.17087, 1.81809)
+[node name="grass" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_cbwo8")
+[node name="grass platform" type="StaticBody2D" parent="grass"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_2p2uf")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform"]
+position = Vector2(239, 128.5)
+shape = SubResource("RectangleShape2D_yb6x2")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 521.0
+offset_bottom = 134.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform/TextureRect"]
+z_index = -1
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 0
+offset_top = 85.0
+offset_right = 565.0
+offset_bottom = 183.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="grass platform2" type="StaticBody2D" parent="grass"]
+position = Vector2(602, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform2"]
+position = Vector2(-3, 74.5)
+shape = SubResource("RectangleShape2D_2pi2p")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform2"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 38.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="grass platform3" type="StaticBody2D" parent="grass"]
+position = Vector2(718, -65)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform3"]
+position = Vector2(-3, 74.5)
+shape = SubResource("RectangleShape2D_2pi2p")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform3"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 38.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="grass platform4" type="StaticBody2D" parent="grass"]
+position = Vector2(831, -92)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform4"]
+position = Vector2(-3, 74.5)
+shape = SubResource("RectangleShape2D_2pi2p")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform4"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 38.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="grass platform5" type="StaticBody2D" parent="grass"]
+position = Vector2(943, -121)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform5"]
+position = Vector2(-3, 74.5)
+shape = SubResource("RectangleShape2D_2pi2p")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform5"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 38.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="grass platform6" type="StaticBody2D" parent="grass"]
+position = Vector2(1053, -151)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform6"]
+position = Vector2(-3, 74.5)
+shape = SubResource("RectangleShape2D_2pi2p")
+
+[node name="TextureRect" type="TextureRect" parent="grass/grass platform6"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -44.0
+offset_top = 36.0
+offset_right = 38.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_1mayj")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(100, 121)
-scale = Vector2(10.6748, 1.31219)
+position = Vector2(1153, -112)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_cbwo8")
+[node name="TextureRect" type="TextureRect" parent="StaticBody2D"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -22.0
+offset_top = -19.0
+offset_right = 18.0
+offset_bottom = 21.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_jw63b")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_2p2uf")
+position = Vector2(-2, 1)
+shape = SubResource("RectangleShape2D_t3qe0")
+
+[node name="Area2D" type="Area2D" parent="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/Area2D"]
+position = Vector2(-2, 1.5)
+shape = SubResource("RectangleShape2D_pt0rw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -50)
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+
+[node name="cam_zoom" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hfj0d")
+}
+
+[node name="cam_zoom_out" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vqluk")
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="player_stoper" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_stoper"]
+position = Vector2(-22, -390.875)
+shape = SubResource("RectangleShape2D_cdqk0")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="player_stoper"]
+position = Vector2(1, -12)
+shape = SubResource("RectangleShape2D_brq1e")
+disabled = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="player_stoper"]
+position = Vector2(20, -392)
+shape = SubResource("RectangleShape2D_cdqk0")
+
+[node name="textbox" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="textbox"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -173.0
+offset_top = 24.0
+offset_right = 174.0
+offset_bottom = 134.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 266.0
+offset_top = -67.0
+offset_right = 447.0
+offset_bottom = 99.0
+texture = ExtResource("8_umn0o")
+
+[node name="Label" type="Label" parent="textbox/Panel"]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 9.0
+offset_right = 192.0
+offset_bottom = 32.0
+text = "Um where am I?"
+
+[node name="level_done" type="Control" parent="textbox"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="textbox/level_done"]
+material = SubResource("ShaderMaterial_1eg4d")
+layout_mode = 0
+offset_left = -663.0
+offset_top = -389.0
+offset_right = 792.0
+offset_bottom = 417.0
+
+[node name="ColorRect" type="ColorRect" parent="textbox/level_done"]
+material = ExtResource("6_oo4rm")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -73.0
+offset_right = 118.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="textbox/level_done"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -73.0
+offset_right = 73.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_eyhue")
+text = "Level Done!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="textbox/level_done"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -2.0
+offset_top = 54.0
+offset_right = 43.0
+offset_bottom = 85.0
+theme = ExtResource("11_ix65q")
+text = "Next"
+
+[node name="pause_menu" type="Control" parent="textbox"]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="textbox/pause_menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -1.318
+anchor_right = 0.5
+anchor_bottom = -1.318
+offset_left = -77.0
+offset_top = -31.648
+offset_right = 77.0
+offset_bottom = 14.352
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_qndyx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="textbox/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="textbox/pause_menu/MarginContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("11_ix65q")
+text = "Main Menu"
+
+[node name="resume" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("11_ix65q")
+text = "CONTINE"
+
+[node name="bg" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = ExtResource("6_oo4rm")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.5
+offset_top = -378.0
+offset_right = 671.5
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_3ljk8")
+
+[node name="bg2" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = SubResource("ShaderMaterial_55ifk")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -405.0
+offset_right = 97.5
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("12_3ljk8")
+
+[node name="death_screen" type="Control" parent="textbox"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/death_screen"]
+material = SubResource("ShaderMaterial_jwlki")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -360.5
+offset_right = 624.5
+offset_bottom = 360.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_8qons")
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -42.5
+offset_right = 103.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="textbox/death_screen/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "You Might have Died!"
+label_settings = SubResource("LabelSettings_ii863")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Come on, it the first level..."
+horizontal_alignment = 1
+
+[node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Respawn"
+
+[node name="dialog" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kdxhu")
+}
+speed_scale = 0.3
+
+[node name="death_trigger" type="Area2D" parent="."]
+position = Vector2(491, 795)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_trigger"]
+position = Vector2(139, -10)
+shape = SubResource("RectangleShape2D_m3t84")
+
+[node name="PissmanLvl1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_6dwma")
+max_polyphony = 10
+bus = &"music"
+
+[connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="textbox/level_done/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="textbox/pause_menu/MarginContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="textbox/pause_menu/MarginContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
+[connection signal="body_shape_entered" from="death_trigger" to="." method="_on_death_trigger_body_shape_entered"]

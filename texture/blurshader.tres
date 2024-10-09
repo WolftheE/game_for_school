@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://p5ibbvxbqjpd"]
+
+[ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="1_u4w8y"]
+
+[resource]
+shader = ExtResource("1_u4w8y")
+shader_parameter/blur_amount = 3.177
+shader_parameter/mix_amount = 0.4
+shader_parameter/color_over = null

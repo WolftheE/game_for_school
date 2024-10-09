@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7gk0l"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_x6uuv"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_yiq22"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n7iau"]
-albedo_color = Color(0, 1, 0.116667, 1)
+albedo_color = Color(0.983333, 1, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_3iwdq"]
 material = SubResource("StandardMaterial3D_n7iau")
@@ -14,7 +14,7 @@ material = SubResource("StandardMaterial3D_n7iau")
 script = ExtResource("1_7gk0l")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_x6uuv")
+shape = SubResource("SphereShape3D_yiq22")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 gi_mode = 2

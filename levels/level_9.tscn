@@ -1,0 +1,1222 @@
+[gd_scene load_steps=32 format=3 uid="uid://cgbhsu6ns8455"]
+
+[ext_resource type="Script" path="res://scripts/level_9.gd" id="1_8i55g"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_8kw1q"]
+[ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="2_bau1w"]
+[ext_resource type="Script" path="res://scripts/coins_counter.gd" id="3_ch74h"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="4_f5fnk"]
+[ext_resource type="Texture2D" uid="uid://c0cb5nxgq48df" path="res://texture/grassman.png" id="5_acr1t"]
+[ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="6_brihg"]
+[ext_resource type="Material" uid="uid://p5ibbvxbqjpd" path="res://texture/blurshader.tres" id="7_cuswr"]
+[ext_resource type="Theme" uid="uid://khgpj6ruioa0" path="res://texture/Bold_text.tres" id="8_2u6nt"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="9_0b1g7"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="10_elnoj"]
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="11_5vbf1"]
+[ext_resource type="Texture2D" uid="uid://qohxc6wvntmw" path="res://texture/pixil-frame-0 (1).png" id="12_xt857"]
+[ext_resource type="Texture2D" uid="uid://bhxpwi45a4ao8" path="res://texture/flag.png" id="13_t6ous"]
+[ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="15_3423i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pwpnj"]
+shader = ExtResource("6_brihg")
+shader_parameter/blur_amount = 3.191
+shader_parameter/mix_amount = 0.079
+shader_parameter/color_over = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_aw5u4"]
+font = ExtResource("10_elnoj")
+font_size = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nppxm"]
+shader = ExtResource("6_brihg")
+shader_parameter/blur_amount = 3.014
+shader_parameter/mix_amount = 0.642
+shader_parameter/color_over = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p8sr3"]
+shader = ExtResource("6_brihg")
+shader_parameter/blur_amount = 2.739
+shader_parameter/mix_amount = 0.774
+shader_parameter/color_over = Color(0.523532, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ienw2"]
+font = ExtResource("10_elnoj")
+font_size = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_83rwo"]
+size = Vector2(68, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1abe"]
+size = Vector2(94, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0wpd"]
+size = Vector2(20, 2750.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3afw"]
+size = Vector2(108.5, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tafyk"]
+size = Vector2(900.5, 74)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h0odp"]
+size = Vector2(34.5, 371)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h853l"]
+size = Vector2(4257, 44)
+
+[sub_resource type="Animation" id="Animation_85qsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tiwge"]
+resource_name = "fade"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
+_data = {
+"RESET": SubResource("Animation_85qsr"),
+"fade": SubResource("Animation_tiwge")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_77mah"]
+size = Vector2(2500, 50)
+
+[node name="Level9" type="Node2D"]
+script = ExtResource("1_8i55g")
+
+[node name="sky thing 2 null" type="TextureRect" parent="."]
+modulate = Color(0.57098, 0.57098, 0.57098, 1)
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2520.0
+offset_top = -1204.0
+offset_right = 10100.0
+offset_bottom = 17736.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="sky thing" type="TextureRect" parent="."]
+modulate = Color(0, 0.75, 1, 1)
+z_index = -10
+offset_left = -1421.0
+offset_top = -1111.0
+offset_right = 2579.0
+offset_bottom = 2889.0
+texture = ExtResource("1_8kw1q")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="player2d" parent="." instance=ExtResource("2_bau1w")]
+z_index = 10
+position = Vector2(1, 24)
+
+[node name="textbox" type="CanvasLayer" parent="."]
+
+[node name="coins_collector" type="Label" parent="textbox"]
+offset_right = 60.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Coins = "
+script = ExtResource("3_ch74h")
+
+[node name="Panel" type="Panel" parent="textbox"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 23.0
+offset_right = 219.0
+offset_bottom = 133.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 361.0
+offset_top = -68.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture = ExtResource("4_f5fnk")
+
+[node name="Label" type="Label" parent="textbox/Panel/TextureRect"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -356.0
+offset_top = 69.0
+offset_right = -283.0
+offset_bottom = 92.0
+text = "Piss Man:"
+
+[node name="Label" type="Label" parent="textbox/Panel"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 2.0
+offset_right = 425.0
+offset_bottom = 129.0
+text = "W"
+
+[node name="Grassman2" type="Sprite2D" parent="textbox/Panel"]
+texture_filter = 1
+position = Vector2(451, 14)
+scale = Vector2(2.82812, 2.60938)
+texture = ExtResource("5_acr1t")
+
+[node name="Label" type="Label" parent="textbox/Panel/Grassman2"]
+texture_filter = 2
+offset_left = -158.055
+offset_top = -5.36527
+offset_right = -71.0553
+offset_bottom = 17.6347
+scale = Vector2(0.35, 0.35)
+text = "Grass Man:"
+
+[node name="level_done" type="Control" parent="textbox"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect2" type="ColorRect" parent="textbox/level_done"]
+material = SubResource("ShaderMaterial_pwpnj")
+layout_mode = 0
+offset_left = -663.0
+offset_top = -389.0
+offset_right = 792.0
+offset_bottom = 417.0
+
+[node name="ColorRect" type="ColorRect" parent="textbox/level_done"]
+material = ExtResource("7_cuswr")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -73.0
+offset_right = 118.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_2u6nt")
+
+[node name="Label" type="Label" parent="textbox/level_done"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_2u6nt")
+text = "Level Done!"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="textbox/level_done"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -2.0
+offset_top = 54.0
+offset_right = 43.0
+offset_bottom = 85.0
+theme = ExtResource("9_0b1g7")
+text = "Next"
+
+[node name="pause_menu" type="Control" parent="textbox"]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="textbox/pause_menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -1.318
+anchor_right = 0.5
+anchor_bottom = -1.318
+offset_left = -77.0
+offset_top = -31.648
+offset_right = 77.0
+offset_bottom = 14.352
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_aw5u4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="textbox/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="textbox/pause_menu/MarginContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("9_0b1g7")
+text = "Main Menu"
+
+[node name="resume" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("9_0b1g7")
+text = "CONTINE"
+
+[node name="bg" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = ExtResource("7_cuswr")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.5
+offset_top = -378.0
+offset_right = 671.5
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_5vbf1")
+
+[node name="bg2" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = SubResource("ShaderMaterial_nppxm")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -405.0
+offset_right = 97.5
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_5vbf1")
+
+[node name="death_screen" type="Control" parent="textbox"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/death_screen"]
+material = SubResource("ShaderMaterial_p8sr3")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -360.5
+offset_right = 624.5
+offset_bottom = 360.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_8kw1q")
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -42.5
+offset_right = 103.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="textbox/death_screen/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "You Might have Died!"
+label_settings = SubResource("LabelSettings_ienw2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Player = NULL 
+Player does not exist"
+horizontal_alignment = 1
+
+[node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Respawn"
+
+[node name="screen_fade" type="TextureRect" parent="textbox"]
+modulate = Color(0, 0, 0, 0)
+offset_left = -21.0
+offset_top = -16.0
+offset_right = 1313.0
+offset_bottom = 875.0
+texture = ExtResource("1_8kw1q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+offset = Vector2(0, -50)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="CORUPTION" type="Node2D" parent="."]
+
+[node name="1" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(465, 123)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/1"]
+modulate = Color(0.402604, 0.402604, 0.402604, 1)
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/1"]
+visible = false
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = -36.0
+offset_right = 35.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/1"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="Area2D" type="Area2D" parent="CORUPTION/1"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CORUPTION/1/Area2D"]
+position = Vector2(-1, -26.5)
+shape = SubResource("RectangleShape2D_s1abe")
+
+[node name="2" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(668, 123)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/2"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/2"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="3" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(831, 146)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/3"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/3"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="4" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(1048, 137)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/4"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/4"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="5" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(1252, 153)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/5"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/5"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/5"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="6" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(1427, 140)
+
+[node name="TextureRect" type="TextureRect" parent="CORUPTION/6"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -36.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("13_t6ous")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/6"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -18.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CORUPTION/6"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -18.0
+offset_right = 287.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.053, 0.053)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="CORUPTION/6"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = 9.0
+offset_right = 287.0
+offset_bottom = 424.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.053, 0.053)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="CORUPTION/6"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 2.0
+offset_top = -36.0
+offset_right = 323.0
+offset_bottom = 322.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.053, 0.053)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/6"]
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="7" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(1633, 138)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/7"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/7"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="8" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(1849, 132)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/8"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/8"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="9" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(2047, 128)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/9"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/9"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="10" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(2235, 92)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/10"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/10"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="11" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(2453, 68)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/11"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/11"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="12" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(2677, 93)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/12"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/12"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="13" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(2861, 91)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/13"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/13"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="14" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(3054, 91)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/14"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/14"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CORUPTION/14"]
+position = Vector2(-87, 1754.75)
+shape = SubResource("RectangleShape2D_i0wpd")
+
+[node name="15" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(3272, 83)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/15"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/15"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="16" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(3445, 72)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/16"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/16"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_83rwo")
+
+[node name="fake_platform" type="StaticBody2D" parent="CORUPTION"]
+position = Vector2(3630, 47)
+
+[node name="TextureRect2" type="TextureRect" parent="CORUPTION/fake_platform"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -34.0
+offset_right = 28346.0
+offset_bottom = 1366.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="CORUPTION/fake_platform"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 182.0
+offset_top = -332.0
+offset_right = 542.0
+offset_bottom = 5728.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="CORUPTION/fake_platform"]
+modulate = Color(0.360949, 0.360949, 0.360949, 1)
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 200.0
+offset_top = -178.0
+offset_right = 1700.0
+offset_bottom = 2662.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="CORUPTION/fake_platform"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 274.0
+offset_top = -553.0
+offset_right = 22634.0
+offset_bottom = 9807.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="CORUPTION/fake_platform"]
+texture_filter = 1
+texture_repeat = 2
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 184.0
+offset_top = -548.0
+offset_right = 2244.0
+offset_bottom = 6852.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.05, 0.05)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("15_3423i")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CORUPTION/fake_platform"]
+position = Vector2(18.75, 0.75)
+shape = SubResource("RectangleShape2D_o3afw")
+
+[node name="stone" type="Node2D" parent="."]
+
+[node name="stone platform5" type="StaticBody2D" parent="stone"]
+position = Vector2(-108, -40)
+
+[node name="TextureRect" type="TextureRect" parent="stone/stone platform5"]
+modulate = Color(0.402604, 0.402604, 0.402604, 1)
+texture_filter = 1
+texture_repeat = 2
+offset_left = -50.0
+offset_top = -31.0
+offset_right = 32.0
+offset_bottom = 112.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stone platform6" type="StaticBody2D" parent="stone"]
+position = Vector2(-592, -41)
+
+[node name="TextureRect" type="TextureRect" parent="stone/stone platform6"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -6.0
+offset_top = -569.0
+offset_right = 445.0
+offset_bottom = 114.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stone platform7" type="StaticBody2D" parent="stone"]
+position = Vector2(12, -43)
+
+[node name="TextureRect" type="TextureRect" parent="stone/stone platform7"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -94.0
+offset_top = -68.0
+offset_right = -73.0
+offset_bottom = 122.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="stone/stone platform7"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -192.0
+offset_top = -570.0
+offset_right = -74.0
+offset_bottom = -24.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="stone platform3" type="StaticBody2D" parent="stone"]
+position = Vector2(-558, 35)
+
+[node name="TextureRect" type="TextureRect" parent="stone/stone platform3"]
+texture_filter = 1
+texture_repeat = 2
+offset_left = -43.0
+offset_top = 36.0
+offset_right = 856.0
+offset_bottom = 113.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("12_xt857")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stone/stone platform3"]
+position = Vector2(406.75, 73)
+shape = SubResource("RectangleShape2D_tafyk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="stone/stone platform3"]
+position = Vector2(479, -147)
+shape = SubResource("RectangleShape2D_h0odp")
+
+[node name="death_trigger" type="Area2D" parent="."]
+position = Vector2(468, 324)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_trigger"]
+position = Vector2(417.5, 124)
+shape = SubResource("RectangleShape2D_h853l")
+debug_color = Color(0.994611, 0, 0.219265, 0.42)
+
+[node name="screen_fade_thing" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_j823r")
+}
+
+[node name="change_level_trigger" type="Area2D" parent="."]
+position = Vector2(3596, 421)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="change_level_trigger"]
+position = Vector2(715, 35)
+shape = SubResource("RectangleShape2D_77mah")
+debug_color = Color(0.717522, 0.481427, 0, 0.42)
+
+[connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
+[connection signal="body_shape_entered" from="CORUPTION/1/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="death_trigger" to="." method="_on_death_trigger_body_shape_entered"]
+[connection signal="body_shape_entered" from="change_level_trigger" to="." method="_on_change_level_trigger_body_shape_entered"]

@@ -1,4 +1,3 @@
-extends Node3D
+extends Node
 
 var world_environment: WorldEnvironment
-@onready var voxel_gi = VoxelGI
