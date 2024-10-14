@@ -1,6 +1,7 @@
-[gd_scene load_steps=22 format=3 uid="uid://b1dcn3nm80sd3"]
+[gd_scene load_steps=23 format=3 uid="uid://b1dcn3nm80sd3"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_i8lpl"]
+[ext_resource type="AudioStream" uid="uid://bccyducga6mx1" path="res://sound/pissman_level_song1.mp3" id="2_hbb88"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="2_jbrrq"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="3_8stfu"]
 [ext_resource type="Texture2D" uid="uid://bt8q38iegkdb1" path="res://texture/pixil-frame-0.png" id="4_7r6ul"]
@@ -55,6 +56,9 @@ size = Vector2(3682, 40)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_i8lpl")
+
+[node name="PissmanLevelSong1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_hbb88")
 
 [node name="sky thing" type="TextureRect" parent="."]
 modulate = Color(0, 0.75, 1, 1)

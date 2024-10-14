@@ -1,0 +1,2079 @@
+[gd_scene load_steps=51 format=3 uid="uid://bttl3l07v8paa"]
+
+[ext_resource type="Script" path="res://levels/boss_fight.gd" id="1_s2uqd"]
+[ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_2ukfj"]
+[ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="4_53syl"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="6_14k2e"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="7_63wjl"]
+[ext_resource type="Material" uid="uid://p5ibbvxbqjpd" path="res://texture/blurshader.tres" id="8_dn1hn"]
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="9_2c61x"]
+[ext_resource type="Texture2D" uid="uid://c8t8m1d8kwpql" path="res://texture/heart.png" id="9_tpoii"]
+[ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="10_14vae"]
+[ext_resource type="Texture2D" uid="uid://cuar7rtfpgolg" path="res://texture/null_heart.png" id="10_tpoii"]
+[ext_resource type="LabelSettings" uid="uid://brrhscwand8s3" path="res://texture/fonts/Text_for_boss.tres" id="11_2ukfj"]
+[ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="11_bmqq7"]
+[ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="12_k5tnt"]
+[ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="13_15d1j"]
+[ext_resource type="Script" path="res://scripts/null_boss.gd" id="14_0vyu3"]
+[ext_resource type="Texture2D" uid="uid://cfgqufxrm4ysg" path="res://texture/gun.png" id="14_6d334"]
+[ext_resource type="Texture2D" uid="uid://bkjcwl2vitqs6" path="res://texture/spike.png" id="14_53syl"]
+[ext_resource type="Script" path="res://scripts/gun.gd" id="15_rcn5k"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_53syl"]
+shader = ExtResource("10_14vae")
+shader_parameter/blur_amount = null
+shader_parameter/mix_amount = null
+shader_parameter/color_over = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rf3h"]
+font = ExtResource("6_14k2e")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4735"]
+font = ExtResource("6_14k2e")
+font_size = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txpba"]
+shader = ExtResource("10_14vae")
+shader_parameter/blur_amount = 3.014
+shader_parameter/mix_amount = 0.642
+shader_parameter/color_over = null
+
+[sub_resource type="LabelSettings" id="LabelSettings_0vyu3"]
+font = ExtResource("6_14k2e")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_3sv74"]
+font = ExtResource("12_k5tnt")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qsvx"]
+font = ExtResource("12_k5tnt")
+font_size = 30
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vyu3"]
+size = Vector2(81, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hue3d"]
+size = Vector2(10.3077, 11.907)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14k2e"]
+size = Vector2(11.907, 0.923077)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63wjl"]
+size = Vector2(5.84615, 3.91473)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53syl"]
+size = Vector2(1507, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dn1hn"]
+size = Vector2(1490, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xwg5l"]
+size = Vector2(103, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lufb"]
+size = Vector2(12, 97.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c61x"]
+size = Vector2(20, 231)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_53syl"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -139.0
+angle_max = 69.0
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = -250.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.01
+scale_max = 0.05
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ogsy"]
+size = Vector2(1477, 137)
+
+[sub_resource type="Animation" id="Animation_53syl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_0vyu3"]
+resource_name = "crush"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 7.46667, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_14k2e"]
+resource_name = "crush_3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.96667, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 130), Vector2(0, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_hue3d"]
+resource_name = "crush_2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.03333, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14k2e"]
+_data = {
+&"RESET": SubResource("Animation_53syl"),
+&"crush_3": SubResource("Animation_14k2e"),
+&"crush_2": SubResource("Animation_hue3d"),
+&"crush": SubResource("Animation_0vyu3")
+}
+
+[sub_resource type="Animation" id="Animation_14vae"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("falling spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-25, -500)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.6, 1.6)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -50)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("falling spikes/spike1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-131, 249.25)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("falling spikes/spike2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-302, 245)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("falling spikes/spike6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-689, 245)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("falling spikes/spike4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(224, 250)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("falling spikes/spike7:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(417, 253)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("falling spikes/spike3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, 246)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("falling spikes/spike5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-507, 243)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("falling spikes/spike8:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(579, 243)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("falling spikes/spike10:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(324, 254)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("falling spikes/spike9:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(671, 244)]
+}
+
+[sub_resource type="Animation" id="Animation_2c61x"]
+resource_name = "spike_fall"
+length = 40.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("falling spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-25, -500), Vector2(-25, -300)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.6, 1.6), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player/Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4.46667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -50), Vector2(0, -100)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("falling spikes/spike1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.06667, 9.23333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-131, 249.25), Vector2(-131, 555)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("falling spikes/spike2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(10.3495, 11.3333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-302, 245), Vector2(-302, 560)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("falling spikes/spike6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(13.2717, 14.5667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-689, 245), Vector2(-689, 550)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("falling spikes/spike4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(15.8412, 17.0333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(224, 250), Vector2(224, 555)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("falling spikes/spike7:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(18.2922, 19.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(417, 253), Vector2(417, 560)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("falling spikes/spike3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(20.0666, 21.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, 246), Vector2(18, 557)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("falling spikes/spike5:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(22.0666, 23.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-507, 243), Vector2(-507, 565)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("falling spikes/spike8:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(24.0671, 25.1333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(579, 243), Vector2(579, 550)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("falling spikes/spike10:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(26.1461, 27.1667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(324, 254), Vector2(324, 550)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("falling spikes/spike9:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(28.1719, 29.2667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(671, 244), Vector2(671, 560)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14vae"]
+_data = {
+&"RESET": SubResource("Animation_14vae"),
+&"spike_fall": SubResource("Animation_2c61x")
+}
+
+[sub_resource type="Animation" id="Animation_dn1hn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/death_screen/TextureRect:material:shader_parameter/blur_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/death_screen/TextureRect:material:shader_parameter/mix_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [null]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/death_screen/BoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/death_screen/BoxContainer/Label2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("textbox/death_screen/BoxContainer/respawn_button:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_63wjl"]
+resource_name = "death"
+length = 1000.0
+step = 0.1875
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/death_screen/TextureRect:material:shader_parameter/blur_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.2, 3.4, 3.6, 3.8, 4, 4.2, 4.4, 4.6, 4.8, 5, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0100001, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.4, 2.7, 3.0, 3.4, 3.7, 4.0, 4.3, 4.6, 4.8, 5.0, 5.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/death_screen/TextureRect:material:shader_parameter/mix_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4, 4.2, 4.4, 4.6, 4.8, 5, 5.2, 5.4, 5.6, 5.8, 6, 14),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [null, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/death_screen/BoxContainer/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(6.25784, 7, 7.6, 8.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["", "GAME", "GAME OVER", "GAME OVER..."]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/death_screen/BoxContainer/Label2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 9, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("textbox/death_screen/BoxContainer/respawn_button:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10, 14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(11.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"dead"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2c61x"]
+_data = {
+&"RESET": SubResource("Animation_dn1hn"),
+&"death": SubResource("Animation_63wjl")
+}
+
+[sub_resource type="Animation" id="Animation_k5tnt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 291)]
+}
+
+[sub_resource type="Animation" id="Animation_bmqq7"]
+resource_name = "floor_up"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-2, 291), Vector2(-2, 225)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k5tnt"]
+_data = {
+&"RESET": SubResource("Animation_k5tnt"),
+&"floor_up": SubResource("Animation_bmqq7")
+}
+
+[node name="BossFightLevel" type="Node2D"]
+script = ExtResource("1_s2uqd")
+
+[node name="textbox" type="CanvasLayer" parent="."]
+
+[node name="death_screen" type="Control" parent="textbox"]
+z_index = 10
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/death_screen"]
+material = SubResource("ShaderMaterial_53syl")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -360.5
+offset_right = 624.5
+offset_bottom = 360.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_bmqq7")
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -42.5
+offset_right = 103.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="textbox/death_screen/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+label_settings = SubResource("LabelSettings_3rf3h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
+visible = false
+layout_mode = 2
+text = "Thought the boss will be easy uh?"
+horizontal_alignment = 1
+
+[node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
+visible = false
+layout_mode = 2
+text = "Respawn"
+
+[node name="coins_collector" type="Label" parent="textbox"]
+offset_right = 60.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Coins = "
+script = ExtResource("2_2ukfj")
+
+[node name="pause_menu" type="Control" parent="textbox"]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="textbox/pause_menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -1.318
+anchor_right = 0.5
+anchor_bottom = -1.318
+offset_left = -77.0
+offset_top = -31.648
+offset_right = 77.0
+offset_bottom = 14.352
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_h4735")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="textbox/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="textbox/pause_menu/MarginContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("7_63wjl")
+text = "Main Menu"
+
+[node name="resume" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("7_63wjl")
+text = "CONTINE"
+
+[node name="bg" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = ExtResource("8_dn1hn")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.5
+offset_top = -378.0
+offset_right = 671.5
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_2c61x")
+
+[node name="bg2" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = SubResource("ShaderMaterial_txpba")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -405.0
+offset_right = 97.5
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("9_2c61x")
+
+[node name="pissman_health" type="Panel" parent="textbox"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = -108.0
+offset_right = 284.0
+offset_bottom = -24.0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/pissman_health"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 11.0
+offset_right = 210.0
+offset_bottom = 48.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="textbox/pissman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_tpoii")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="textbox/pissman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_tpoii")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="textbox/pissman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_tpoii")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="textbox/pissman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_tpoii")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="textbox/pissman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_tpoii")
+expand_mode = 2
+
+[node name="health" type="Label" parent="textbox/pissman_health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 222.0
+offset_top = 11.0
+offset_right = 320.0
+offset_bottom = 51.0
+text = "5/5"
+label_settings = SubResource("LabelSettings_0vyu3")
+
+[node name="Label3" type="Label" parent="textbox/pissman_health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 9.0
+offset_top = 46.0
+offset_right = 71.0
+offset_bottom = 103.0
+text = "Piss Man"
+label_settings = ExtResource("11_2ukfj")
+
+[node name="nullman_health" type="Panel" parent="textbox"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -279.0
+offset_top = -113.0
+offset_right = -13.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/nullman_health"]
+z_index = 2
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 171.0
+offset_bottom = 39.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="textbox/nullman_health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 180.0
+offset_top = 7.0
+offset_right = 278.0
+offset_bottom = 47.0
+text = "100/100"
+label_settings = SubResource("LabelSettings_0vyu3")
+
+[node name="Label2" type="Label" parent="textbox/nullman_health"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 5.0
+offset_top = 46.0
+offset_right = 67.0
+offset_bottom = 103.0
+text = "Null"
+label_settings = ExtResource("11_2ukfj")
+
+[node name="levelstuff" type="Node2D" parent="."]
+
+[node name="background" type="Node2D" parent="levelstuff"]
+
+[node name="bg" type="TextureRect" parent="levelstuff/background"]
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+offset_left = -3484.0
+offset_top = -745.0
+offset_right = 3455.0
+offset_bottom = 551.0
+texture = ExtResource("11_bmqq7")
+
+[node name="piss_man_feelings" type="Label" parent="levelstuff"]
+visible = false
+texture_filter = 1
+offset_left = -182.0
+offset_top = 222.0
+offset_right = -142.0
+offset_bottom = 335.0
+text = "?"
+label_settings = SubResource("LabelSettings_3sv74")
+
+[node name="null_feelings" type="Label" parent="levelstuff"]
+visible = false
+texture_filter = 1
+offset_left = 194.0
+offset_top = 126.0
+offset_right = 234.0
+offset_bottom = 239.0
+text = "!"
+label_settings = SubResource("LabelSettings_1qsvx")
+
+[node name="platforms" type="Node2D" parent="levelstuff"]
+
+[node name="platform1" type="Node2D" parent="levelstuff/platforms"]
+position = Vector2(-485, 247)
+
+[node name="poll" type="TextureRect" parent="levelstuff/platforms/platform1"]
+modulate = Color(0.2484, 0.2484, 0.2484, 1)
+offset_left = -32.0
+offset_top = -626.0
+offset_right = 1408.0
+offset_bottom = 12814.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="poll2" type="TextureRect" parent="levelstuff/platforms/platform1"]
+modulate = Color(0.2484, 0.2484, 0.2484, 1)
+offset_left = -341.0
+offset_top = -626.0
+offset_right = 1099.0
+offset_bottom = 12814.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="poll3" type="TextureRect" parent="levelstuff/platforms/platform1"]
+modulate = Color(0.2484, 0.2484, 0.2484, 1)
+offset_left = 1082.0
+offset_top = -622.0
+offset_right = 2522.0
+offset_bottom = 12818.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform1"]
+position = Vector2(0, -27)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform1/step"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform1/step"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform1"]
+position = Vector2(1, -84)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform1/step2"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform1/step2"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform1"]
+position = Vector2(-1, -145)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform1/step3"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform1/step3"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform1"]
+position = Vector2(0, -202)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform1/step4"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform1/step4"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="platform2" type="Node2D" parent="levelstuff/platforms"]
+position = Vector2(317, 246)
+
+[node name="poll" type="TextureRect" parent="levelstuff/platforms/platform2"]
+modulate = Color(0.2484, 0.2484, 0.2484, 1)
+offset_left = -32.0
+offset_top = -623.0
+offset_right = 1408.0
+offset_bottom = 12757.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform2"]
+position = Vector2(0, -27)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform2/step"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform2/step"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform2"]
+position = Vector2(1, -84)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform2/step2"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform2/step2"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform2"]
+position = Vector2(-1, -145)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform2/step3"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform2/step3"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform2"]
+position = Vector2(0, -202)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform2/step4"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform2/step4"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="platform3" type="Node2D" parent="levelstuff/platforms"]
+position = Vector2(-68, 250)
+
+[node name="poll" type="TextureRect" parent="levelstuff/platforms/platform3"]
+modulate = Color(0.2484, 0.2484, 0.2484, 1)
+offset_left = -32.0
+offset_top = -625.0
+offset_right = 1408.0
+offset_bottom = 12795.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform3"]
+position = Vector2(0, -27)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform3/step"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform3/step"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform3"]
+position = Vector2(1, -84)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform3/step2"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform3/step2"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform3"]
+position = Vector2(-1, -145)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform3/step3"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform3/step3"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform3"]
+position = Vector2(0, -202)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform3/step4"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform3/step4"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="platform4" type="Node2D" parent="levelstuff/platforms"]
+position = Vector2(685, 238)
+
+[node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
+position = Vector2(0, -27)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform4/step"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
+position = Vector2(1, -84)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step2"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform4/step2"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
+position = Vector2(-1, -145)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step3"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform4/step3"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
+position = Vector2(0, -202)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step4"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform4/step4"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="platform5" type="Node2D" parent="levelstuff/platforms"]
+position = Vector2(-848, 240)
+
+[node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
+position = Vector2(0, -27)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform5/step"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
+position = Vector2(1, -84)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step2"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform5/step2"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
+position = Vector2(-1, -145)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step3"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform5/step3"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
+position = Vector2(0, -202)
+
+[node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step4"]
+modulate = Color(0.619489, 0.619489, 0.619489, 1)
+offset_left = -37.0
+offset_top = -3.0
+offset_right = 3203.0
+offset_bottom = 221.0
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="levelstuff/platforms/platform5/step4"]
+position = Vector2(3.5, -0.5)
+shape = SubResource("RectangleShape2D_0vyu3")
+one_way_collision = true
+
+[node name="poll2" type="TextureRect" parent="levelstuff/platforms"]
+modulate = Color(0.556953, 0.556953, 0.556953, 1)
+offset_left = 662.0
+offset_top = -383.0
+offset_right = 15622.0
+offset_bottom = 12997.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="poll3" type="TextureRect" parent="levelstuff/platforms"]
+modulate = Color(0.556953, 0.556953, 0.556953, 1)
+offset_left = -1619.0
+offset_top = -384.0
+offset_right = 14421.0
+offset_bottom = 12996.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="falling spikes" type="Node2D" parent="."]
+position = Vector2(-25, -500)
+
+[node name="spike1" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(-131, 249.25)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike1"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike1"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike1"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike1"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike1/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike2" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(-302, 245)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike2"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike2"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike2"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike2"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike2"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike2/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike3" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(18, 246)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike3"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike3"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike3"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike3"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike3"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike3/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike4" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(224, 250)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike4"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike4"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike4"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike4"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike4"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike4/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike5" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(-507, 243)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike5"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike5"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike5"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike5"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike5"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike5/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike6" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(-689, 245)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike6"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike6"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike6"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike6"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike6"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike6/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike7" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(417, 253)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike7"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike7"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike7"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike7"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike7"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike7/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike8" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(579, 243)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike8"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike8"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike8"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike8"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike8"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike8/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike9" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(671, 244)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike9"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike9"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike9"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike9"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike9"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike9/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="spike10" type="StaticBody2D" parent="falling spikes"]
+position = Vector2(324, 254)
+scale = Vector2(3.25, 4.03125)
+collision_layer = 4
+collision_mask = 4
+
+[node name="texture" type="Sprite2D" parent="falling spikes/spike10"]
+texture_filter = 1
+texture = ExtResource("14_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike10"]
+position = Vector2(-0.0769234, -2.04651)
+shape = SubResource("RectangleShape2D_hue3d")
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="falling spikes/spike10"]
+position = Vector2(-4.76923, -2.04651)
+rotation = -1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="falling spikes/spike10"]
+position = Vector2(4.61538, -2.04651)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_14k2e")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="falling spikes/spike10"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling spikes/spike10/Area2D"]
+position = Vector2(-0.153847, 5.86434)
+shape = SubResource("RectangleShape2D_63wjl")
+debug_color = Color(0.994988, 0, 0.213005, 0.42)
+
+[node name="TextureRect" type="TextureRect" parent="falling spikes"]
+offset_left = -793.0
+offset_top = -128.0
+offset_right = 28827.0
+offset_bottom = 6912.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="spikes" type="Node2D" parent="."]
+position = Vector2(0, -200)
+
+[node name="TextureRect2" type="TextureRect" parent="spikes"]
+texture_filter = 1
+offset_left = -818.0
+offset_top = -55.0
+offset_right = 661.0
+offset_bottom = -43.0
+scale = Vector2(1, 2)
+texture = ExtResource("10_tpoii")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="spikes"]
+offset_left = -818.0
+offset_top = -396.0
+offset_right = 28802.0
+offset_bottom = 6644.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="damage_trigger" type="Area2D" parent="spikes"]
+position = Vector2(0, -41)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/damage_trigger"]
+position = Vector2(-72.5, 4.5)
+shape = SubResource("RectangleShape2D_53syl")
+debug_color = Color(0.989844, 0, 0.285604, 0.42)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="spikes"]
+position = Vector2(-72, -53)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/StaticBody2D"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_dn1hn")
+debug_color = Color(0.752312, 0.458026, 0, 0.42)
+
+[node name="null_boss" type="CharacterBody2D" parent="."]
+position = Vector2(198, 221)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("14_0vyu3")
+
+[node name="sprite" type="Sprite2D" parent="null_boss"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_53syl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss"]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_xwg5l")
+
+[node name="colision_left" type="Area2D" parent="null_boss"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss/colision_left"]
+position = Vector2(-46, 1)
+shape = SubResource("RectangleShape2D_8lufb")
+debug_color = Color(0.971831, 0.168653, 7.70092e-07, 0.42)
+
+[node name="colision_right" type="Area2D" parent="null_boss"]
+position = Vector2(61, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss/colision_right"]
+position = Vector2(-14, 2)
+shape = SubResource("RectangleShape2D_8lufb")
+debug_color = Color(0.971831, 0.168653, 7.70092e-07, 0.42)
+
+[node name="top" type="Area2D" parent="null_boss"]
+position = Vector2(1, -49)
+rotation = 1.57079
+scale = Vector2(0.103568, 1.04762)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss/top"]
+position = Vector2(-19.311, 0.5)
+shape = SubResource("RectangleShape2D_8lufb")
+debug_color = Color(0.971831, 0.168653, 7.70092e-07, 0.42)
+
+[node name="stoper" type="Area2D" parent="null_boss"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss/stoper"]
+position = Vector2(0, -171.5)
+shape = SubResource("RectangleShape2D_2c61x")
+debug_color = Color(2.45467e-06, 0.648367, 0.183107, 0.42)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1, 0.952941, 0.00784314, 1)
+position = Vector2(-164, -25)
+emitting = false
+amount = 128
+one_shot = true
+preprocess = 0.07
+explosiveness = 1.0
+texture = ExtResource("11_bmqq7")
+process_material = SubResource("ParticleProcessMaterial_53syl")
+
+[node name="player" parent="." instance=ExtResource("13_15d1j")]
+position = Vector2(-176, 269)
+collision_layer = 5
+collision_mask = 5
+wall_min_slide_angle = 0.0
+
+[node name="gun_texture" type="Sprite2D" parent="player"]
+texture_filter = 1
+rotation = 0.0060159
+texture = ExtResource("14_6d334")
+offset = Vector2(13, -8)
+script = ExtResource("15_rcn5k")
+
+[node name="bulet_spawner" type="Node2D" parent="player"]
+position = Vector2(21, -11)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+z_index = 10
+offset = Vector2(0, -50)
+zoom = Vector2(1.6, 1.6)
+position_smoothing_enabled = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(-2, 291)
+
+[node name="TextureRect" type="TextureRect" parent="Floor"]
+offset_left = -1672.0
+offset_top = -10.0
+offset_right = 41766.0
+offset_bottom = 5478.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_53syl")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="Floor"]
+modulate = Color(0.593134, 0.593134, 0.593134, 1)
+offset_left = -1664.0
+offset_top = -964.0
+offset_right = 41774.0
+offset_bottom = 4784.0
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("4_53syl")
+expand_mode = 2
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-78.5, 59)
+shape = SubResource("RectangleShape2D_5ogsy")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-74, -573)
+shape = SubResource("RectangleShape2D_5ogsy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-887, -613)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_5ogsy")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Floor"]
+position = Vector2(732, -602)
+rotation = -1.57079
+shape = SubResource("RectangleShape2D_5ogsy")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="wall_crusher" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14k2e")
+}
+
+[node name="spikes_fall_ani" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14vae")
+}
+
+[node name="death" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2c61x")
+}
+speed_scale = 100.0
+
+[node name="floor_move_up" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_k5tnt")
+}
+
+[node name="null_attack" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
+[connection signal="body_shape_entered" from="falling spikes/spike1/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike2/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike3/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike4/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike5/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike6/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike7/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike8/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike9/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="falling spikes/spike10/Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="body_shape_entered" from="spikes/damage_trigger" to="." method="_on_damage_trigger_body_shape_entered"]
+[connection signal="body_entered" from="null_boss/colision_left" to="null_boss" method="_on_colision_left_body_entered"]
+[connection signal="body_entered" from="null_boss/colision_right" to="null_boss" method="_on_colision_right_body_entered"]
+[connection signal="body_entered" from="null_boss/top" to="null_boss" method="_on_top_body_entered"]
+[connection signal="body_shape_entered" from="null_boss/stoper" to="null_boss" method="_on_stoper_body_shape_entered"]
+[connection signal="body_shape_exited" from="null_boss/stoper" to="null_boss" method="_on_stoper_body_shape_exited"]

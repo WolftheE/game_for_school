@@ -50,23 +50,6 @@ tracks/0/keys = {
 "values": [""]
 }
 
-[sub_resource type="Animation" id="Animation_7t86j"]
-resource_name = "dialog_fight1"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dialog/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": ["", "", "Piss Man did an attack and it was effective! 
-Dealing 1 damage!"]
-}
-
 [sub_resource type="Animation" id="Animation_ov8p4"]
 resource_name = "dialog_nullman_died"
 length = 3.0
@@ -117,13 +100,30 @@ tracks/0/keys = {
 "values": ["", "Um it looks like I'm in some kind of boss fight"]
 }
 
+[sub_resource type="Animation" id="Animation_7t86j"]
+resource_name = "dialog_fight1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "", "Piss Man did an attack and it was effective! 
+Dealing 1 damage!"]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsxyx"]
 _data = {
-"RESET": SubResource("Animation_qng6p"),
-"dialog_fight1": SubResource("Animation_7t86j"),
-"dialog_nullman_died": SubResource("Animation_ov8p4"),
-"dialog_talk1": SubResource("Animation_o011r"),
-"intro_dialog": SubResource("Animation_u3cgd")
+&"RESET": SubResource("Animation_qng6p"),
+&"dialog_fight1": SubResource("Animation_7t86j"),
+&"dialog_talk1": SubResource("Animation_o011r"),
+&"intro_dialog": SubResource("Animation_u3cgd"),
+&"dialog_nullman_died": SubResource("Animation_ov8p4")
 }
 
 [sub_resource type="Animation" id="Animation_ike7r"]
@@ -160,8 +160,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6v6l"]
 _data = {
-"RESET": SubResource("Animation_ike7r"),
-"lava_up": SubResource("Animation_ighue")
+&"RESET": SubResource("Animation_ike7r"),
+&"lava_up": SubResource("Animation_ighue")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_se6vk"]
@@ -207,8 +207,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2kcel"]
 _data = {
-"RESET": SubResource("Animation_1f1wh"),
-"bullet_move": SubResource("Animation_fi3pt")
+&"RESET": SubResource("Animation_1f1wh"),
+&"bullet_move": SubResource("Animation_fi3pt")
 }
 
 [sub_resource type="Animation" id="Animation_iqunj"]
@@ -244,8 +244,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rwue"]
 _data = {
-"RESET": SubResource("Animation_iqunj"),
-"fade": SubResource("Animation_e16uw")
+&"fade": SubResource("Animation_e16uw"),
+&"RESET": SubResource("Animation_iqunj")
 }
 
 [node name="Fight1" type="Node2D"]
@@ -689,12 +689,12 @@ script = ExtResource("7_78exf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_nsxyx")
+&"": SubResource("AnimationLibrary_nsxyx")
 }
 
 [node name="lava_animation" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f6v6l")
+&"": SubResource("AnimationLibrary_f6v6l")
 }
 
 [node name="options" type="BoxContainer" parent="."]
@@ -797,7 +797,7 @@ shape = SubResource("RectangleShape2D_x7hhw")
 
 [node name="move_bullet" type="AnimationPlayer" parent="bullet"]
 libraries = {
-"": SubResource("AnimationLibrary_2kcel")
+&"": SubResource("AnimationLibrary_2kcel")
 }
 
 [node name="bullet2" type="CharacterBody2D" parent="."]
@@ -817,10 +817,11 @@ shape = SubResource("RectangleShape2D_x7hhw")
 
 [node name="move_bullet" type="AnimationPlayer" parent="bullet2"]
 libraries = {
-"": SubResource("AnimationLibrary_2kcel")
+&"": SubResource("AnimationLibrary_2kcel")
 }
 
 [node name="screen_fade" type="TextureRect" parent="."]
+visible = false
 modulate = Color(0, 0, 0, 0)
 z_index = 3
 anchors_preset = 8
@@ -839,7 +840,7 @@ texture = ExtResource("2_5t401")
 
 [node name="screen_fade_transmistion" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3rwue")
+&"": SubResource("AnimationLibrary_3rwue")
 }
 
 [connection signal="body_shape_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]

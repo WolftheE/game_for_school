@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bp3ehtql7ug0l"]
+[gd_scene load_steps=29 format=3 uid="uid://bp3ehtql7ug0l"]
 
 [ext_resource type="Script" path="res://scripts/level_8.gd" id="1_1205d"]
 [ext_resource type="Texture2D" uid="uid://qohxc6wvntmw" path="res://texture/pixil-frame-0 (1).png" id="1_xjxkm"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="10_00wkq"]
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="11_5h1jx"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="12_ru81s"]
+[ext_resource type="AudioStream" uid="uid://dj57bka5xoqcw" path="res://sound/Pissman_level_song2.mp3" id="14_fksli"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gkewo"]
 size = Vector2(2852, 100)
@@ -79,8 +80,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sifal"]
 _data = {
-"RESET": SubResource("Animation_u8xco"),
-"null_man_dies": SubResource("Animation_3fr8i")
+&"RESET": SubResource("Animation_u8xco"),
+&"null_man_dies": SubResource("Animation_3fr8i")
 }
 
 [sub_resource type="Animation" id="Animation_85qsr"]
@@ -116,8 +117,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-"RESET": SubResource("Animation_85qsr"),
-"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7np8"]
@@ -609,12 +610,17 @@ texture = ExtResource("12_ru81s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sifal")
+&"": SubResource("AnimationLibrary_sifal")
 }
+
+[node name="PissmanLevelSong2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_fksli")
+autoplay = true
+bus = &"music"
 
 [node name="screen_fade_thing" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j823r")
+&"": SubResource("AnimationLibrary_j823r")
 }
 
 [node name="change_level_trigger" type="Area2D" parent="."]

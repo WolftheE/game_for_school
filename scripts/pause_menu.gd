@@ -32,6 +32,7 @@ func _on_area_3d_body_entered(body: Node3D):
 	if "CharacterBody3D" in body.name:
 		var door = $doorthing
 		door.rotation_degrees.y = 0
+		$doorthing/text.visible = true
 
 
 func _on_wall_pusher_trigger_body_entered(body: Node3D) -> void:

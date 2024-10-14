@@ -1,8 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://cbo8jewhaf7rc"]
+[gd_scene load_steps=43 format=3 uid="uid://cbo8jewhaf7rc"]
 
+[ext_resource type="Script" path="res://scripts/boss_fight_level.gd" id="1_60ig2"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_xduiq"]
 [ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="2_1ovwm"]
+[ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_i4sbs"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="3_ddw8i"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="3_jr8wx"]
+[ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="5_1qsvx"]
+[ext_resource type="Texture2D" uid="uid://c0cb5nxgq48df" path="res://texture/grassman.png" id="5_ddw8i"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="6_3sv74"]
+[ext_resource type="Material" uid="uid://p5ibbvxbqjpd" path="res://texture/blurshader.tres" id="7_qb3g3"]
+[ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="8_mbkts"]
+[ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="9_nqvhr"]
+[ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="12_1qsvx"]
+[ext_resource type="Texture2D" uid="uid://cfgqufxrm4ysg" path="res://texture/gun.png" id="14_3sv74"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4735"]
+font = ExtResource("5_1qsvx")
+font_size = 40
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_txpba"]
+shader = ExtResource("9_nqvhr")
+shader_parameter/blur_amount = 3.014
+shader_parameter/mix_amount = 0.642
+shader_parameter/color_over = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wf70"]
+shader = ExtResource("9_nqvhr")
+shader_parameter/blur_amount = 2.739
+shader_parameter/mix_amount = 0.774
+shader_parameter/color_over = Color(0.523532, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3rf3h"]
+font = ExtResource("5_1qsvx")
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_3sv74"]
+font = ExtResource("12_1qsvx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qsvx"]
+font = ExtResource("12_1qsvx")
+font_size = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xwg5l"]
 size = Vector2(103, 103)
@@ -11,23 +50,1051 @@ size = Vector2(103, 103)
 size = Vector2(120, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ogsy"]
-size = Vector2(1070, 20)
+size = Vector2(1481, 137)
+
+[sub_resource type="Animation" id="Animation_60ig2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ja6xn"]
+resource_name = "cam_zoom_in"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.03333, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.9, 1.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_txpba"]
+resource_name = "cam_zoom_over"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.633333, 2.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.9, 1.9), Vector2(1.9, 1.9), Vector2(1.2, 1.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.633333, 2.36667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-400, 150), Vector2(-400, 150), Vector2(-200, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_1qsvx"]
+resource_name = "cam_zoom_to_him"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.9, 1.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 150), Vector2(-400, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_xe7ul"]
+resource_name = "camera_zoom_to_gun"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-200, 150), Vector2(-175, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.2, 1.2), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cim0s"]
+_data = {
+&"RESET": SubResource("Animation_60ig2"),
+&"cam_zoom_in": SubResource("Animation_ja6xn"),
+&"cam_zoom_over": SubResource("Animation_txpba"),
+&"cam_zoom_to_him": SubResource("Animation_1qsvx"),
+&"camera_zoom_to_gun": SubResource("Animation_xe7ul")
+}
+
+[sub_resource type="Animation" id="Animation_xm5t1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("levelstuff/piss_man_feelings:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("levelstuff/null_feelings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("textbox/Panel/pissman:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("textbox/Panel/null_boss:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qb3g3"]
+resource_name = "script_3"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "Here catch!", "Here catch!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/Panel/pissman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bsxoy"]
+resource_name = "script_1"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.43333, 2.26667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", " Piss Man over here!", " Piss Man over here!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("player:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.77667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("levelstuff/piss_man_feelings:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("levelstuff/null_feelings:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.79),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_h4735"]
+resource_name = "script_4"
+length = 17.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 3.03333, 6, 6.03333, 8.03333, 11.1667, 11.2, 14, 16.8333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "", "W̴͖͉͝E̴̳̙͛L̴̨̾̃Ḷ̷͗ ̸̥̪̾W̸̬̜̆͋E̸̠͌L̷̫͘L̴̠̏̐ ̸̻̌Ẅ̸͍́É̵͍Ľ̸͖͘L̴͑̀͜,̵̗͂̓ ̷͇̩̃G̸̗̓Ṟ̴̎̏A̶̢̨͑S̴̰̍͜S̶̹̓̉ ̶̖̬̂M̴͔͍̀͂À̵̡N̷̹͆
+Y̴̮͚̌̑Ō̸̼͖U̴̜̩̔̄ ̸̤̏Ŕ̴͉E̷͖̞͊͒A̵̯͇̽̋Ľ̶̺͉̃L̶̻̕Y̷̡̎ ̴̢̫̆Ď̸̺O̴̖̰̒ ̸̘͈̈T̵̨̑ͅH̵̨͚̄I̸̟͊̾͜Ṋ̴̋̓K̸̮͋̓ ̸̦̘̋H̵͙͂̉Ȩ̶̡͒͝ ̵̤̰̓̎
+W̷͉̊I̵̪̘̓͆L̶͍̙̆̔L̵͙̦̈́̓ ̵͍̚͘K̷͔̚Ĭ̷̗Ḷ̴̥̇L̸̖̤̅̏ ̵̖͎̂̑M̷̩̽E̸̺̯͊", "W̴͖͉͝E̴̳̙͛L̴̨̾̃Ḷ̷͗ ̸̥̪̾W̸̬̜̆͋E̸̠͌L̷̫͘L̴̠̏̐ ̸̻̌Ẅ̸͍́É̵͍Ľ̸͖͘L̴͑̀͜,̵̗͂̓ ̷͇̩̃G̸̗̓Ṟ̴̎̏A̶̢̨͑S̴̰̍͜S̶̹̓̉ ̶̖̬̂M̴͔͍̀͂À̵̡N̷̹͆
+Y̴̮͚̌̑Ō̸̼͖U̴̜̩̔̄ ̸̤̏Ŕ̴͉E̷͖̞͊͒A̵̯͇̽̋Ľ̶̺͉̃L̶̻̕Y̷̡̎ ̴̢̫̆Ď̸̺O̴̖̰̒ ̸̘͈̈T̵̨̑ͅH̵̨͚̄I̸̟͊̾͜Ṋ̴̋̓K̸̮͋̓ ̸̦̘̋H̵͙͂̉Ȩ̶̡͒͝ ̵̤̰̓̎
+W̷͉̊I̵̪̘̓͆L̶͍̙̆̔L̵͙̦̈́̓ ̵͍̚͘K̷͔̚Ĭ̷̗Ḷ̴̥̇L̸̖̤̅̏ ̵̖͎̂̑M̷̩̽E̸̺̯͊", "", "Yes I do, you will pay for what 
+you have done for the past 
+years", "Yes I do, you will pay for what 
+you have done for the past 
+years", "", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
+ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔ ̴̝̽̃͜d̷͙͓͝o̷̳͑̽i̵̫̺͌n̴̡̓̄g̸͓̓̋ ̸̡̝͋n̷͓͙͊ó̷͓̫t̸̢̰͂́ȟ̷̢̹i̶͙̹͛͠n̵̢̊g̸͎̎ ̷͕̰̇̉", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
+ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔ ̴̝̽̃͜d̷͙͓͝o̷̳͑̽i̵̫̺͌n̴̡̓̄g̸͓̓̋ ̸̡̝͋n̷͓͙͊ó̷͓̫t̸̢̰͂́ȟ̷̢̹i̶͙̹͛͠n̵̢̊g̸͎̎ ̷͕̰̇̉"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel/null_boss:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6.03333, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.03333, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/Panel/pissman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 6.03333, 11.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_3sv74"]
+resource_name = "script_2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel/Label:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333, 2.4, 3.33333, 3.36667, 4.6, 5.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "What are you doing here?", "What are you doing here?", "", "Here you will need this!", "Here you will need this!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/Panel/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_owln3"]
+resource_name = "script_5"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/pissman:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel/null_boss:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("textbox/Panel/Label:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.36667, 3.3, 3.33333, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "NOOO GRASS MAN!!!!!", "NOOO GRASS MAN!!!!!", "", "You will PAY for this"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("textbox/Panel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_owln3"]
+_data = {
+&"RESET": SubResource("Animation_xm5t1"),
+&"script_2": SubResource("Animation_3sv74"),
+&"script_4": SubResource("Animation_h4735"),
+&"script_5": SubResource("Animation_owln3"),
+&"script_3": SubResource("Animation_qb3g3"),
+&"script_1": SubResource("Animation_bsxoy")
+}
+
+[sub_resource type="Animation" id="Animation_nqvhr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-634, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_mbkts"]
+resource_name = "gun"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Gun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gun:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 1.4, 2.13333, 2.26667, 2.4),
+"transitions": PackedFloat32Array(1, 1, 1, 0.933037, 1.14105, 1, 1),
+"update": 0,
+"values": [Vector2(-634, 270), Vector2(-634, 266), Vector2(-634, 266), Vector2(-347, 201), Vector2(-187.78, 256.923), Vector2(-187.78, 256.923), Vector2(-187.78, 256.923)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4735"]
+_data = {
+&"RESET": SubResource("Animation_nqvhr"),
+&"gun": SubResource("Animation_mbkts")
+}
+
+[sub_resource type="Animation" id="Animation_4wf70"]
+resource_name = "kill"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.163278, 1, 1.5, 1.83333, 2.84103, 4.14464, 4.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1e-05),
+"update": 0,
+"values": [Vector2(151, 229), Vector2(151, 229), Vector2(97, 215), Vector2(97, 236), Vector2(103, 238), Vector2(43, -357), Vector2(-591, -518), Vector2(-661, 240)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Grassman2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.7, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.05859, 1.00391), Vector2(5, 0.1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Grassman2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4.7, 4.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-666, 247), Vector2(-754, 281)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Grassman2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4.83333, 4.86667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(0.490196, 1, 0.133333, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_3rf3h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(151, 229)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Grassman2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.05859, 1.00391)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Grassman2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-666, 247)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Grassman2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3rf3h"]
+_data = {
+&"kill": SubResource("Animation_4wf70"),
+&"RESET": SubResource("Animation_3rf3h")
+}
 
 [node name="BossFightLevel" type="Node2D"]
+script = ExtResource("1_60ig2")
+
+[node name="textbox" type="CanvasLayer" parent="."]
+
+[node name="coins_collector" type="Label" parent="textbox"]
+offset_right = 60.0
+offset_bottom = 23.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "Coins = "
+script = ExtResource("2_i4sbs")
+
+[node name="Panel" type="Panel" parent="textbox"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 23.0
+offset_right = 219.0
+offset_bottom = 133.0
+grow_horizontal = 2
+
+[node name="pissman" type="TextureRect" parent="textbox/Panel"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 361.0
+offset_top = -68.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture = ExtResource("3_ddw8i")
+
+[node name="Label" type="Label" parent="textbox/Panel/pissman"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -356.0
+offset_top = 69.0
+offset_right = -283.0
+offset_bottom = 92.0
+text = "Piss Man:"
+
+[node name="Label" type="Label" parent="textbox/Panel"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 1.0
+offset_right = 419.0
+offset_bottom = 128.0
+
+[node name="null_boss" type="Sprite2D" parent="textbox/Panel"]
+visible = false
+texture_filter = 1
+position = Vector2(403, 36)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_1ovwm")
+
+[node name="Label" type="Label" parent="textbox/Panel/null_boss"]
+texture_filter = 2
+offset_left = -7920.0
+offset_top = -660.0
+offset_right = -7833.0
+offset_bottom = -637.0
+scale = Vector2(17.5, 17.5)
+text = "NULL:"
+
+[node name="Grassman2" type="Sprite2D" parent="textbox/Panel"]
+texture_filter = 1
+position = Vector2(451, 14)
+scale = Vector2(2.82812, 2.60938)
+texture = ExtResource("5_ddw8i")
+
+[node name="Label" type="Label" parent="textbox/Panel/Grassman2"]
+texture_filter = 2
+offset_left = -158.055
+offset_top = -5.36527
+offset_right = -71.0553
+offset_bottom = 17.6347
+scale = Vector2(0.35, 0.35)
+text = "Grass Man:"
+
+[node name="pause_menu" type="Control" parent="textbox"]
+visible = false
+z_index = 1
+z_as_relative = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -32.0
+offset_right = 52.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="textbox/pause_menu"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -1.318
+anchor_right = 0.5
+anchor_bottom = -1.318
+offset_left = -77.0
+offset_top = -31.648
+offset_right = 77.0
+offset_bottom = 14.352
+grow_horizontal = 2
+grow_vertical = 2
+text = "Paused"
+label_settings = SubResource("LabelSettings_h4735")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="textbox/pause_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -33.0
+offset_right = 48.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="textbox/pause_menu/MarginContainer"]
+layout_mode = 2
+
+[node name="exit" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("6_3sv74")
+text = "Main Menu"
+
+[node name="resume" type="Button" parent="textbox/pause_menu/MarginContainer/VBoxContainer"]
+z_index = 10
+layout_mode = 2
+theme = ExtResource("6_3sv74")
+text = "CONTINE"
+
+[node name="bg" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = ExtResource("7_qb3g3")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -671.5
+offset_top = -378.0
+offset_right = 671.5
+offset_bottom = 454.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_mbkts")
+
+[node name="bg2" type="TextureRect" parent="textbox/pause_menu"]
+z_index = -1
+material = SubResource("ShaderMaterial_txpba")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.5
+offset_top = -405.0
+offset_right = 97.5
+offset_bottom = 440.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_mbkts")
+
+[node name="death_screen" type="Control" parent="textbox"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="textbox/death_screen"]
+material = SubResource("ShaderMaterial_4wf70")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -624.5
+offset_top = -360.5
+offset_right = 624.5
+offset_bottom = 360.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xduiq")
+
+[node name="BoxContainer" type="BoxContainer" parent="textbox/death_screen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -42.5
+offset_right = 103.5
+offset_bottom = 42.5
+grow_horizontal = 2
+grow_vertical = 2
+vertical = true
+
+[node name="Label" type="Label" parent="textbox/death_screen/BoxContainer"]
+texture_filter = 1
+layout_mode = 2
+text = "You Might have Died!"
+label_settings = SubResource("LabelSettings_3rf3h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Player = NULL 
+Player does not exist"
+horizontal_alignment = 1
+
+[node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
+layout_mode = 2
+text = "Respawn"
+
+[node name="TextureRect" type="TextureRect" parent="textbox"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+offset_left = -138.0
+offset_top = -70.0
+offset_right = 1849.0
+offset_bottom = 1044.0
+texture = ExtResource("1_xduiq")
 
 [node name="levelstuff" type="Node2D" parent="."]
 
 [node name="background" type="Node2D" parent="levelstuff"]
 
 [node name="bg" type="TextureRect" parent="levelstuff/background"]
-modulate = Color(0, 0, 0, 1)
-offset_left = -1202.0
-offset_top = -612.0
-offset_right = 1158.0
-offset_bottom = 546.0
+modulate = Color(0.0562916, 0.0562916, 0.0562916, 1)
+offset_left = -1200.0
+offset_top = -617.0
+offset_right = 1160.0
+offset_bottom = 541.0
 texture = ExtResource("1_xduiq")
 
+[node name="piss_man_feelings" type="Label" parent="levelstuff"]
+visible = false
+texture_filter = 1
+offset_left = -182.0
+offset_top = 222.0
+offset_right = -142.0
+offset_bottom = 335.0
+text = "?"
+label_settings = SubResource("LabelSettings_3sv74")
+
+[node name="null_feelings" type="Label" parent="levelstuff"]
+visible = false
+texture_filter = 1
+offset_left = 194.0
+offset_top = 126.0
+offset_right = 234.0
+offset_bottom = 239.0
+text = "!"
+label_settings = SubResource("LabelSettings_1qsvx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+offset_left = -661.0
+offset_top = 240.0
+offset_right = 119.0
+offset_bottom = 1040.0
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_1ovwm")
+expand_mode = 1
+stretch_mode = 1
+
 [node name="null_boss" type="CharacterBody2D" parent="."]
+position = Vector2(198, 221)
 
 [node name="sprite" type="Sprite2D" parent="null_boss"]
 scale = Vector2(0.1, 0.1)
@@ -44,15 +1111,22 @@ shape = SubResource("RectangleShape2D_8lufb")
 debug_color = Color(0.971831, 0.168653, 7.70092e-07, 0.42)
 
 [node name="player" parent="." instance=ExtResource("3_jr8wx")]
-position = Vector2(-103, 40)
+position = Vector2(-176, 269)
+
+[node name="gun_texture" type="Sprite2D" parent="player"]
+visible = false
+texture_filter = 1
+rotation = 0.0060159
+texture = ExtResource("14_3sv74")
+offset = Vector2(13, -8)
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2(-2, 291)
 
 [node name="TextureRect" type="TextureRect" parent="Floor"]
-offset_left = -537.0
+offset_left = -735.0
 offset_top = -10.0
-offset_right = 12888.0
+offset_right = 17665.0
 offset_bottom = 3050.0
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("2_1ovwm")
@@ -60,7 +1134,41 @@ expand_mode = 2
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
-position = Vector2(1, 0)
+position = Vector2(4, 59)
 shape = SubResource("RectangleShape2D_5ogsy")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="camera_intro" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_cim0s")
+}
+
+[node name="dialog_script" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_owln3")
+}
+
+[node name="Grassman2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-666, 247)
+scale = Vector2(1.05859, 1.00391)
+texture = ExtResource("5_ddw8i")
+flip_h = true
+
+[node name="Gun" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(-634, 270)
+rotation = 1.25194
+texture = ExtResource("14_3sv74")
+
+[node name="gun_thrown" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_h4735")
+}
+
+[node name="attack_on_grass_man" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_3rf3h")
+}

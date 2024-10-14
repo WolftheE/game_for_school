@@ -22,6 +22,7 @@ func _ready() -> void:
 	$cam_zoom_out.play("cam_zoom_out")
 	await get_tree().create_timer(7).timeout
 	$player_stoper.queue_free()
+	$PissmanLevelSong1.play()
 
 func _process(delta: float) -> void:
 	await get_tree().create_timer(15).timeout

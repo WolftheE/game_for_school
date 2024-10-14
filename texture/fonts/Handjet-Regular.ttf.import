@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Handjet-Regular.ttf-2e2cfd8adcc1fb8cd58a44f04
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -33,7 +33,7 @@ preload=[{
 "glyphs": [],
 "name": "New Configuration",
 "size": Vector2i(16, 0),
-"variation_embolden": 0.0
+&"variation_embolden": 0.0
 }]
 language_support={}
 script_support={}

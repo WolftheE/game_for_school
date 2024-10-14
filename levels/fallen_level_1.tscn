@@ -138,8 +138,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ak4ue"]
 _data = {
-"RESET": SubResource("Animation_782k0"),
-"dialog_1": SubResource("Animation_o8td7")
+&"RESET": SubResource("Animation_782k0"),
+&"dialog_1": SubResource("Animation_o8td7")
 }
 
 [sub_resource type="Animation" id="Animation_85qsr"]
@@ -175,8 +175,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-"RESET": SubResource("Animation_85qsr"),
-"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gvhvm"]
@@ -632,12 +632,12 @@ debug_color = Color(0.731244, 0.472529, 1.92523e-07, 0.42)
 
 [node name="script" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_ak4ue")
+&"": SubResource("AnimationLibrary_ak4ue")
 }
 
 [node name="screen_fade_thing" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j823r")
+&"": SubResource("AnimationLibrary_j823r")
 }
 
 [node name="trigger" type="Area2D" parent="."]

@@ -21,3 +21,5 @@ func _on_trigger_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	$script.play("dialog_1")
 	await get_tree().create_timer(13).timeout
 	$screen_fade_thing.play("fade")
+	await get_tree().create_timer(3).timeout
+	get_tree().change_scene_to_file("res://levels/boss_fight_level.tscn")

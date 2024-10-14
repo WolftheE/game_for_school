@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://duifkuov8aqmq"]
+[gd_scene load_steps=51 format=3 uid="uid://duifkuov8aqmq"]
 
 [ext_resource type="Script" path="res://scripts/Main_menu.gd" id="1_3t6rt"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="2_msj5m"]
@@ -21,10 +21,15 @@
 [ext_resource type="AudioStream" uid="uid://dx8ro74wv551j" path="res://sound/Main_menu_theme_1.mp3" id="18_55x6l"]
 [ext_resource type="Texture2D" uid="uid://bt8q38iegkdb1" path="res://texture/pixil-frame-0.png" id="19_aftgx"]
 [ext_resource type="Texture2D" uid="uid://bkq455cgaq6bw" path="res://texture/Circle_thing.png" id="20_rmpxo"]
+[ext_resource type="FontFile" uid="uid://b7lha7kprboi" path="res://texture/fonts/Handjet-Bold.ttf" id="21_8xa4a"]
+[ext_resource type="Texture2D" uid="uid://dji0uiw8vrjgf" path="res://texture/Redot Logo & Wordmark - Vertical - Red Orange (outlined).png" id="21_fy5ah"]
 [ext_resource type="Script" path="res://scripts/coin_score_for_minigame.gd" id="21_r614e"]
+[ext_resource type="Texture2D" uid="uid://d1h1bdwdibbwx" path="res://texture/beepbox_logo.png" id="22_8xa4a"]
 [ext_resource type="AudioStream" uid="uid://dkhbes66lxpxa" path="res://sound/Main_menu_theme_2.mp3" id="22_ky7cr"]
 [ext_resource type="AudioStream" uid="uid://xvxbtaw6o2vy" path="res://sound/Button_click_sound_effect.wav" id="22_pekjc"]
+[ext_resource type="Texture2D" uid="uid://ddepvxcx6woi" path="res://texture/Calligrakrita-base.svg" id="23_1k6b6"]
 [ext_resource type="Script" path="res://scripts/random_number.gd" id="23_ns8jh"]
+[ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="24_fapoi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_upr5q"]
 font = ExtResource("2_msj5m")
@@ -73,8 +78,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pcwl4"]
 _data = {
-"RESET": SubResource("Animation_p8lml"),
-"coin_move": SubResource("Animation_h85wy")
+&"RESET": SubResource("Animation_p8lml"),
+&"coin_move": SubResource("Animation_h85wy")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cxrop"]
@@ -111,8 +116,20 @@ default_font = ExtResource("16_ces08")
 default_font_size = 20
 
 [sub_resource type="LabelSettings" id="LabelSettings_7rxuq"]
-font = ExtResource("16_ces08")
+font = ExtResource("14_8mftl")
+font_size = 15
+
+[sub_resource type="LabelSettings" id="LabelSettings_fapoi"]
+font = ExtResource("21_8xa4a")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_uni3n"]
+font = ExtResource("24_fapoi")
 font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_1k6b6"]
+font = ExtResource("2_msj5m")
+font_size = 25
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqup5"]
 size = Vector2(642, 181)
@@ -322,7 +339,7 @@ expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pcwl4")
+&"": SubResource("AnimationLibrary_pcwl4")
 }
 
 [node name="round_walls" type="Node2D" parent="."]
@@ -940,6 +957,7 @@ max_value = 0.0
 [node name="fps" parent="." instance=ExtResource("6_f3350")]
 
 [node name="level_menu" type="Control" parent="."]
+visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -1132,7 +1150,6 @@ text = "WARNING!"
 label_settings = SubResource("LabelSettings_t3x84")
 
 [node name="credits_menu" type="Control" parent="."]
-visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -1145,6 +1162,7 @@ offset_bottom = 162.0
 modulate = Color(0.396889, 0.396889, 0.396889, 1)
 material = ExtResource("9_1062q")
 layout_mode = 0
+offset_top = -62.0
 offset_right = 779.0
 offset_bottom = 507.0
 texture = ExtResource("8_r36ep")
@@ -1165,52 +1183,52 @@ expand_mode = 1
 [node name="protogen" type="TextureRect" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 151.0
-offset_top = 103.0
-offset_right = 175.0
-offset_bottom = 131.0
+offset_left = 161.0
+offset_top = -2.0
+offset_right = 185.0
+offset_bottom = 26.0
 scale = Vector2(-5, 5)
 texture = ExtResource("14_iyy10")
 
 [node name="pissman" type="TextureRect" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 335.0
-offset_top = 223.0
-offset_right = 399.0
-offset_bottom = 287.0
-scale = Vector2(4, 4)
+offset_left = 147.0
+offset_top = 41.0
+offset_right = 211.0
+offset_bottom = 105.0
+scale = Vector2(-4, 4)
 texture = ExtResource("15_nbpul")
 
 [node name="credits_title" type="Label" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 17.0
-offset_top = 9.0
-offset_right = 149.0
-offset_bottom = 62.0
+offset_left = 8.0
+offset_top = -58.0
+offset_right = 190.0
+offset_bottom = -5.0
 text = "Credits goes Too..."
 label_settings = SubResource("LabelSettings_1yehn")
 
 [node name="exit_close_button" type="Button" parent="credits_menu"]
 layout_mode = 0
-offset_left = 729.0
-offset_top = 6.0
-offset_right = 770.0
-offset_bottom = 46.0
+offset_left = 730.0
+offset_top = -57.0
+offset_right = 771.0
+offset_bottom = -17.0
 text = "x"
 
-[node name="alex" type="Label" parent="credits_menu"]
+[node name="mrcrip" type="Label" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 36.0
-offset_top = 342.0
-offset_right = 454.0
-offset_bottom = 377.0
+offset_left = 170.0
+offset_top = 171.0
+offset_right = 588.0
+offset_bottom = 206.0
 theme = SubResource("Theme_26cmr")
-text = "Alex (\"3 Inches is average\")"
+text = "MrCrip (\"3 Inches is average\")"
 
-[node name="Label" type="Label" parent="credits_menu/alex"]
+[node name="Label" type="Label" parent="credits_menu/mrcrip"]
 layout_mode = 0
 offset_left = 18.0
 offset_top = 35.0
@@ -1219,43 +1237,124 @@ offset_bottom = 70.0
 theme = SubResource("Theme_kusq5")
 text = "For the 2d textures and sound effect"
 
-[node name="Daniel" type="Label" parent="credits_menu"]
+[node name="Label3" type="Label" parent="credits_menu/mrcrip"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 168.0
-offset_top = 122.0
-offset_right = 595.0
-offset_bottom = 157.0
-theme = SubResource("Theme_26cmr")
-text = "Daniel (\"I'm not a furry I swear\" also him: ...)"
+offset_left = 25.0
+offset_top = 63.0
+offset_right = 445.0
+offset_bottom = 129.0
+text = "'Why did I had to work with this furry?'
+Discord - @mister_crip"
+label_settings = SubResource("LabelSettings_7rxuq")
 
-[node name="Label" type="Label" parent="credits_menu/Daniel"]
+[node name="wolfe" type="Label" parent="credits_menu"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 7.0
+offset_left = 164.0
+offset_top = -5.0
+offset_right = 591.0
+offset_bottom = 30.0
+theme = SubResource("Theme_26cmr")
+text = "Wolfe (\"I'm not a furry I swear\" also him: ...)"
+
+[node name="Label" type="Label" parent="credits_menu/wolfe"]
+layout_mode = 0
+offset_left = 14.0
 offset_top = 32.0
-offset_right = 305.0
+offset_right = 312.0
 offset_bottom = 67.0
 theme = SubResource("Theme_kusq5")
 text = "For all of that bad coding and 3d modding."
 
-[node name="Label" type="Label" parent="credits_menu"]
+[node name="Label2" type="Label" parent="credits_menu/wolfe"]
+texture_filter = 1
 layout_mode = 0
-offset_left = 553.0
-offset_top = 206.0
-offset_right = 766.0
-offset_bottom = 489.0
-text = "A Group poject that I had to 
-make for school.
-It took a total of \"DAY\" to 
-make. In the end,
-this is what happen. But if 
-you are reading this,
-thanks for playing. If you
- could... can you take
-a screenshot and sent it to
- my discord
-\"@wolfthee\". Thanks"
+offset_left = 21.0
+offset_top = 55.0
+offset_right = 441.0
+offset_bottom = 136.0
+text = "'A Group poject that I had to make for school. 
+It took a total of \"DAY\" to make. In the end, this is what happen. 
+But if you are reading this, thanks for playing.'
+Discord - @wolfthee"
 label_settings = SubResource("LabelSettings_7rxuq")
+
+[node name="logo_bg" type="Panel" parent="credits_menu"]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 389.0
+offset_right = 769.0
+offset_bottom = 501.0
+
+[node name="Label" type="Label" parent="credits_menu/logo_bg"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 77.0
+offset_right = 81.0
+offset_bottom = 106.0
+text = "Beep Box"
+label_settings = SubResource("LabelSettings_fapoi")
+
+[node name="Label2" type="Label" parent="credits_menu/logo_bg"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 132.0
+offset_top = 77.0
+offset_right = 180.0
+offset_bottom = 106.0
+text = "Krita"
+label_settings = SubResource("LabelSettings_fapoi")
+
+[node name="redot_logo" type="TextureRect" parent="credits_menu"]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 376.0
+offset_right = 777.0
+offset_bottom = 504.0
+texture = ExtResource("21_fy5ah")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="krita_logo" type="TextureRect" parent="credits_menu"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = 394.0
+offset_right = 658.0
+offset_bottom = 474.0
+texture = ExtResource("23_1k6b6")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="beepbox_logo" type="TextureRect" parent="credits_menu"]
+layout_mode = 0
+offset_left = 471.0
+offset_top = 391.0
+offset_right = 545.0
+offset_bottom = 482.0
+texture = ExtResource("22_8xa4a")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="music_credit" type="Label" parent="credits_menu"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 465.0
+offset_right = 422.0
+offset_bottom = 500.0
+text = "Thanks to 'Kevin Macleod' for the music called \"Fluffing a Duck\""
+label_settings = SubResource("LabelSettings_uni3n")
+
+[node name="Label2" type="Label" parent="credits_menu"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 499.0
+offset_top = 342.0
+offset_right = 722.0
+offset_bottom = 371.0
+text = "This Game was made with..."
+label_settings = SubResource("LabelSettings_1k6b6")
 
 [node name="quit_comfirm" type="Control" parent="."]
 visible = false

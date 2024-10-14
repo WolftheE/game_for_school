@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c28pirafai081"]
+[gd_scene load_steps=32 format=3 uid="uid://c28pirafai081"]
 
 [ext_resource type="Script" path="res://scripts/level_7.gd" id="1_1jgtj"]
 [ext_resource type="Texture2D" uid="uid://qohxc6wvntmw" path="res://texture/pixil-frame-0 (1).png" id="1_su800"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="12_s3qgq"]
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="13_bq64j"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="14_2g0au"]
+[ext_resource type="AudioStream" uid="uid://dj57bka5xoqcw" path="res://sound/Pissman_level_song2.mp3" id="14_38k6x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3a7iq"]
 size = Vector2(2852, 100)
@@ -138,8 +139,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f84jv"]
 _data = {
-"RESET": SubResource("Animation_oln4x"),
-"dialog_1": SubResource("Animation_tywo8")
+&"RESET": SubResource("Animation_oln4x"),
+&"dialog_1": SubResource("Animation_tywo8")
 }
 
 [sub_resource type="Animation" id="Animation_85qsr"]
@@ -175,8 +176,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-"RESET": SubResource("Animation_85qsr"),
-"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [node name="Level7" type="Node2D"]
@@ -640,12 +641,17 @@ texture = ExtResource("14_2g0au")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_f84jv")
+&"": SubResource("AnimationLibrary_f84jv")
 }
+
+[node name="PissmanLevelSong2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_38k6x")
+autoplay = true
+bus = &"music"
 
 [node name="screen_fade_thing" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j823r")
+&"": SubResource("AnimationLibrary_j823r")
 }
 
 [connection signal="body_shape_entered" from="trigger" to="." method="_on_trigger_body_shape_entered"]

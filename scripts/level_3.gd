@@ -7,6 +7,7 @@ var paused = false
 func _ready() -> void:
 	Engine.time_scale = 1
 	DisplayServer.window_set_title('Piss Man - Level 3')
+	$PissmanLevelSong1.play()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

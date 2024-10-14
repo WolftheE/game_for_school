@@ -116,14 +116,29 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v1bmw"]
 _data = {
-"RESET": SubResource("Animation_4o8c2"),
-"null jumps": SubResource("Animation_yxp2w")
+&"RESET": SubResource("Animation_4o8c2"),
+&"null jumps": SubResource("Animation_yxp2w")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3wflr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spts4"]
 size = Vector2(416.25, 15.6875)
+
+[sub_resource type="Animation" id="Animation_wn6f8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Wtf is that?"]
+}
 
 [sub_resource type="Animation" id="Animation_tny12"]
 resource_name = "Dialog1"
@@ -141,25 +156,10 @@ tracks/0/keys = {
 "values": ["W", "Wha", "What", "What t", "What th", "What the", "What the f", "What the fl", "What the fli", "What the flip", "What the flip i", "What the flip is", "What the flip is t", "What the flip is th", "What the flip is tha", "What the flip is that?"]
 }
 
-[sub_resource type="Animation" id="Animation_wn6f8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("textbox/Panel/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Wtf is that?"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qluo"]
 _data = {
-"Dialog1": SubResource("Animation_tny12"),
-"RESET": SubResource("Animation_wn6f8")
+&"RESET": SubResource("Animation_wn6f8"),
+&"Dialog1": SubResource("Animation_tny12")
 }
 
 [node name="Level4" type="Node2D"]
@@ -880,7 +880,7 @@ texture = ExtResource("15_bf055")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_v1bmw")
+&"": SubResource("AnimationLibrary_v1bmw")
 }
 
 [node name="cutstuff_trigger" type="Area2D" parent="."]
@@ -905,7 +905,7 @@ one_way_collision = true
 
 [node name="Dialog" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_8qluo")
+&"": SubResource("AnimationLibrary_8qluo")
 }
 speed_scale = 0.5
 

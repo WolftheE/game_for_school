@@ -105,8 +105,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l7i8y"]
 _data = {
-"RESET": SubResource("Animation_wfaow"),
-"logo Intro": SubResource("Animation_s6ly3")
+&"RESET": SubResource("Animation_wfaow"),
+&"logo Intro": SubResource("Animation_s6ly3")
 }
 
 [sub_resource type="Animation" id="Animation_juq25"]
@@ -191,8 +191,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6fs6v"]
 _data = {
-"RESET": SubResource("Animation_juq25"),
-"text": SubResource("Animation_mxqmp")
+&"text": SubResource("Animation_mxqmp"),
+&"RESET": SubResource("Animation_juq25")
 }
 
 [sub_resource type="Animation" id="Animation_ixily"]
@@ -228,8 +228,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kfwi3"]
 _data = {
-"RESET": SubResource("Animation_ixily"),
-"fade": SubResource("Animation_dkev4")
+&"fade": SubResource("Animation_dkev4"),
+&"RESET": SubResource("Animation_ixily")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_egkox"]
@@ -352,19 +352,19 @@ stretch_mode = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_l7i8y")
+&"": SubResource("AnimationLibrary_l7i8y")
 }
 
 [node name="text" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Control")
 libraries = {
-"": SubResource("AnimationLibrary_6fs6v")
+&"": SubResource("AnimationLibrary_6fs6v")
 }
 speed_scale = 0.4
 
 [node name="fade screen" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kfwi3")
+&"": SubResource("AnimationLibrary_kfwi3")
 }
 
 [node name="screen_fade" type="TextureRect" parent="."]

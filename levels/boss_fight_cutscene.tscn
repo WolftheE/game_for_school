@@ -142,8 +142,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5qeww"]
 _data = {
-"RESET": SubResource("Animation_grhch"),
-"cool_intro": SubResource("Animation_x480h")
+&"RESET": SubResource("Animation_grhch"),
+&"cool_intro": SubResource("Animation_x480h")
 }
 
 [node name="BossFight" type="Node2D"]
@@ -221,5 +221,5 @@ flip_h = true
 
 [node name="cool_ass_startup" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_5qeww")
+&"": SubResource("AnimationLibrary_5qeww")
 }
