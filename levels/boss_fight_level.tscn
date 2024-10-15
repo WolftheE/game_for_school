@@ -79,32 +79,32 @@ tracks/1/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ja6xn"]
-resource_name = "cam_zoom_in"
-length = 10.0
+[sub_resource type="Animation" id="Animation_xe7ul"]
+resource_name = "camera_zoom_to_gun"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/path = NodePath("Camera2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1.03333, 6),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.9, 1.9)]
+"values": [Vector2(-200, 150), Vector2(-175, 200)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/path = NodePath("Camera2D:zoom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2, 6),
+"times": PackedFloat32Array(0, 4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, 150)]
+"values": [Vector2(1.2, 1.2), Vector2(4, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_txpba"]
@@ -135,6 +135,34 @@ tracks/1/keys = {
 "values": [Vector2(-400, 150), Vector2(-400, 150), Vector2(-200, 150)]
 }
 
+[sub_resource type="Animation" id="Animation_ja6xn"]
+resource_name = "cam_zoom_in"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.03333, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.9, 1.9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.2, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 150)]
+}
+
 [sub_resource type="Animation" id="Animation_1qsvx"]
 resource_name = "cam_zoom_to_him"
 length = 5.0
@@ -163,41 +191,13 @@ tracks/1/keys = {
 "values": [Vector2(0, 150), Vector2(-400, 150)]
 }
 
-[sub_resource type="Animation" id="Animation_xe7ul"]
-resource_name = "camera_zoom_to_gun"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-200, 150), Vector2(-175, 200)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:zoom")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1.2, 1.2), Vector2(4, 4)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cim0s"]
 _data = {
 &"RESET": SubResource("Animation_60ig2"),
-&"cam_zoom_in": SubResource("Animation_ja6xn"),
-&"cam_zoom_over": SubResource("Animation_txpba"),
 &"cam_zoom_to_him": SubResource("Animation_1qsvx"),
-&"camera_zoom_to_gun": SubResource("Animation_xe7ul")
+&"cam_zoom_over": SubResource("Animation_txpba"),
+&"camera_zoom_to_gun": SubResource("Animation_xe7ul"),
+&"cam_zoom_in": SubResource("Animation_ja6xn")
 }
 
 [sub_resource type="Animation" id="Animation_xm5t1"]
@@ -324,7 +324,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": ["", "Here catch!", "Here catch!"]
+"values": ["", "Catch!", "Catch!"]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -433,12 +433,10 @@ Y̴̮͚̌̑Ō̸̼͖U̴̜̩̔̄ ̸̤̏Ŕ̴͉E̷͖̞͊͒A̵̯͇̽̋Ľ̶̺͉̃L�
 W̷͉̊I̵̪̘̓͆L̶͍̙̆̔L̵͙̦̈́̓ ̵͍̚͘K̷͔̚Ĭ̷̗Ḷ̴̥̇L̸̖̤̅̏ ̵̖͎̂̑M̷̩̽E̸̺̯͊", "W̴͖͉͝E̴̳̙͛L̴̨̾̃Ḷ̷͗ ̸̥̪̾W̸̬̜̆͋E̸̠͌L̷̫͘L̴̠̏̐ ̸̻̌Ẅ̸͍́É̵͍Ľ̸͖͘L̴͑̀͜,̵̗͂̓ ̷͇̩̃G̸̗̓Ṟ̴̎̏A̶̢̨͑S̴̰̍͜S̶̹̓̉ ̶̖̬̂M̴͔͍̀͂À̵̡N̷̹͆
 Y̴̮͚̌̑Ō̸̼͖U̴̜̩̔̄ ̸̤̏Ŕ̴͉E̷͖̞͊͒A̵̯͇̽̋Ľ̶̺͉̃L̶̻̕Y̷̡̎ ̴̢̫̆Ď̸̺O̴̖̰̒ ̸̘͈̈T̵̨̑ͅH̵̨͚̄I̸̟͊̾͜Ṋ̴̋̓K̸̮͋̓ ̸̦̘̋H̵͙͂̉Ȩ̶̡͒͝ ̵̤̰̓̎
 W̷͉̊I̵̪̘̓͆L̶͍̙̆̔L̵͙̦̈́̓ ̵͍̚͘K̷͔̚Ĭ̷̗Ḷ̴̥̇L̸̖̤̅̏ ̵̖͎̂̑M̷̩̽E̸̺̯͊", "", "Yes I do, you will pay for what 
-you have done for the past 
-years", "Yes I do, you will pay for what 
-you have done for the past 
-years", "", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
-ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔ ̴̝̽̃͜d̷͙͓͝o̷̳͑̽i̵̫̺͌n̴̡̓̄g̸͓̓̋ ̸̡̝͋n̷͓͙͊ó̷͓̫t̸̢̰͂́ȟ̷̢̹i̶͙̹͛͠n̵̢̊g̸͎̎ ̷͕̰̇̉", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
-ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔ ̴̝̽̃͜d̷͙͓͝o̷̳͑̽i̵̫̺͌n̴̡̓̄g̸͓̓̋ ̸̡̝͋n̷͓͙͊ó̷͓̫t̸̢̰͂́ȟ̷̢̹i̶͙̹͛͠n̵̢̊g̸͎̎ ̷͕̰̇̉"]
+you have done", "Yes I do, you will pay for what 
+you have done", "", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
+ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔", "Ÿ̸̮̠o̴͇̕ú̷͚̽ ̶̬̥̆k̵͍̃n̴̝͐̈́ỏ̵͔̚w̴͉̺͊ ̷̮̩̉w̴̱̑͒ḧ̶͙̫a̷̭̽̐ṭ̴̿̑,̸̘͇͌̂ ̵͙͍͘Į̵̹̂ ̷͚̣̄h̸̯̳͠a̴̬͘v̸̳͎̊e̵͓̚ͅ ̴̦̟̌̀ę̶̒͊n̸̢̛͛ȯ̵͉ű̷̩̾g̷͖̈́̆ḩ̴͊ 
+ȯ̶̬̮̾f̵̱̈ ̷̨̺͝ẙ̵̯͕o̵͍͐̓ů̸̱͔"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -596,11 +594,11 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_owln3"]
 _data = {
 &"RESET": SubResource("Animation_xm5t1"),
-&"script_2": SubResource("Animation_3sv74"),
-&"script_4": SubResource("Animation_h4735"),
 &"script_5": SubResource("Animation_owln3"),
+&"script_2": SubResource("Animation_3sv74"),
+&"script_1": SubResource("Animation_bsxoy"),
 &"script_3": SubResource("Animation_qb3g3"),
-&"script_1": SubResource("Animation_bsxoy")
+&"script_4": SubResource("Animation_h4735")
 }
 
 [sub_resource type="Animation" id="Animation_nqvhr"]
@@ -793,8 +791,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rf3h"]
 _data = {
-&"kill": SubResource("Animation_4wf70"),
-&"RESET": SubResource("Animation_3rf3h")
+&"RESET": SubResource("Animation_3rf3h"),
+&"kill": SubResource("Animation_4wf70")
 }
 
 [node name="BossFightLevel" type="Node2D"]

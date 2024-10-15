@@ -35,5 +35,5 @@ func _on_respawn_button_pressed() -> void:
 
 func _on_change_level_trigger_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	$screen_fade_thing.play("fade")
-	await get_tree().create_timer(3).timeout
-	get_tree().change_scene_to_file("res://levels/boss_fight_cutscene.tscn")
+	await get_tree().create_timer(2.5).timeout
+	get_tree().change_scene_to_file("res://levels/fallen_level_1.tscn")

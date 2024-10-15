@@ -7,6 +7,9 @@ var paused = false
 func _ready() -> void:
 	Engine.time_scale = 1
 	DisplayServer.window_set_title('The Cube I think - Game')
+	if Graphics.voxel_gi == 1:
+		$VoxelGI2.visible = true
+	$"KevinMacLeod-FluffingADuck".playing = true
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("esc"):

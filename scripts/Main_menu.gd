@@ -138,7 +138,11 @@ func _on_ssil_button_toggled(toggled_on):
 
 func _on_voxel_gi_button_toggled(toggled_on):
 	$ButtonClickSoundEffect.playing = true
-	#TODO remove this
+	if toggled_on == true:
+		Graphics.voxel_gi = 1
+
+	if toggled_on == false:
+		Graphics.voxel_gi = 0
 
 func _on_showfps_button_toggled(toggled_on):
 	$ButtonClickSoundEffect.playing = true
@@ -183,7 +187,8 @@ func _on_exit_close_button_pressed() -> void:
 
 func _on_part_1_intro_pressed() -> void:
 	$ButtonClickSoundEffect.playing = true
-
+	await get_tree().create_timer(0.1).timeout
+	get_tree().change_scene_to_file("res://Menu/main.tscn")
 
 func _on_part_1_rtxcon_pressed() -> void:
 	$ButtonClickSoundEffect.playing = true
@@ -252,3 +257,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 		AudioServer.set_bus_mute(sfx_vol,true)
 	else:
 		AudioServer.set_bus_mute(sfx_vol,false) 
+
+
+func _on_part_3_pissman_3_pressed() -> void:
+	get_tree().change_scene_to_file("res://levels/boss_fight.tscn")
