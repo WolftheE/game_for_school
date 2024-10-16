@@ -77,6 +77,12 @@ texture = ExtResource("1_yxlgg")
 [node name="player2d" parent="." instance=ExtResource("2_cg5f6")]
 position = Vector2(1, 24)
 
+[node name="Camera2D" type="Camera2D" parent="player2d"]
+position = Vector2(-2, -24)
+offset = Vector2(0, -50)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
 [node name="grass" type="Node2D" parent="."]
 
 [node name="grass platform" type="StaticBody2D" parent="grass"]
@@ -499,12 +505,6 @@ shape = SubResource("RectangleShape2D_4ko3w")
 position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_2imy6")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
-offset = Vector2(0, -50)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
-
 [node name="textbox" type="CanvasLayer" parent="."]
 
 [node name="coins_collector" type="Label" parent="textbox"]
@@ -778,15 +778,6 @@ position = Vector2(491, 795)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_trigger"]
 position = Vector2(139, -10)
 shape = SubResource("RectangleShape2D_64t47")
-
-[node name="hint" type="Label" parent="."]
-offset_left = 268.0
-offset_top = -372.0
-offset_right = 643.0
-offset_bottom = -349.0
-scale = Vector2(0.4, 0.4)
-text = "Press '/' or 's' or even 'arrow_down' to look down
-"
 
 [node name="hint2" type="Label" parent="."]
 offset_left = 1528.0

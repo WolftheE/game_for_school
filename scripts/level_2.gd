@@ -11,15 +11,13 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Camera2D.global_position = $player2d.position
 	
 	if Input.is_action_just_pressed("esc"):
 		pause()
-	
-	if Input.is_action_pressed("look_down"):
-		$Camera2D.offset.y = 0
-	else:
-		$Camera2D.offset.y = -50
+
+
+func _physics_process(delta: float) -> void:
+		$Camera2D.global_position = $player2d.position
 
 
 func pause():

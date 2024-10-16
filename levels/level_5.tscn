@@ -77,6 +77,12 @@ texture = ExtResource("1_b7piu")
 [node name="player2d" parent="." instance=ExtResource("2_hlqbw")]
 position = Vector2(1, 24)
 
+[node name="Camera2D" type="Camera2D" parent="player2d"]
+position = Vector2(-2, -24)
+offset = Vector2(0, -50)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
 [node name="stone" type="Node2D" parent="."]
 
 [node name="stone platform" type="StaticBody2D" parent="stone"]
@@ -258,12 +264,6 @@ shape = SubResource("RectangleShape2D_8ko2h")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ending/Area2D"]
 position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_oym25")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
-offset = Vector2(0, -50)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 
 [node name="textbox" type="CanvasLayer" parent="."]
 

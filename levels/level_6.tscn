@@ -101,15 +101,15 @@ tracks/2/path = NodePath("textbox/Panel/Label:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.46667, 3.49978, 3.5, 4.23333, 5.49979, 5.5, 5.70877, 6.07399, 6.23875, 6.93385, 8.01415, 8.01463, 9.14393, 9.99963, 10, 12.7, 16.2368, 16.2464, 17.8717, 19.4995, 19.5, 22.5957, 24.9996, 25, 27.9995, 28, 29.8061),
+"times": PackedFloat32Array(0, 1.46667, 3.49978, 3.5, 4.23333, 5.49979, 5.5, 5.70877, 6.07399, 6.23875, 6.93385, 8.01415, 8.01463, 9.14393, 9.99963, 10, 12.7, 16.2368, 16.2464, 17.8667, 19.4995, 19.5, 22.5957, 24.9996, 25, 27.9995, 28, 29.8061),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": ["", "oh hi there, you must be him", "oh hi there, you must be him", "", "who?", "who?", "", "", "The yellow guy", "The yellow guy", "The yellow guy ...", "The yellow guy ...", "", "Ok....", "Ok....", "", "Well anyways, I have been told that 
-%^*&NULL%&*^## is comming...", "Well anyways, I have been told that 
-%^*&NULL%&*^## is comming...", "", "Um who is %^*&NULL%&*^##", "Um who is %^*&NULL%&*^##", "", "I don't have much time but
-he just a \"thing\" that has
-been Destorying other universe
-and he is comming here!
+%^*&NULL%&*^## is coming...", "Well anyways, I have been told that 
+%^*&NULL%&*^## is coming...", "", "Um who is %^*&NULL%&*^##", "Um who is %^*&NULL%&*^##", "", "I don't have much time but
+he is a \"thing\" that has
+been destroying other universes
+and he is coming here!
                     ", "I don't have much time but
 he just a \"thing\" that has
 been Destorying other universe
@@ -159,8 +159,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ar1w6"]
 _data = {
-&"dialog": SubResource("Animation_sfoys"),
-&"RESET": SubResource("Animation_swu36")
+&"RESET": SubResource("Animation_swu36"),
+&"dialog": SubResource("Animation_sfoys")
 }
 
 [sub_resource type="Animation" id="Animation_s4iqr"]
@@ -219,6 +219,12 @@ metadata/_edit_use_anchors_ = true
 [node name="player2d" parent="." instance=ExtResource("2_dbo8i")]
 z_index = 10
 position = Vector2(1, 24)
+
+[node name="Camera2D" type="Camera2D" parent="player2d"]
+position = Vector2(-2, -24)
+offset = Vector2(0, -50)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
 
 [node name="textbox" type="CanvasLayer" parent="."]
 
@@ -517,12 +523,6 @@ modulate = Color(0, 0, 0, 0)
 offset_right = 1334.0
 offset_bottom = 891.0
 texture = ExtResource("1_5eoi8")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
-offset = Vector2(0, -50)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 
 [node name="stone" type="Node2D" parent="."]
 

@@ -7,11 +7,6 @@ func _ready() -> void:
 	DisplayServer.window_set_title('Piss Man - Level 9')
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$Camera2D.global_position = $player2d.position
-
-
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
 		DisplayServer.window_set_title('Piss Man - NULL')

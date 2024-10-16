@@ -177,6 +177,12 @@ texture = ExtResource("1_ea8ph")
 [node name="player2d" parent="." instance=ExtResource("2_8ag56")]
 position = Vector2(1, 24)
 
+[node name="Camera2D" type="Camera2D" parent="player2d"]
+position = Vector2(-2, -24)
+offset = Vector2(0, -50)
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
 [node name="grass" type="Node2D" parent="."]
 
 [node name="grass platform" type="StaticBody2D" parent="grass"]
@@ -578,12 +584,6 @@ shape = SubResource("RectangleShape2D_n1q1x")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ending/Area2D"]
 position = Vector2(-2, 1.5)
 shape = SubResource("RectangleShape2D_akvjd")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
-offset = Vector2(0, -50)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
 
 [node name="textbox" type="CanvasLayer" parent="."]
 

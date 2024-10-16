@@ -84,6 +84,21 @@ _data = {
 &"null_man_dies": SubResource("Animation_3fr8i")
 }
 
+[sub_resource type="Animation" id="Animation_85qsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_tiwge"]
 resource_name = "fade"
 length = 3.0
@@ -100,25 +115,10 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_85qsr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("textbox/screen_fade:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-&"RESET": SubResource("Animation_85qsr"),
-&"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7np8"]
@@ -293,8 +293,8 @@ stretch_mode = 1
 [node name="player" parent="." instance=ExtResource("2_ccaia")]
 position = Vector2(487, 29)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-1, 0)
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(-488, -29)
 offset = Vector2(0, -50)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true

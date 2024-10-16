@@ -3,6 +3,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerHeath.playerheath = 3
+	Engine.time_scale = 1
 	await get_tree().create_timer(1).timeout
 	$AnimationPlayer.play("intro_dialog")
 	await get_tree().create_timer(4).timeout
@@ -20,6 +22,9 @@ func _process(delta: float) -> void:
 		$BoxContainer/TextureRect2.visible = false
 	elif PlayerHeath.playerheath < 1:
 		$BoxContainer/TextureRect.visible = false
+		$textbox/death_screen.visible = true
+		Engine.time_scale = 0
+		
 
 
 
@@ -89,3 +94,7 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	if "player" in body.name:
 		PlayerHeath.playerheath -= 1
 		await get_tree().create_timer(1).timeout
+
+
+func _on_respawn_button_pressed() -> void:
+	get_tree().reload_current_scene()

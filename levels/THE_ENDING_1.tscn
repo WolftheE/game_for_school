@@ -1,14 +1,130 @@
-[gd_scene load_steps=6 format=3 uid="uid://bmcsno1ur8o1c"]
+[gd_scene load_steps=12 format=3 uid="uid://bmcsno1ur8o1c"]
 
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_240nu"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="2_p3jve"]
 [ext_resource type="AudioStream" uid="uid://b7nxdy8smperh" path="res://sound/pleasant-atmosphere-153275.mp3" id="3_0d6tc"]
+[ext_resource type="Texture2D" uid="uid://4ya2lhpwi0vv" path="res://texture/table_with_computer_texture.png" id="4_srv6x"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="5_s3f5x"]
+[ext_resource type="Texture2D" uid="uid://c0cb5nxgq48df" path="res://texture/grassman.png" id="6_0ag4d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3jve"]
 size = Vector2(582.75, 13)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d6tc"]
 size = Vector2(6, 237)
+
+[sub_resource type="Animation" id="Animation_srv6x"]
+resource_name = "script_1"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1, 3, 3.03333, 4.83333, 5.93333, 5.96667, 8, 9.6, 9.63333, 13, 15.0333, 15.0667, 15.9667, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Oh hi yellow guy", "Oh hi yellow guy", "", "Hmmm he killed you as well...", "Hmmm he killed you as well...", "", "Um yeah I guess", "Um yeah I guess", "", "Well, Grass Man was just talking about 
+you. But he was going to ask if you 
+want to go to a new world with him?", "Well, Grass Man was just talking about 
+you. But he was going to ask if you 
+want to go to a new world with him?", "", "Well...", "Well..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 17.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.03333, 5.96667, 9.63333, 17.0333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false, false]
+}
+
+[sub_resource type="Animation" id="Animation_s3f5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_imx38"]
+_data = {
+&"RESET": SubResource("Animation_s3f5x"),
+&"script_1": SubResource("Animation_srv6x")
+}
 
 [node name="TheEnding1" type="Node2D"]
 
@@ -46,3 +162,105 @@ stream = ExtResource("3_0d6tc")
 volume_db = -18.0
 autoplay = true
 bus = &"music"
+
+[node name="TableWithComputerTexture" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -496.0
+offset_top = -65.0
+offset_right = -419.0
+offset_bottom = 15.0
+texture = ExtResource("4_srv6x")
+stretch_mode = 4
+
+[node name="TableWithComputerTexture2" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -490.0
+offset_top = -20.0
+offset_right = -473.0
+offset_bottom = -1.0
+texture = ExtResource("1_240nu")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="dialog" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_imx38")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="script_bg" type="Panel" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -238.0
+offset_top = -98.0
+offset_right = 236.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="script_text" type="Label" parent="CanvasLayer/script_bg"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 2.0
+offset_right = 305.0
+offset_bottom = 50.0
+
+[node name="dev" type="TextureRect" parent="CanvasLayer/script_bg"]
+visible = false
+layout_mode = 0
+offset_left = 396.0
+offset_top = 7.0
+offset_right = 460.0
+offset_bottom = 71.0
+texture = ExtResource("1_240nu")
+
+[node name="Label" type="Label" parent="CanvasLayer/script_bg/dev"]
+layout_mode = 0
+offset_left = -391.0
+offset_top = -6.0
+offset_right = -311.0
+offset_bottom = 17.0
+text = "Developer:"
+
+[node name="pissman" type="TextureRect" parent="CanvasLayer/script_bg"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 422.0
+offset_top = -43.0
+offset_right = 537.0
+offset_bottom = 69.0
+texture = ExtResource("5_s3f5x")
+
+[node name="Label" type="Label" parent="CanvasLayer/script_bg/pissman"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -417.0
+offset_top = 44.0
+offset_right = -344.0
+offset_bottom = 67.0
+text = "Piss Man:"
+
+[node name="grassman" type="TextureRect" parent="CanvasLayer/script_bg"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 421.0
+offset_top = -43.0
+offset_right = 542.0
+offset_bottom = 69.0
+texture = ExtResource("6_0ag4d")
+
+[node name="Label" type="Label" parent="CanvasLayer/script_bg/grassman"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -416.0
+offset_top = 44.0
+offset_right = -334.0
+offset_bottom = 67.0
+text = "Grass Man:"
