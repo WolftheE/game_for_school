@@ -40,3 +40,14 @@ res://scripts/level_9.gd
 res://levels/fight_1.tscn
 res://scripts/fallen_level_1.gd
 res://scripts/fight_1.gd
+res://levels/boss_fight.gd
+res://scripts/boss_fight.gd
+res://scripts/boss_fight_level.gd
+res://scripts/fps.gd
+res://scripts/gun.gd
+res://scripts/Main_menu.gd
+res://scripts/null_boss.gd
+res://scripts/Options_manager.gd
+res://scripts/pause_menu.gd
+res://scripts/player2d.gd
+res://scripts/random_number.gd
