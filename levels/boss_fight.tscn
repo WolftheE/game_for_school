@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bttl3l07v8paa"]
+[gd_scene load_steps=55 format=3 uid="uid://bttl3l07v8paa"]
 
 [ext_resource type="Script" path="res://levels/boss_fight.gd" id="1_s2uqd"]
 [ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_2ukfj"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cuar7rtfpgolg" path="res://texture/null_heart.png" id="10_tpoii"]
 [ext_resource type="LabelSettings" uid="uid://brrhscwand8s3" path="res://texture/fonts/Text_for_boss.tres" id="11_2ukfj"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="11_bmqq7"]
+[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="12_hue3d"]
 [ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="12_k5tnt"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="13_15d1j"]
 [ext_resource type="Script" path="res://scripts/null_boss.gd" id="14_0vyu3"]
@@ -126,22 +127,6 @@ tracks/0/keys = {
 "values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
 }
 
-[sub_resource type="Animation" id="Animation_14k2e"]
-resource_name = "crush_3"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spikes:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.96667, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -100), Vector2(0, 130), Vector2(0, -200)]
-}
-
 [sub_resource type="Animation" id="Animation_hue3d"]
 resource_name = "crush_2"
 length = 10.0
@@ -158,12 +143,28 @@ tracks/0/keys = {
 "values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
 }
 
+[sub_resource type="Animation" id="Animation_14k2e"]
+resource_name = "crush_3"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5.96667, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 130), Vector2(0, -200)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14k2e"]
 _data = {
 &"RESET": SubResource("Animation_53syl"),
 &"crush_2": SubResource("Animation_hue3d"),
-&"crush_3": SubResource("Animation_14k2e"),
-&"crush": SubResource("Animation_0vyu3")
+&"crush": SubResource("Animation_0vyu3"),
+&"crush_3": SubResource("Animation_14k2e")
 }
 
 [sub_resource type="Animation" id="Animation_14vae"]
@@ -676,6 +677,52 @@ _data = {
 &"floor_up": SubResource("Animation_bmqq7")
 }
 
+[sub_resource type="Animation" id="Animation_15d1j"]
+resource_name = "1"
+length = 20.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/dialog/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667, 3.83333, 3.86667, 7.06667, 11.5, 11.5333, 13.0333, 15.8, 15.8333, 17.9333, 20.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "w̴͙͊̊o̵̟̙͋̕w̸͚̽,̴̛͖͇͑ ̴̛̺̈́y̸̗̓͝ͅo̸̪͠u̷͎̙͑ ̷̠̣͠r̸͖͌ḛ̴̋͠ȁ̷͇͝l̸̟̝͆l̵̞̣͋́y̷̰̟͋̄ ̶͕̍̐a̶̬̘̅r̸̢̟͋͝ë̸̜̯͐ ̶̖͐͌s̵̗͂t̷̛̙̼̆r̷͖͖̍o̴̡̫̕ņ̴̖̐ǵ̶̢̃", "w̴͙͊̊o̵̟̙͋̕w̸͚̽,̴̛͖͇͑ ̴̛̺̈́y̸̗̓͝ͅo̸̪͠u̷͎̙͑ ̷̠̣͠r̸͖͌ḛ̴̋͠ȁ̷͇͝l̸̟̝͆l̵̞̣͋́y̷̰̟͋̄ ̶͕̍̐a̶̬̘̅r̸̢̟͋͝ë̸̜̯͐ ̶̖͐͌s̵̗͂t̷̛̙̼̆r̷͖͖̍o̴̡̫̕ņ̴̖̐ǵ̶̢̃", "", "W̵e̵l̷l̴,̴ ̸i̴f̴ ̴y̸o̵u̷ ̶d̵i̸d̶n̶'̷t̵ ̶k̶n̶o̵w̶ ̶I̵'̷m̶ ̴a̷ ̷c̶o̷r̸r̶u̷p̸t̸i̶o̴n̵ ̶
+a̶n̸d̶ ̷I̷'̶m̵ ̵n̵o̶t̶ ̵m̶e̷n̶t̴ ̴t̵o̶ ̷b̷e̵ ̵h̵e̶r̴e̶.̵ ̴
+
+̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l...", "W̵e̵l̷l̴,̴ ̸i̴f̴ ̴y̸o̵u̷ ̶d̵i̸d̶n̶'̷t̵ ̶k̶n̶o̵w̶ ̶I̵'̷m̶ ̴a̷ ̷c̶o̷r̸r̶u̷p̸t̸i̶o̴n̵ ̶
+a̶n̸d̶ ̷I̷'̶m̵ ̵n̵o̶t̶ ̵m̶e̷n̶t̴ ̴t̵o̶ ̷b̷e̵ ̵h̵e̶r̴e̶.̵ ̴
+
+̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l ̵
+o̶f̵ ̶t̴h̴e̴ ̷m̴e̷m̷o̷r̴y̸.̷.̴.̵", "", "I̶ ̸m̵u̷s̶t̷ ̸s̸a̴y̵ ̸t̸h̵o̶u̷g̷h̷,̷ ̴y̷o̶u̴r̸ ̷e̴f̵f̵o̷r̶t̷ ̴w̸a̵s̶ ̴
+g̶o̵o̷d̷ ̶b̸u̸t̶ ̸n̸o̸t̴ ̸g̸o̴o̵d̷ ̷e̶n̸o̷u̶g̵h̵", "I̶ ̸m̵u̷s̶t̷ ̸s̸a̴y̵ ̸t̸h̵o̶u̷g̷h̷,̷ ̴y̷o̶u̴r̸ ̷e̴f̵f̵o̷r̶t̷ ̴w̸a̵s̶ ̴
+g̶o̵o̷d̷ ̶b̸u̸t̶ ̸n̸o̸t̴ ̸g̸o̴o̵d̷ ̷e̶n̸o̷u̶g̵h̵", "", "B̸u̵t̷ ̴s̶e̶r̷i̶o̴u̴s̴ ̶t̴h̵o̵u̶g̷h̸,̶ ̷g̸o̸o̴d̴ ̷b̴y̴e̸", "B̸u̵t̷ ̴s̶e̶r̷i̶o̴u̴s̴ ̶t̴h̵o̵u̶g̷h̸,̶ ̷g̸o̸o̴d̴ ̷b̴y̴e̸"]
+}
+
+[sub_resource type="Animation" id="Animation_6d334"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/dialog/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rcn5k"]
+_data = {
+&"RESET": SubResource("Animation_6d334"),
+&"1": SubResource("Animation_15d1j")
+}
+
 [node name="BossFightLevel" type="Node2D"]
 script = ExtResource("1_s2uqd")
 
@@ -993,6 +1040,57 @@ offset_bottom = 103.0
 text = "Null"
 label_settings = ExtResource("11_2ukfj")
 
+[node name="dialog" type="Panel" parent="textbox"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -218.0
+offset_top = 23.0
+offset_right = 219.0
+offset_bottom = 133.0
+grow_horizontal = 2
+
+[node name="pissman" type="TextureRect" parent="textbox/dialog"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_left = 361.0
+offset_top = -68.0
+offset_right = 542.0
+offset_bottom = 98.0
+texture = ExtResource("12_hue3d")
+
+[node name="Label" type="Label" parent="textbox/dialog/pissman"]
+texture_filter = 2
+layout_mode = 0
+offset_left = -356.0
+offset_top = 69.0
+offset_right = -283.0
+offset_bottom = 92.0
+text = "Piss Man:"
+
+[node name="Text" type="Label" parent="textbox/dialog"]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 5.0
+offset_right = 396.0
+offset_bottom = 132.0
+
+[node name="null_boss" type="Sprite2D" parent="textbox/dialog"]
+texture_filter = 1
+position = Vector2(403, 36)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_53syl")
+
+[node name="Label" type="Label" parent="textbox/dialog/null_boss"]
+texture_filter = 2
+offset_left = -7920.0
+offset_top = -660.0
+offset_right = -7833.0
+offset_bottom = -637.0
+scale = Vector2(17.5, 17.5)
+text = "NULL:"
+
 [node name="levelstuff" type="Node2D" parent="."]
 
 [node name="background" type="Node2D" parent="levelstuff"]
@@ -1042,7 +1140,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="poll2" type="TextureRect" parent="levelstuff/platforms/platform1"]
-modulate = Color(0.2484, 0.2484, 0.2484, 1)
+modulate = Color(0.111197, 0.111197, 0.111197, 1)
 offset_left = -341.0
 offset_top = -626.0
 offset_right = 1099.0
@@ -1053,7 +1151,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="poll3" type="TextureRect" parent="levelstuff/platforms/platform1"]
-modulate = Color(0.2484, 0.2484, 0.2484, 1)
+modulate = Color(0.140447, 0.140447, 0.140447, 1)
 offset_left = 1082.0
 offset_top = -622.0
 offset_right = 2522.0
@@ -1380,7 +1478,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
-position = Vector2(0, -202)
+position = Vector2(-32, -202)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step4"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1459,7 +1557,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
-position = Vector2(0, -202)
+position = Vector2(29, -202)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step4"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -2061,6 +2159,11 @@ libraries = {
 [node name="null_attack" type="AnimationPlayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="script" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rcn5k")
+}
 
 [connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
 [connection signal="body_shape_entered" from="falling spikes/spike1/Area2D" to="." method="_on_area_2d_body_shape_entered"]

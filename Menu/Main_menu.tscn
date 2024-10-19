@@ -663,19 +663,15 @@ z_index = 2
 offset_top = 282.0
 offset_right = 406.0
 offset_bottom = 617.0
-text = "Ver 1.0 Alpha
-TEST BUILD
-Really Getting there....
-Notes:
-- Changed game engine after the drama that happen
-- Now using Redot Game engine
-- New cool intro
-
-Notes for self 
-- Boss fight ideas
-- Need epic Boss fight music
-- smother animation for cutscenes
-- maybe make them skipable"
+text = "Ver 1.1 BETA
+- Game is almost ready to be made public
+- Fixed soo many bugs
+- Fixed the words gamma 
+- Fixed dialog
+- Boss fight almost done
+- Ending screen added with 2 options
+- so much more!
+- fixed a issue on low end hardware"
 
 [node name="World_enviroment" parent="." instance=ExtResource("2_wue4d")]
 script = ExtResource("3_wgfvn")

@@ -5,10 +5,10 @@ extends Node3D
 var paused = false
 
 func _ready() -> void:
-	Engine.time_scale = 1
-	DisplayServer.window_set_title('The Cube I think - Game')
 	if Graphics.voxel_gi == 1:
 		$VoxelGI2.visible = true
+	Engine.time_scale = 1
+	DisplayServer.window_set_title('The Cube I think - Game')
 	$"KevinMacLeod-FluffingADuck".playing = true
 
 func _process(delta: float) -> void:

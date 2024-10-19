@@ -1,73 +1,26 @@
-[gd_scene load_steps=12 format=3 uid="uid://bmcsno1ur8o1c"]
+[gd_scene load_steps=24 format=3 uid="uid://bmcsno1ur8o1c"]
 
+[ext_resource type="Script" path="res://levels/the_ending_1.gd" id="1_3oott"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_240nu"]
 [ext_resource type="PackedScene" uid="uid://iog44ou6rn43" path="res://Others/player.tscn" id="2_p3jve"]
 [ext_resource type="AudioStream" uid="uid://b7nxdy8smperh" path="res://sound/pleasant-atmosphere-153275.mp3" id="3_0d6tc"]
 [ext_resource type="Texture2D" uid="uid://4ya2lhpwi0vv" path="res://texture/table_with_computer_texture.png" id="4_srv6x"]
 [ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="5_s3f5x"]
 [ext_resource type="Texture2D" uid="uid://c0cb5nxgq48df" path="res://texture/grassman.png" id="6_0ag4d"]
+[ext_resource type="LabelSettings" uid="uid://brrhscwand8s3" path="res://texture/fonts/Text_for_boss.tres" id="7_0ag4d"]
+[ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="8_gfbol"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p3jve"]
 size = Vector2(582.75, 13)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfbol"]
+size = Vector2(61, 41)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0d6tc"]
 size = Vector2(6, 237)
 
-[sub_resource type="Animation" id="Animation_srv6x"]
-resource_name = "script_1"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.1, 3, 3.03333, 4.83333, 5.93333, 5.96667, 8, 9.6, 9.63333, 13, 15.0333, 15.0667, 15.9667, 17),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": ["", "Oh hi yellow guy", "Oh hi yellow guy", "", "Hmmm he killed you as well...", "Hmmm he killed you as well...", "", "Um yeah I guess", "Um yeah I guess", "", "Well, Grass Man was just talking about 
-you. But he was going to ask if you 
-want to go to a new world with him?", "Well, Grass Man was just talking about 
-you. But he was going to ask if you 
-want to go to a new world with him?", "", "Well...", "Well..."]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 17),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 17.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, false, true, false, true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 3.03333, 5.96667, 9.63333, 17.0333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [true, false, false, false, false]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3oott"]
+size = Vector2(20, 35)
 
 [sub_resource type="Animation" id="Animation_s3f5x"]
 length = 0.001
@@ -120,20 +73,249 @@ tracks/3/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_3oott"]
+resource_name = "script_2"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.2, 3.23333, 5.16667, 6.96667, 6.96677, 7, 10.0667, 13, 13.0333, 16.1, 17.7667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Ok, sure", "Ok, sure", "", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "", "Alright, sorry about this we have some
+bugs going around but we can 
+ensure it won't happen again", "Alright, sorry about this we have some
+bugs going around but we can 
+ensure it won't happen again", "", "And... ok one done, now you Pissman", "And... ok one done, now you Pissman"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_a8ish"]
+resource_name = "script_3"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.93333, 3.53333, 3.56667, 5.8, 8.53333, 8.56667, 10.5, 12.2333, 12.2667, 14, 15.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "I want to go back home", "I want to go back home", "", "Oh, its fine", "Oh, its fine", "", "Ok, sure", "Ok, sure", "", "Ok, bye and thanks for your help!", "Ok, bye and thanks for your help!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_srv6x"]
+resource_name = "script_1"
+length = 23.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.1, 3, 3.03333, 4.83333, 5.93333, 5.96667, 8, 9.6, 9.63333, 14.2667, 20.3, 20.3333, 21.8667, 22.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Oh hi yellow guy", "Oh hi yellow guy", "", "Hmmm he killed you as well...", "Hmmm he killed you as well...", "", "Um yeah I guess", "Um yeah I guess", "", "Well, Grassman were just talking about 
+you. He was going to ask you if you
+want to go to a new world with him?", "Well, Grassman were just talking about 
+you. He was going to ask you if you
+want to go to a new world with him?", "", "Well...", "Well..."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 20.3667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.03333, 5.96667, 9.63333, 20.3666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.03333, 5.96667, 9.63333, 20.3666),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_imx38"]
 _data = {
 &"RESET": SubResource("Animation_s3f5x"),
-&"script_1": SubResource("Animation_srv6x")
+&"script_1": SubResource("Animation_srv6x"),
+&"script_3": SubResource("Animation_a8ish"),
+&"script_2": SubResource("Animation_3oott")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufcuv"]
+size = Vector2(56, 115)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3oott"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 0.01
+angle_min = -139.0
+angle_max = 69.0
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = -250.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 98, 0)
+scale_min = 0.01
+scale_max = 0.05
+
+[sub_resource type="Animation" id="Animation_ufcuv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_gfbol"]
+resource_name = "cam_zoom_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player/Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(0.01, 0.01)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8ish"]
+_data = {
+&"RESET": SubResource("Animation_ufcuv"),
+&"cam_zoom_out": SubResource("Animation_gfbol")
 }
 
 [node name="TheEnding1" type="Node2D"]
+script = ExtResource("1_3oott")
 
 [node name="bg" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_left = -2612.0
-offset_top = -1520.0
-offset_right = 4003.0
-offset_bottom = 2368.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174722.0
+offset_top = -70136.0
+offset_right = -137086.0
+offset_bottom = -41992.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(10, 10)
 texture = ExtResource("1_240nu")
 
 [node name="world_colision" type="StaticBody2D" parent="."]
@@ -142,6 +324,10 @@ texture = ExtResource("1_240nu")
 position = Vector2(-216.625, 20.5)
 shape = SubResource("RectangleShape2D_p3jve")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="world_colision"]
+position = Vector2(-464.5, -8.5)
+shape = SubResource("RectangleShape2D_gfbol")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="world_colision"]
 position = Vector2(69, -105.5)
 shape = SubResource("RectangleShape2D_0d6tc")
@@ -149,6 +335,10 @@ shape = SubResource("RectangleShape2D_0d6tc")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="world_colision"]
 position = Vector2(-501, -108)
 shape = SubResource("RectangleShape2D_0d6tc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="world_colision"]
+position = Vector2(-380, -7.5)
+shape = SubResource("RectangleShape2D_3oott")
 
 [node name="player" parent="." instance=ExtResource("2_p3jve")]
 position = Vector2(45, -10)
@@ -190,15 +380,16 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="script_bg" type="Panel" parent="CanvasLayer"]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -238.0
-offset_top = -98.0
+offset_top = -185.0
 offset_right = 236.0
-offset_bottom = -19.0
+offset_bottom = -106.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -264,3 +455,87 @@ offset_top = 44.0
 offset_right = -334.0
 offset_bottom = 67.0
 text = "Grass Man:"
+
+[node name="pick" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -181.0
+offset_top = -175.0
+offset_right = 181.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="options_1" type="Button" parent="CanvasLayer/pick"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 100.0
+offset_right = 170.0
+offset_bottom = 131.0
+theme = ExtResource("8_gfbol")
+text = "Go with Grassman"
+
+[node name="options_2" type="Button" parent="CanvasLayer/pick"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 190.0
+offset_top = 101.0
+offset_right = 344.0
+offset_bottom = 132.0
+theme = ExtResource("8_gfbol")
+text = "nah, go back home"
+
+[node name="Label" type="Label" parent="CanvasLayer/pick"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 127.0
+offset_top = 14.0
+offset_right = 222.0
+offset_bottom = 54.0
+text = "Pick One"
+label_settings = ExtResource("7_0ag4d")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-254, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-18, -47.5)
+shape = SubResource("RectangleShape2D_ufcuv")
+debug_color = Color(0, 0.640424, 0.35011, 0.42)
+
+[node name="grassman" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = -434.0
+offset_top = -52.0
+offset_right = -366.0
+offset_bottom = 12.0
+texture = ExtResource("6_0ag4d")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.490196, 1, 0.133333, 1)
+position = Vector2(-378, -7)
+emitting = false
+amount = 16
+lifetime = 7.0
+one_shot = true
+preprocess = 0.07
+explosiveness = 1.0
+texture = ExtResource("1_240nu")
+process_material = SubResource("ParticleProcessMaterial_3oott")
+
+[node name="camera" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_a8ish")
+}
+
+[connection signal="pressed" from="CanvasLayer/pick/options_1" to="." method="_on_options_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/pick/options_2" to="." method="_on_options_2_pressed"]
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

@@ -67,6 +67,45 @@ size = Vector2(22, 1.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3je01"]
 
+[sub_resource type="Animation" id="Animation_swu36"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Grassman2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("textbox/Panel/TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("textbox/Panel/Label:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["W"]
+}
+
 [sub_resource type="Animation" id="Animation_sfoys"]
 resource_name = "dialog"
 length = 31.0
@@ -111,50 +150,11 @@ he is a \"thing\" that has
 been destroying other universes
 and he is coming here!
                     ", "I don't have much time but
-he just a \"thing\" that has
-been Destorying other universe
-and he is comming here!
+he is a \"thing\" that has
+been destroying other universes
+and he is coming here!
                     ", "", "Um thanks I guess...
                     ", "", "No worries :)"]
-}
-
-[sub_resource type="Animation" id="Animation_swu36"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("textbox/Panel/Grassman2:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("textbox/Panel/TextureRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("textbox/Panel/Label:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["W"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ar1w6"]
@@ -237,7 +237,6 @@ text = "Coins = "
 script = ExtResource("3_fdlen")
 
 [node name="Panel" type="Panel" parent="textbox"]
-visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -263,7 +262,7 @@ offset_left = -356.0
 offset_top = 69.0
 offset_right = -283.0
 offset_bottom = 92.0
-text = "Piss Man:"
+text = "Pissman:"
 
 [node name="Label" type="Label" parent="textbox/Panel"]
 layout_mode = 0
@@ -286,7 +285,7 @@ offset_top = -5.36527
 offset_right = -71.0553
 offset_bottom = 17.6347
 scale = Vector2(0.35, 0.35)
-text = "Grass Man:"
+text = "Grassman:"
 
 [node name="level_done" type="Control" parent="textbox"]
 visible = false

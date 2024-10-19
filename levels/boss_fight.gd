@@ -6,7 +6,7 @@ var can_shoot = 1
 func _ready() -> void:
 	$death.play("RESET")
 	Engine.time_scale = 1
-	NullHeath.heath = 50
+	NullHeath.heath = 5
 	PlayerHeath.playerheath = 5
 
 func _process(delta: float) -> void:
@@ -57,7 +57,8 @@ func _process(delta: float) -> void:
 		$textbox/nullman_health/BoxContainer/TextureRect3.hide()
 	if NullHeath.heath == 0:
 		$textbox/nullman_health/BoxContainer/TextureRect2.hide()
-
+		$textbox/dialog.visible = true
+		$script.play("1")
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):

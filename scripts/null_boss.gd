@@ -2,7 +2,7 @@ extends CharacterBody2D
 @onready var player = $"../player"
 var rdn = RandomNumberGenerator.new()
 var charge_time = 1
-var speed = 125
+var speed = 100
 var can_move = 1
 
 func _physics_process(delta: float) -> void:
@@ -19,6 +19,9 @@ func _physics_process(delta: float) -> void:
 	if charge_time == 1:
 		charge()
 	
+	if NullHeath.heath == 0:
+		can_move = 0
+	
 	# IMPORTANT
 	move_and_slide()
 
@@ -30,8 +33,8 @@ func charge():
 	speed = -50
 	await get_tree().create_timer(1).timeout
 	speed = 800
-	await get_tree().create_timer(0.3).timeout
-	speed = 125
+	await get_tree().create_timer(0.5).timeout
+	speed = 100
 	charge_time = 1
 
 
@@ -40,7 +43,6 @@ func charge():
 
 func _on_bullet_hitbox_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	NullHeath.heath -= 1
-	print('hello')
 
 
 func _on_colision_left_body_entered(body: Node2D) -> void:
