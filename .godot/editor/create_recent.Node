@@ -1,14 +1,14 @@
+CollisionShape2D
+Area2D
+TextureRect
 AnimationPlayer
 CollisionShape3D
 Area3D
 MeshInstance3D
 StaticBody3D
-CollisionShape2D
 RigidBody2D
 Camera2D
-TextureRect
 StaticBody2D
-Area2D
 Label
 Button
 Panel

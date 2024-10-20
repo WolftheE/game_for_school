@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbn88iv63rntk"]
+[gd_scene load_steps=13 format=3 uid="uid://dbn88iv63rntk"]
 
 [ext_resource type="Script" path="res://scripts/boss_fight.gd" id="1_0gwu0"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="2_27of0"]
 [ext_resource type="FontFile" uid="uid://b7lha7kprboi" path="res://texture/fonts/Handjet-Bold.ttf" id="3_wdwjs"]
+[ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="4_2n86p"]
 [ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="4_ypara"]
 [ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="5_vlmmk"]
 
@@ -11,6 +12,14 @@ font = ExtResource("3_wdwjs")
 font_size = 125
 outline_size = 20
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2351l"]
+font = ExtResource("4_2n86p")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_tmyqh"]
+font = ExtResource("4_2n86p")
+font_size = 100
 
 [sub_resource type="Animation" id="Animation_grhch"]
 length = 0.001
@@ -60,7 +69,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-720, -315)]
+"values": [Vector2(-720, -500)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -125,7 +134,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.5, 2.5, 5.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-720, -315), Vector2(-720, -315), Vector2(-486, -277), Vector2(-486, -277)]
+"values": [Vector2(-1000, -315), Vector2(-720, -315), Vector2(-486, -277), Vector2(-486, -277)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -161,10 +170,10 @@ offset_bottom = 850.0
 texture = ExtResource("2_27of0")
 
 [node name="line" type="TextureRect" parent="bg stuff"]
-offset_left = -70.0
-offset_top = 444.0
-offset_right = 1953.0
-offset_bottom = 468.0
+offset_left = -337.0
+offset_top = 531.0
+offset_right = 1686.0
+offset_bottom = 555.0
 rotation = 1.82257
 texture = ExtResource("2_27of0")
 expand_mode = 1
@@ -181,27 +190,29 @@ text = "Vs"
 label_settings = SubResource("LabelSettings_5l112")
 
 [node name="name_left" type="Label" parent="bg stuff"]
-offset_left = -720.0
+offset_left = -1000.0
 offset_top = -315.0
-offset_right = -651.0
-offset_bottom = -292.0
+offset_right = -712.0
+offset_bottom = -202.0
 text = "Piss Man"
+label_settings = SubResource("LabelSettings_2351l")
 
 [node name="name_right" type="Label" parent="bg stuff"]
 offset_left = 619.0
 offset_top = -318.0
-offset_right = 659.0
-offset_bottom = -295.0
+offset_right = 743.0
+offset_bottom = -205.0
 text = "Null"
+label_settings = SubResource("LabelSettings_tmyqh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="pissman" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = -1888.0
-offset_top = -14.0
-offset_right = -537.0
-offset_bottom = 1252.0
+offset_left = -2044.0
+offset_top = 131.0
+offset_right = -693.0
+offset_bottom = 1397.0
 rotation = -0.15209
 texture = ExtResource("4_ypara")
 stretch_mode = 4
@@ -209,10 +220,10 @@ flip_h = true
 
 [node name="null_boss" type="TextureRect" parent="."]
 texture_filter = 1
-offset_left = 611.0
-offset_top = 522.0
-offset_right = 1962.0
-offset_bottom = 1788.0
+offset_left = 739.0
+offset_top = 792.0
+offset_right = 2090.0
+offset_bottom = 2058.0
 rotation = 0.0436332
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_vlmmk")

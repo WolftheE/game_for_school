@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://bttl3l07v8paa"]
+[gd_scene load_steps=61 format=3 uid="uid://bttl3l07v8paa"]
 
 [ext_resource type="Script" path="res://levels/boss_fight.gd" id="1_s2uqd"]
 [ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_2ukfj"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://cfgqufxrm4ysg" path="res://texture/gun.png" id="14_6d334"]
 [ext_resource type="Texture2D" uid="uid://bkjcwl2vitqs6" path="res://texture/spike.png" id="14_53syl"]
 [ext_resource type="Script" path="res://scripts/gun.gd" id="15_rcn5k"]
+[ext_resource type="AudioStream" uid="uid://dqibjc2oyf0w6" path="res://sound/boss_music_file.mp3" id="20_14k2e"]
+[ext_resource type="AudioStream" uid="uid://b6koklcd35nt1" path="res://sound/Gun_shot.mp3" id="21_63wjl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53syl"]
 shader = ExtResource("10_14vae")
@@ -93,6 +95,9 @@ gravity = Vector3(0, 98, 0)
 scale_min = 0.01
 scale_max = 0.05
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14vae"]
+size = Vector2(18462.5, 910)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ogsy"]
 size = Vector2(1477, 137)
 
@@ -111,22 +116,6 @@ tracks/0/keys = {
 "values": [Vector2(0, -200)]
 }
 
-[sub_resource type="Animation" id="Animation_0vyu3"]
-resource_name = "crush"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spikes:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 7.46667, 10),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
-}
-
 [sub_resource type="Animation" id="Animation_hue3d"]
 resource_name = "crush_2"
 length = 10.0
@@ -141,6 +130,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
+}
+
+[sub_resource type="Animation" id="Animation_0vyu3"]
+resource_name = "crush"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 7.46667, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
 }
 
 [sub_resource type="Animation" id="Animation_14k2e"]
@@ -162,9 +167,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14k2e"]
 _data = {
 &"RESET": SubResource("Animation_53syl"),
+&"crush_3": SubResource("Animation_14k2e"),
 &"crush_2": SubResource("Animation_hue3d"),
-&"crush": SubResource("Animation_0vyu3"),
-&"crush_3": SubResource("Animation_14k2e")
+&"crush": SubResource("Animation_0vyu3")
 }
 
 [sub_resource type="Animation" id="Animation_14vae"]
@@ -677,6 +682,58 @@ _data = {
 &"floor_up": SubResource("Animation_bmqq7")
 }
 
+[sub_resource type="Animation" id="Animation_rcn5k"]
+resource_name = "player"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor/TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-1664, -1140), Vector2(-1664, -500)]
+}
+
+[sub_resource type="Animation" id="Animation_homb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor/TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1664, -1140)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dealc"]
+_data = {
+&"RESET": SubResource("Animation_homb6"),
+&"player": SubResource("Animation_rcn5k")
+}
+
+[sub_resource type="Animation" id="Animation_6d334"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/dialog/Text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [""]
+}
+
 [sub_resource type="Animation" id="Animation_15d1j"]
 resource_name = "1"
 length = 20.5
@@ -693,28 +750,14 @@ tracks/0/keys = {
 "values": ["", "w̴͙͊̊o̵̟̙͋̕w̸͚̽,̴̛͖͇͑ ̴̛̺̈́y̸̗̓͝ͅo̸̪͠u̷͎̙͑ ̷̠̣͠r̸͖͌ḛ̴̋͠ȁ̷͇͝l̸̟̝͆l̵̞̣͋́y̷̰̟͋̄ ̶͕̍̐a̶̬̘̅r̸̢̟͋͝ë̸̜̯͐ ̶̖͐͌s̵̗͂t̷̛̙̼̆r̷͖͖̍o̴̡̫̕ņ̴̖̐ǵ̶̢̃", "w̴͙͊̊o̵̟̙͋̕w̸͚̽,̴̛͖͇͑ ̴̛̺̈́y̸̗̓͝ͅo̸̪͠u̷͎̙͑ ̷̠̣͠r̸͖͌ḛ̴̋͠ȁ̷͇͝l̸̟̝͆l̵̞̣͋́y̷̰̟͋̄ ̶͕̍̐a̶̬̘̅r̸̢̟͋͝ë̸̜̯͐ ̶̖͐͌s̵̗͂t̷̛̙̼̆r̷͖͖̍o̴̡̫̕ņ̴̖̐ǵ̶̢̃", "", "W̵e̵l̷l̴,̴ ̸i̴f̴ ̴y̸o̵u̷ ̶d̵i̸d̶n̶'̷t̵ ̶k̶n̶o̵w̶ ̶I̵'̷m̶ ̴a̷ ̷c̶o̷r̸r̶u̷p̸t̸i̶o̴n̵ ̶
 a̶n̸d̶ ̷I̷'̶m̵ ̵n̵o̶t̶ ̵m̶e̷n̶t̴ ̴t̵o̶ ̷b̷e̵ ̵h̵e̶r̴e̶.̵ ̴
 
-̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l...", "W̵e̵l̷l̴,̴ ̸i̴f̴ ̴y̸o̵u̷ ̶d̵i̸d̶n̶'̷t̵ ̶k̶n̶o̵w̶ ̶I̵'̷m̶ ̴a̷ ̷c̶o̷r̸r̶u̷p̸t̸i̶o̴n̵ ̶
+̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l
+and can do this", "W̵e̵l̷l̴,̴ ̸i̴f̴ ̴y̸o̵u̷ ̶d̵i̸d̶n̶'̷t̵ ̶k̶n̶o̵w̶ ̶I̵'̷m̶ ̴a̷ ̷c̶o̷r̸r̶u̷p̸t̸i̶o̴n̵ ̶
 a̶n̸d̶ ̷I̷'̶m̵ ̵n̵o̶t̶ ̵m̶e̷n̶t̴ ̴t̵o̶ ̷b̷e̵ ̵h̵e̶r̴e̶.̵ ̴
 
-̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l ̵
-o̶f̵ ̶t̴h̴e̴ ̷m̴e̷m̷o̷r̴y̸.̷.̴.̵", "", "I̶ ̸m̵u̷s̶t̷ ̸s̸a̴y̵ ̸t̸h̵o̶u̷g̷h̷,̷ ̴y̷o̶u̴r̸ ̷e̴f̵f̵o̷r̶t̷ ̴w̸a̵s̶ ̴
+̸W̶h̵i̶c̴h̵ ̶m̵e̶a̶n̷s̶ ̵I̴ ̴h̶a̶v̴e̸ ̶f̵u̸l̸l̴ ̶c̷o̶n̸t̴r̸o̷l
+and can do this", "", "I̶ ̸m̵u̷s̶t̷ ̸s̸a̴y̵ ̸t̸h̵o̶u̷g̷h̷,̷ ̴y̷o̶u̴r̸ ̷e̴f̵f̵o̷r̶t̷ ̴w̸a̵s̶ ̴
 g̶o̵o̷d̷ ̶b̸u̸t̶ ̸n̸o̸t̴ ̸g̸o̴o̵d̷ ̷e̶n̸o̷u̶g̵h̵", "I̶ ̸m̵u̷s̶t̷ ̸s̸a̴y̵ ̸t̸h̵o̶u̷g̷h̷,̷ ̴y̷o̶u̴r̸ ̷e̴f̵f̵o̷r̶t̷ ̴w̸a̵s̶ ̴
 g̶o̵o̷d̷ ̶b̸u̸t̶ ̸n̸o̸t̴ ̸g̸o̴o̵d̷ ̷e̶n̸o̷u̶g̵h̵", "", "B̸u̵t̷ ̴s̶e̶r̷i̶o̴u̴s̴ ̶t̴h̵o̵u̶g̷h̸,̶ ̷g̸o̸o̴d̴ ̷b̴y̴e̸", "B̸u̵t̷ ̴s̶e̶r̷i̶o̴u̴s̴ ̶t̴h̵o̵u̶g̷h̸,̶ ̷g̸o̸o̴d̴ ̷b̴y̴e̸"]
-}
-
-[sub_resource type="Animation" id="Animation_6d334"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("textbox/dialog/Text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [""]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rcn5k"]
@@ -1020,6 +1063,48 @@ layout_mode = 2
 texture = ExtResource("10_tpoii")
 expand_mode = 2
 
+[node name="TextureRect6" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect10" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect11" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
+[node name="TextureRect12" type="TextureRect" parent="textbox/nullman_health/BoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_tpoii")
+expand_mode = 2
+
 [node name="Label" type="Label" parent="textbox/nullman_health"]
 texture_filter = 1
 layout_mode = 0
@@ -1041,6 +1126,7 @@ text = "Null"
 label_settings = ExtResource("11_2ukfj")
 
 [node name="dialog" type="Panel" parent="textbox"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -2106,13 +2192,21 @@ stretch_mode = 1
 [node name="TextureRect2" type="TextureRect" parent="Floor"]
 modulate = Color(0.593134, 0.593134, 0.593134, 1)
 offset_left = -1664.0
-offset_top = -964.0
+offset_top = -1140.0
 offset_right = 41774.0
-offset_bottom = 4784.0
+offset_bottom = 6808.0
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_53syl")
 expand_mode = 2
 stretch_mode = 1
+
+[node name="change_level" type="Area2D" parent="Floor/TextureRect2"]
+position = Vector2(20487.5, 6737.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/TextureRect2/change_level"]
+position = Vector2(-668.75, 445)
+shape = SubResource("RectangleShape2D_14vae")
+debug_color = Color(0.412276, 0.605954, 0, 0.42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 position = Vector2(-78.5, 59)
@@ -2158,12 +2252,28 @@ libraries = {
 
 [node name="null_attack" type="AnimationPlayer" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="kill_player_for_once" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_dealc")
+}
 
 [node name="script" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_rcn5k")
 }
+speed_scale = 0.9
+
+[node name="BossMusicFile" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_14k2e")
+volume_db = -1.0
+autoplay = true
+bus = &"music"
+
+[node name="GunShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_63wjl")
+volume_db = -10.0
+pitch_scale = 0.3
+bus = &"sfx"
 
 [connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
 [connection signal="body_shape_entered" from="falling spikes/spike1/Area2D" to="." method="_on_area_2d_body_shape_entered"]
@@ -2182,3 +2292,4 @@ libraries = {
 [connection signal="body_entered" from="null_boss/top" to="null_boss" method="_on_top_body_entered"]
 [connection signal="body_shape_entered" from="null_boss/stoper" to="null_boss" method="_on_stoper_body_shape_entered"]
 [connection signal="body_shape_exited" from="null_boss/stoper" to="null_boss" method="_on_stoper_body_shape_exited"]
+[connection signal="body_shape_entered" from="Floor/TextureRect2/change_level" to="." method="_on_change_level_body_shape_entered"]

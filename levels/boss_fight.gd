@@ -2,6 +2,7 @@ extends Node2D
 @onready var bullet_left = preload("res://Others/bullet_left.tscn")
 @onready var bullet_right = preload("res://Others/bullet_right.tscn")
 var can_shoot = 1
+var boss_dead = 0
 
 func _ready() -> void:
 	$death.play("RESET")
@@ -57,12 +58,33 @@ func _process(delta: float) -> void:
 		$textbox/nullman_health/BoxContainer/TextureRect3.hide()
 	if NullHeath.heath == 0:
 		$textbox/nullman_health/BoxContainer/TextureRect2.hide()
-		$textbox/dialog.visible = true
-		$script.play("1")
+		if boss_dead == 0:
+			player_killed_null()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+
+func player_killed_null():
+	boss_dead = 1
+	$textbox/dialog.visible = true
+	$BossMusicFile.playing = false
+	$script.play("1")
+	await get_tree().create_timer(9).timeout
+	$textbox/nullman_health/BoxContainer/TextureRect6.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect7.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect8.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect9.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect10.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect11.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect12.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect2.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect3.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect4.visible = true
+	$textbox/nullman_health/BoxContainer/TextureRect5.visible = true
+	await get_tree().create_timer(11).timeout
+	$kill_player_for_once.play("player")
 
 
 func shoot():
@@ -72,6 +94,7 @@ func shoot():
 		var pos = $player/bulet_spawner.global_position
 		bullet_thing_left.position = Vector2(pos)
 		add_child(bullet_thing_left)
+		$GunShot.playing = true
 		await get_tree().create_timer(0.6).timeout
 		can_shoot += 1
 	
@@ -81,11 +104,9 @@ func shoot():
 		var pos = $player/bulet_spawner.global_position
 		bullet_thing_right.position = Vector2(pos)
 		add_child(bullet_thing_right)
+		$GunShot.playing = true
 		await get_tree().create_timer(0.6).timeout
 		can_shoot += 1
-	
-	else:
-		pass
 
 
 func dead():
@@ -107,3 +128,8 @@ func _on_respawn_button_pressed() -> void:
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
 		PlayerHeath.playerheath -= 1
+
+
+func _on_change_level_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	if "player" in body.name:
+		get_tree().change_scene_to_file("res://levels/THE_ENDING_1.tscn")

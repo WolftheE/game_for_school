@@ -221,7 +221,6 @@ z_index = 10
 position = Vector2(1, 24)
 
 [node name="Camera2D" type="Camera2D" parent="player2d"]
-position = Vector2(-2, -24)
 offset = Vector2(0, -50)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
@@ -237,6 +236,7 @@ text = "Coins = "
 script = ExtResource("3_fdlen")
 
 [node name="Panel" type="Panel" parent="textbox"]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -272,18 +272,22 @@ offset_right = 425.0
 offset_bottom = 129.0
 text = "W"
 
-[node name="Grassman2" type="Sprite2D" parent="textbox/Panel"]
+[node name="Grassman2" type="TextureRect" parent="textbox/Panel"]
 texture_filter = 1
-position = Vector2(451, 14)
+layout_mode = 0
+offset_left = 370.0
+offset_top = -68.0
+offset_right = 434.0
+offset_bottom = -4.0
 scale = Vector2(2.82812, 2.60938)
 texture = ExtResource("14_m17aj")
 
 [node name="Label" type="Label" parent="textbox/Panel/Grassman2"]
 texture_filter = 2
-offset_left = -158.055
-offset_top = -5.36527
-offset_right = -71.0553
-offset_bottom = 17.6347
+offset_left = -130.475
+offset_top = 26.4431
+offset_right = -43.4757
+offset_bottom = 49.4431
 scale = Vector2(0.35, 0.35)
 text = "Grassman:"
 

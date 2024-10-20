@@ -27,6 +27,7 @@ func _ready() -> void:
 	$camera_intro.play("camera_zoom_to_gun")
 	await get_tree().create_timer(4).timeout
 	$player/gun_texture.visible = true
+	$"1911-reload-6248".play()
 	await get_tree().create_timer(1).timeout
 	$textbox/TextureRect.visible = true
 	await get_tree().create_timer(2).timeout

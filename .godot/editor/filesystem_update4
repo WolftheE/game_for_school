@@ -35,3 +35,7 @@ res://scripts/null_boss.gd
 res://Menu/THE_REAL_ENDING.tscn
 res://levels/level_6.tscn
 res://levels/boss_fight.gd
+res://levels/level_3.tscn
+res://levels/level_5.tscn
+res://levels/level_2.tscn
+res://scripts/boss_fight_level.gd

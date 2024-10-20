@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	if charge_time == 1:
 		charge()
 	
-	if NullHeath.heath == 0:
+	if NullHeath.heath <= 0:
 		can_move = 0
 	
 	# IMPORTANT
