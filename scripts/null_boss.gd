@@ -30,10 +30,11 @@ func charge():
 	var a = rdn.randi_range(4,12)
 	charge_time = 0
 	await get_tree().create_timer(a).timeout
+	$"../NullDash".playing = true
 	speed = -50
-	await get_tree().create_timer(1).timeout
-	speed = 800
 	await get_tree().create_timer(0.5).timeout
+	speed = 800
+	await get_tree().create_timer(1).timeout
 	speed = 100
 	charge_time = 1
 

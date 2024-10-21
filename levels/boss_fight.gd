@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 		$GPUParticles2D.global_position = $player.global_position
 		$GPUParticles2D.emitting = true
 		Engine.time_scale = 0.01
+		$BossMusicFile.playing = false
 
 	
 	# updates the player health

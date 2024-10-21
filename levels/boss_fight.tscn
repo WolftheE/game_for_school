@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bttl3l07v8paa"]
+[gd_scene load_steps=63 format=3 uid="uid://bttl3l07v8paa"]
 
 [ext_resource type="Script" path="res://levels/boss_fight.gd" id="1_s2uqd"]
 [ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_2ukfj"]
@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://bkjcwl2vitqs6" path="res://texture/spike.png" id="14_53syl"]
 [ext_resource type="Script" path="res://scripts/gun.gd" id="15_rcn5k"]
 [ext_resource type="AudioStream" uid="uid://dqibjc2oyf0w6" path="res://sound/boss_music_file.mp3" id="20_14k2e"]
+[ext_resource type="AudioStream" uid="uid://d3hbm0vdp6aam" path="res://sound/death.wav" id="21_2c61x"]
 [ext_resource type="AudioStream" uid="uid://b6koklcd35nt1" path="res://sound/Gun_shot.mp3" id="21_63wjl"]
+[ext_resource type="AudioStream" uid="uid://ddesk5g81e5ju" path="res://sound/null_dash.wav" id="22_dn1hn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53syl"]
 shader = ExtResource("10_14vae")
@@ -2192,9 +2194,9 @@ stretch_mode = 1
 [node name="TextureRect2" type="TextureRect" parent="Floor"]
 modulate = Color(0.593134, 0.593134, 0.593134, 1)
 offset_left = -1664.0
-offset_top = -500.0
+offset_top = -1140.0
 offset_right = 41774.0
-offset_bottom = 7448.0
+offset_bottom = 6808.0
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_53syl")
 expand_mode = 2
@@ -2269,10 +2271,18 @@ volume_db = -1.0
 autoplay = true
 bus = &"music"
 
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_2c61x")
+
 [node name="GunShot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_63wjl")
 volume_db = -15.0
 pitch_scale = 0.3
+bus = &"sfx"
+
+[node name="NullDash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_dn1hn")
+pitch_scale = 1.1
 bus = &"sfx"
 
 [connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]

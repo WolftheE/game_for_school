@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bwrlh665215ya"]
+[gd_scene load_steps=29 format=3 uid="uid://bwrlh665215ya"]
 
 [ext_resource type="Script" path="res://scripts/level_3.gd" id="1_0uim1"]
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_yxlgg"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/coins_counter.gd" id="13_fidkt"]
 [ext_resource type="Texture2D" uid="uid://bstdhsw1te717" path="res://texture/coin.png" id="14_34pkq"]
 [ext_resource type="AudioStream" uid="uid://bccyducga6mx1" path="res://sound/pissman_level_song1.mp3" id="15_s3q8p"]
+[ext_resource type="AudioStream" uid="uid://bpmdm467nd4ap" path="res://sound/Coin sound (3).mp3" id="16_u4kh1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqxop"]
 size = Vector2(1540, 181)
@@ -800,6 +801,9 @@ shape = SubResource("RectangleShape2D_wtio5")
 
 [node name="PissmanLevelSong1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_s3q8p")
+
+[node name="CoinSound(3)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_u4kh1")
 
 [connection signal="body_shape_entered" from="ending/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="pressed" from="textbox/level_done/Button" to="." method="_on_button_pressed"]

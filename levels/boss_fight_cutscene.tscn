@@ -194,7 +194,7 @@ offset_left = -1000.0
 offset_top = -315.0
 offset_right = -712.0
 offset_bottom = -202.0
-text = "Piss Man"
+text = "Pissman"
 label_settings = SubResource("LabelSettings_2351l")
 
 [node name="name_right" type="Label" parent="bg stuff"]
