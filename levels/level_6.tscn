@@ -284,6 +284,7 @@ texture = ExtResource("14_m17aj")
 
 [node name="Label" type="Label" parent="textbox/Panel/Grassman2"]
 texture_filter = 2
+layout_mode = 0
 offset_left = -130.475
 offset_top = 26.4431
 offset_right = -43.4757
@@ -608,6 +609,7 @@ stretch_mode = 1
 position = Vector2(1041, -187)
 
 [node name="TextureRect" type="TextureRect" parent="stone/stone platform6"]
+z_index = 10
 texture_filter = 1
 texture_repeat = 2
 offset_left = -6.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b1dcn3nm80sd3"]
+[gd_scene load_steps=24 format=3 uid="uid://b1dcn3nm80sd3"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_i8lpl"]
 [ext_resource type="AudioStream" uid="uid://bccyducga6mx1" path="res://sound/pissman_level_song1.mp3" id="2_hbb88"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="9_m2u4t"]
 [ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="10_35d77"]
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="11_bjpml"]
+[ext_resource type="AudioStream" uid="uid://bpmdm467nd4ap" path="res://sound/Coin sound (3).mp3" id="13_wcjpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hatj0"]
 size = Vector2(564, 181)
@@ -474,6 +475,10 @@ position = Vector2(491, 795)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_trigger"]
 position = Vector2(139, -10)
 shape = SubResource("RectangleShape2D_vg7ro")
+
+[node name="CoinSound(3)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_wcjpl")
+bus = &"sfx"
 
 [connection signal="body_shape_entered" from="ending/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="pressed" from="textbox/level_done/Button" to="." method="_on_button_pressed"]

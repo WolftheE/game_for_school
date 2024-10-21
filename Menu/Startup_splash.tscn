@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://beo8kh6f6kx7s" path="res://texture/PROTOGEN_PIXELART.png" id="3_4c2ij"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="4_sgft8"]
 [ext_resource type="FontFile" uid="uid://c52vhnbx88vyo" path="res://texture/fonts/Handjet-Regular.ttf" id="5_6xqoi"]
-[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="5_nl3x6"]
+[ext_resource type="Texture2D" uid="uid://t44d0eocaddp" path="res://texture/pixil-frame-0 (1) 3.png" id="5_bcu5s"]
 [ext_resource type="Texture2D" uid="uid://blk8tsvuer27o" path="res://texture/Redot Logo & Wordmark - Horizontal - Red Orange (no outline).svg" id="7_racrq"]
 [ext_resource type="AudioStream" uid="uid://oo5ibohx3poy" path="res://sound/intro_sound.wav" id="8_ehfhh"]
 [ext_resource type="AudioStream" uid="uid://cnuyp6lap6k7q" path="res://sound/redot_sound_effect.wav" id="9_3po3m"]
@@ -109,45 +109,6 @@ _data = {
 &"logo Intro": SubResource("Animation_s6ly3")
 }
 
-[sub_resource type="Animation" id="Animation_juq25"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label2/Label3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="Animation" id="Animation_mxqmp"]
 resource_name = "text"
 length = 5.0
@@ -189,25 +150,49 @@ tracks/2/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fs6v"]
-_data = {
-&"text": SubResource("Animation_mxqmp"),
-&"RESET": SubResource("Animation_juq25")
-}
-
-[sub_resource type="Animation" id="Animation_ixily"]
+[sub_resource type="Animation" id="Animation_juq25"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/path = NodePath("Label:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label2/Label3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6fs6v"]
+_data = {
+&"text": SubResource("Animation_mxqmp"),
+&"RESET": SubResource("Animation_juq25")
 }
 
 [sub_resource type="Animation" id="Animation_dkev4"]
@@ -224,6 +209,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ixily"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kfwi3"]
@@ -310,13 +310,13 @@ label_settings = SubResource("LabelSettings_bdkcp")
 [node name="guy" type="TextureRect" parent="wolfe logo"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 84.0
-offset_top = -99.0
-offset_right = 194.0
-offset_bottom = -7.00001
+offset_left = 64.0
+offset_top = -34.0
+offset_right = 174.0
+offset_bottom = 58.0
 rotation = -0.241312
 scale = Vector2(2, 2)
-texture = ExtResource("5_nl3x6")
+texture = ExtResource("5_bcu5s")
 stretch_mode = 4
 
 [node name="Label2" type="Label" parent="wolfe logo"]

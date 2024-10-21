@@ -2192,9 +2192,9 @@ stretch_mode = 1
 [node name="TextureRect2" type="TextureRect" parent="Floor"]
 modulate = Color(0.593134, 0.593134, 0.593134, 1)
 offset_left = -1664.0
-offset_top = -1140.0
+offset_top = -500.0
 offset_right = 41774.0
-offset_bottom = 6808.0
+offset_bottom = 7448.0
 scale = Vector2(0.08, 0.08)
 texture = ExtResource("4_53syl")
 expand_mode = 2
@@ -2271,7 +2271,7 @@ bus = &"music"
 
 [node name="GunShot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_63wjl")
-volume_db = -10.0
+volume_db = -15.0
 pitch_scale = 0.3
 bus = &"sfx"
 

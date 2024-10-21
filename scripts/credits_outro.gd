@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready() -> void:
 	$CreditsMusicSong.play()
-	$credits_thing/coins/Label.text = str('you got ', Global.score, ' out of 5 coins')
+	$credits_thing/coins/Label.text = str('you got ', Global.score, ' out of 3 coins')
 	$thing.play("cam")
 	await get_tree().create_timer(23.5).timeout
 	$bg.z_index = 10

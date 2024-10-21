@@ -82,7 +82,7 @@ script = ExtResource("1_wt8vk")
 [node name="bg" type="TextureRect" parent="."]
 modulate = Color(0, 0, 0, 1)
 offset_left = -1050.0
-offset_top = -1035.0
+offset_top = -1500.0
 offset_right = 1956.0
 offset_bottom = 3127.0
 texture = ExtResource("1_eitdr")

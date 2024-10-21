@@ -16,9 +16,9 @@
 [ext_resource type="FontFile" uid="uid://c52vhnbx88vyo" path="res://texture/fonts/Handjet-Regular.ttf" id="14_8mftl"]
 [ext_resource type="Texture2D" uid="uid://beo8kh6f6kx7s" path="res://texture/PROTOGEN_PIXELART.png" id="14_iyy10"]
 [ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="15_dbuko"]
-[ext_resource type="Texture2D" uid="uid://c4qdotc4b4kh1" path="res://texture/pissmanframe1.png" id="15_nbpul"]
 [ext_resource type="FontFile" uid="uid://dchtwuqobbqec" path="res://texture/fonts/Handjet-Light.ttf" id="16_ces08"]
 [ext_resource type="AudioStream" uid="uid://dx8ro74wv551j" path="res://sound/Main_menu_theme_1.mp3" id="18_55x6l"]
+[ext_resource type="Texture2D" uid="uid://t44d0eocaddp" path="res://texture/pixil-frame-0 (1) 3.png" id="19_1k6b6"]
 [ext_resource type="Texture2D" uid="uid://bt8q38iegkdb1" path="res://texture/pixil-frame-0.png" id="19_aftgx"]
 [ext_resource type="Texture2D" uid="uid://bkq455cgaq6bw" path="res://texture/Circle_thing.png" id="20_rmpxo"]
 [ext_resource type="FontFile" uid="uid://b7lha7kprboi" path="res://texture/fonts/Handjet-Bold.ttf" id="21_8xa4a"]
@@ -1176,12 +1176,12 @@ texture = ExtResource("14_iyy10")
 [node name="pissman" type="TextureRect" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 147.0
-offset_top = 41.0
-offset_right = 211.0
-offset_bottom = 105.0
+offset_left = 213.0
+offset_top = 121.0
+offset_right = 272.0
+offset_bottom = 181.0
 scale = Vector2(-4, 4)
-texture = ExtResource("15_nbpul")
+texture = ExtResource("19_1k6b6")
 
 [node name="credits_title" type="Label" parent="credits_menu"]
 texture_filter = 1

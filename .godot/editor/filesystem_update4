@@ -39,3 +39,8 @@ res://levels/level_3.tscn
 res://levels/level_5.tscn
 res://levels/level_2.tscn
 res://scripts/boss_fight_level.gd
+res://scripts/coins_counter.gd
+res://scripts/credits_outro.gd
+res://Menu/Startup_splash.tscn
+res://Others/player.tscn
+res://scripts/player2d.gd
