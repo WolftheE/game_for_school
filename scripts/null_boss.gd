@@ -50,6 +50,8 @@ func _on_colision_left_body_entered(body: Node2D) -> void:
 	if "player" in body.name:
 		speed = -25
 		PlayerHeath.playerheath -= 1
+		$"../ButtonClickSoundEffect".playing = true
+		$"../player_flasher".play("hit")
 		$"../player".velocity.y = -650
 		await get_tree().create_timer(0.2).timeout
 		$"../player".velocity.x = -1000
@@ -59,6 +61,8 @@ func _on_colision_right_body_entered(body: Node2D) -> void:
 	if "player" in body.name:
 		speed = -25
 		PlayerHeath.playerheath -= 1
+		$"../ButtonClickSoundEffect".playing = true
+		$"../player_flasher".play("hit")
 		$"../player".velocity.y = -650
 		await get_tree().create_timer(0.2).timeout
 		speed = 125
@@ -67,6 +71,8 @@ func _on_colision_right_body_entered(body: Node2D) -> void:
 func _on_top_body_entered(body: Node2D) -> void:
 	if "player" in body.name:
 		PlayerHeath.playerheath -= 1
+		$"../ButtonClickSoundEffect".playing = true
+		$"../player_flasher".play("hit")
 		$"../player".velocity.y = -450
 
 

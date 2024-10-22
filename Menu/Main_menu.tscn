@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://duifkuov8aqmq"]
+[gd_scene load_steps=53 format=3 uid="uid://duifkuov8aqmq"]
 
 [ext_resource type="Script" path="res://scripts/Main_menu.gd" id="1_3t6rt"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="2_msj5m"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ddepvxcx6woi" path="res://texture/Calligrakrita-base.svg" id="23_1k6b6"]
 [ext_resource type="Script" path="res://scripts/random_number.gd" id="23_ns8jh"]
 [ext_resource type="FontFile" uid="uid://dknweih5jhvtv" path="res://texture/fonts/Handjet-Medium.ttf" id="24_fapoi"]
+[ext_resource type="Texture2D" uid="uid://0mm06005qhd6" path="res://texture/x.png" id="31_uni3n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_upr5q"]
 font = ExtResource("2_msj5m")
@@ -134,6 +135,8 @@ font_size = 25
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xqup5"]
 size = Vector2(642, 181)
 
+[sub_resource type="Theme" id="Theme_1k6b6"]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_3t6rt")
 
@@ -143,15 +146,16 @@ offset_left = -32.0
 offset_top = -67.0
 offset_right = 1861.0
 offset_bottom = 1209.0
+scale = Vector2(3.07278, 0.982152)
 texture = ExtResource("8_r36ep")
 
 [node name="Title" type="Label" parent="."]
 texture_filter = 1
-offset_left = -64.0
-offset_top = 9.0
-offset_right = 370.0
-offset_bottom = 66.0
-text = "The Piss Man!"
+offset_left = -53.0
+offset_top = 8.0
+offset_right = 381.0
+offset_bottom = 65.0
+text = "Adventures of Null!"
 label_settings = SubResource("LabelSettings_upr5q")
 horizontal_alignment = 1
 
@@ -324,6 +328,7 @@ position = Vector2(686, -31)
 rotation = -1.5708
 
 [node name="coin_thing" type="TextureRect" parent="Spawner"]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -1133,6 +1138,7 @@ text = "WARNING!"
 label_settings = SubResource("LabelSettings_t3x84")
 
 [node name="credits_menu" type="Control" parent="."]
+visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -1448,14 +1454,89 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("19_aftgx")
 
-[node name="Window" type="Window" parent="."]
-title = "Null"
-initial_position = 1
-size = Vector2i(500, 250)
-visible = false
-
 [node name="random_number" type="Node" parent="."]
 script = ExtResource("23_ns8jh")
+
+[node name="Window" type="Window" parent="."]
+disable_3d = true
+transparent_bg = true
+msaa_2d = 2
+screen_space_aa = 1
+title = "Virus Alert!"
+initial_position = 1
+size = Vector2i(625, 200)
+visible = false
+transparent = true
+extend_to_title = true
+theme = SubResource("Theme_1k6b6")
+
+[node name="body" type="Label" parent="Window"]
+custom_minimum_size = Vector2(525, 200)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -525.0
+offset_top = -100.0
+offset_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "Hi, I am an Albanian virus but because of poor technology in my country unfortunately I am not able to harm your computer. Please be so kind to delete one of your important files yourself and then forward me to other users. Many thanks for your cooperation! 
+Best regards,Albanian virus"
+autowrap_mode = 3
+
+[node name="options" type="BoxContainer" parent="Window"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -262.5
+offset_top = -60.0
+offset_right = 262.5
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="ok" type="BoxContainer" parent="Window/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+alignment = 1
+vertical = true
+
+[node name="ok" type="Button" parent="Window/options/ok"]
+layout_mode = 2
+text = "Yes"
+
+[node name="no" type="BoxContainer" parent="Window/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+alignment = 1
+vertical = true
+
+[node name="no" type="Button" parent="Window/options/no"]
+layout_mode = 2
+text = "No"
+
+[node name="cancel" type="BoxContainer" parent="Window/options"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+alignment = 1
+vertical = true
+
+[node name="no" type="Button" parent="Window/options/cancel"]
+layout_mode = 2
+text = "Cancel"
+
+[node name="X" type="Sprite2D" parent="Window"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("31_uni3n")
+centered = false
 
 [connection signal="pressed" from="BoxContainer3/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="BoxContainer3/Levels" to="." method="_on_levels_pressed"]

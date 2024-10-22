@@ -3,11 +3,14 @@ extends Node2D
 @onready var bullet_right = preload("res://Others/bullet_right.tscn")
 var can_shoot = 1
 var boss_dead = 0
+var stage = 0
 
 func _ready() -> void:
+	DisplayServer.window_set_title('Boss.level')
 	$death.play("RESET")
 	Engine.time_scale = 1
-	NullHeath.heath = 5
+	## 50 numbers in total
+	NullHeath.heath = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
 	PlayerHeath.playerheath = 5
 
 func _process(delta: float) -> void:
@@ -23,6 +26,7 @@ func _process(delta: float) -> void:
 	elif PlayerHeath.playerheath == 1:
 		$textbox/pissman_health/BoxContainer/TextureRect.hide()
 	elif PlayerHeath.playerheath == 0:
+		DisplayServer.window_set_title('You died lol')
 		$textbox/pissman_health/BoxContainer/TextureRect5.hide()
 		$death.play("death")
 		$player.hide()
@@ -37,34 +41,42 @@ func _process(delta: float) -> void:
 	
 	#updates the null health
 	$textbox/nullman_health/Label.text = str(NullHeath.heath, "/50")
-	
-	## NULL HEALTH SYSTEM
+
 	if NullHeath.heath == 49:
-		$textbox/nullman_health/BoxContainer/TextureRect.hide()
-	if NullHeath.heath == 45:
-		$wall_crusher.play("crush")
-	if NullHeath.heath == 35:
-		$wall_crusher.play("crush_2")
-	if NullHeath.heath == 30:
-		$textbox/nullman_health/BoxContainer/TextureRect5.hide()
-		$wall_crusher.play("crush_3")
-		await get_tree().create_timer(10).timeout
-		$spikes_fall_ani.play("spike_fall")
-		await get_tree().create_timer(30).timeout
-		$floor_move_up.play("floor_up")
-	if NullHeath.heath == 15:
-		$textbox/nullman_health/BoxContainer/TextureRect4.hide()
-		$spikes_fall_ani.play("crush_3")
-	if NullHeath.heath == 10:
-		$textbox/nullman_health/BoxContainer/TextureRect3.hide()
+		$"textbox/nullman_health/BoxContainer/TextureRect".hide()
+	elif NullHeath.heath == 45:
+		if stage == 0:
+			stage = 1
+			$"wall_crusher".play("crush")
+	elif NullHeath.heath == 37:
+		if stage == 1:
+			stage = 2
+			$"wall_crusher".play("crush_2")
+	elif NullHeath.heath == 30:
+		$"textbox/nullman_health/BoxContainer/TextureRect5".hide()
+		if stage == 2:
+			stage3()
+	elif NullHeath.heath == 15:
+		$"textbox/nullman_health/BoxContainer/TextureRect4".hide()
+	elif NullHeath.heath == 10:
+		$"textbox/nullman_health/BoxContainer/TextureRect3".hide()
+	
 	if NullHeath.heath == 0:
-		$textbox/nullman_health/BoxContainer/TextureRect2.hide()
 		if boss_dead == 0:
 			player_killed_null()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+
+func stage3():
+	stage = 3
+	$"wall_crusher".play("crush_3")
+	await get_tree().create_timer(10).timeout
+	$"spikes_fall_ani".play("spike_fall")
+	await get_tree().create_timer(30).timeout
+	$"floor_move_up".play("floor_up")
+
 
 func player_killed_null():
 	boss_dead = 1
@@ -117,6 +129,8 @@ func dead():
 func _on_damage_trigger_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
 		PlayerHeath.playerheath -= 1
+		$ButtonClickSoundEffect.playing = true
+		$player_flasher.play("hit")
 
 
 func _on_respawn_button_pressed() -> void:
@@ -129,6 +143,8 @@ func _on_respawn_button_pressed() -> void:
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
 		PlayerHeath.playerheath -= 1
+		$ButtonClickSoundEffect.playing = true
+		$player_flasher.play("hit")
 
 
 func _on_change_level_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

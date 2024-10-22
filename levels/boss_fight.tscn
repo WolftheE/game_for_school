@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bttl3l07v8paa"]
+[gd_scene load_steps=67 format=3 uid="uid://bttl3l07v8paa"]
 
 [ext_resource type="Script" path="res://levels/boss_fight.gd" id="1_s2uqd"]
 [ext_resource type="Script" path="res://scripts/coins_counter.gd" id="2_2ukfj"]
@@ -23,6 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://d3hbm0vdp6aam" path="res://sound/death.wav" id="21_2c61x"]
 [ext_resource type="AudioStream" uid="uid://b6koklcd35nt1" path="res://sound/Gun_shot.mp3" id="21_63wjl"]
 [ext_resource type="AudioStream" uid="uid://ddesk5g81e5ju" path="res://sound/null_dash.wav" id="22_dn1hn"]
+[ext_resource type="AudioStream" uid="uid://xvxbtaw6o2vy" path="res://sound/Button_click_sound_effect.wav" id="24_14vae"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_53syl"]
 shader = ExtResource("10_14vae")
@@ -78,12 +79,13 @@ size = Vector2(1490, 20)
 size = Vector2(103, 103)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lufb"]
-size = Vector2(12, 97.25)
+size = Vector2(15.6555, 97.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c61x"]
 size = Vector2(20, 231)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_53syl"]
+lifetime_randomness = 0.5
 particle_flag_disable_z = true
 emission_shape = 1
 emission_sphere_radius = 0.01
@@ -93,7 +95,7 @@ spread = 180.0
 flatness = 1.0
 initial_velocity_min = -250.0
 initial_velocity_max = 200.0
-gravity = Vector3(0, 98, 0)
+gravity = Vector3(0, 1000, 0)
 scale_min = 0.01
 scale_max = 0.05
 
@@ -116,22 +118,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -200)]
-}
-
-[sub_resource type="Animation" id="Animation_hue3d"]
-resource_name = "crush_2"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spikes:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.03333, 10),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
 }
 
 [sub_resource type="Animation" id="Animation_0vyu3"]
@@ -166,12 +152,28 @@ tracks/0/keys = {
 "values": [Vector2(0, -100), Vector2(0, 130), Vector2(0, -200)]
 }
 
+[sub_resource type="Animation" id="Animation_hue3d"]
+resource_name = "crush_2"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.03333, 10),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14k2e"]
 _data = {
 &"RESET": SubResource("Animation_53syl"),
 &"crush_3": SubResource("Animation_14k2e"),
-&"crush_2": SubResource("Animation_hue3d"),
-&"crush": SubResource("Animation_0vyu3")
+&"crush": SubResource("Animation_0vyu3"),
+&"crush_2": SubResource("Animation_hue3d")
 }
 
 [sub_resource type="Animation" id="Animation_14vae"]
@@ -684,6 +686,21 @@ _data = {
 &"floor_up": SubResource("Animation_bmqq7")
 }
 
+[sub_resource type="Animation" id="Animation_homb6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Floor/TextureRect2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1664, -1140)]
+}
+
 [sub_resource type="Animation" id="Animation_rcn5k"]
 resource_name = "player"
 length = 4.0
@@ -698,21 +715,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-1664, -1140), Vector2(-1664, -500)]
-}
-
-[sub_resource type="Animation" id="Animation_homb6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Floor/TextureRect2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1664, -1140)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dealc"]
@@ -766,6 +768,43 @@ g̶o̵o̷d̷ ̶b̸u̸t̶ ̸n̸o̸t̴ ̸g̸o̴o̵d̷ ̷e̶n̸o̷u̶g̵h̵", "", "
 _data = {
 &"RESET": SubResource("Animation_6d334"),
 &"1": SubResource("Animation_15d1j")
+}
+
+[sub_resource type="Animation" id="Animation_5u47p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dealc"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 0.6, 0.6, 1), Color(1, 1, 1, 1), Color(1, 0.6, 0.6, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lymva"]
+_data = {
+&"RESET": SubResource("Animation_5u47p"),
+&"hit": SubResource("Animation_dealc")
 }
 
 [node name="BossFightLevel" type="Node2D"]
@@ -2097,7 +2136,7 @@ shape = SubResource("RectangleShape2D_dn1hn")
 debug_color = Color(0.752312, 0.458026, 0, 0.42)
 
 [node name="null_boss" type="CharacterBody2D" parent="."]
-position = Vector2(198, 221)
+position = Vector2(197, 228)
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
@@ -2132,7 +2171,7 @@ rotation = 1.57079
 scale = Vector2(0.103568, 1.04762)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="null_boss/top"]
-position = Vector2(-19.311, 0.5)
+position = Vector2(-13, 0)
 shape = SubResource("RectangleShape2D_8lufb")
 debug_color = Color(0.971831, 0.168653, 7.70092e-07, 0.42)
 
@@ -2267,7 +2306,6 @@ speed_scale = 0.9
 
 [node name="BossMusicFile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_14k2e")
-volume_db = -1.0
 autoplay = true
 bus = &"music"
 
@@ -2282,8 +2320,20 @@ bus = &"sfx"
 
 [node name="NullDash" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("22_dn1hn")
-pitch_scale = 1.1
+volume_db = -10.0
 bus = &"sfx"
+
+[node name="ButtonClickSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_14vae")
+volume_db = -3.0
+pitch_scale = 0.2
+max_polyphony = 2
+
+[node name="player_flasher" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lymva")
+}
+speed_scale = 0.5
 
 [connection signal="pressed" from="textbox/death_screen/BoxContainer/respawn_button" to="." method="_on_respawn_button_pressed"]
 [connection signal="body_shape_entered" from="falling spikes/spike1/Area2D" to="." method="_on_area_2d_body_shape_entered"]

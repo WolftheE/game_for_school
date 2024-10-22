@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgbqncjhho3j2"
-path="res://.godot/imported/wolfe_logo_for_game.png-e41d47a3a2bcd69616769f8ba207f75c.ctex"
+uid="uid://0mm06005qhd6"
+path="res://.godot/imported/x.png-5e54925ff1c3a3de4be0a5b42ce09b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://texture/wolfe_logo_for_game.png"
-dest_files=["res://.godot/imported/wolfe_logo_for_game.png-e41d47a3a2bcd69616769f8ba207f75c.ctex"]
+source_file="res://texture/x.png"
+dest_files=["res://.godot/imported/x.png-5e54925ff1c3a3de4be0a5b42ce09b9f.ctex"]
 
 [params]
 

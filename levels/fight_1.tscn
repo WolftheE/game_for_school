@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dynt3lodq1cno"]
+[gd_scene load_steps=42 format=3 uid="uid://dynt3lodq1cno"]
 
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="1_gco03"]
 [ext_resource type="Script" path="res://scripts/fight_1.gd" id="1_i3p12"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://city0gat22koj" path="res://texture/nullman.png" id="8_xvil2"]
 [ext_resource type="Texture2D" uid="uid://cuar7rtfpgolg" path="res://texture/null_heart.png" id="9_bk375"]
 [ext_resource type="Texture2D" uid="uid://i0n4uvlbyce3" path="res://texture/null_bullet.png" id="11_f0q14"]
+[ext_resource type="AudioStream" uid="uid://qhjllm5eb6va" path="res://sound/mini_fight.mp3" id="14_joj1d"]
 [ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="15_4xuwl"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="19_kvm64"]
 
@@ -50,6 +51,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [""]
+}
+
+[sub_resource type="Animation" id="Animation_7t86j"]
+resource_name = "dialog_fight1"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "", "Piss Man did an attack and it was effective! 
+Dealing 1 damage!"]
 }
 
 [sub_resource type="Animation" id="Animation_u3cgd"]
@@ -102,28 +120,11 @@ tracks/0/keys = {
 "values": ["", "Null Man Defeated!"]
 }
 
-[sub_resource type="Animation" id="Animation_7t86j"]
-resource_name = "dialog_fight1"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dialog/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": ["", "", "Piss Man did an attack and it was effective! 
-Dealing 1 damage!"]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsxyx"]
 _data = {
 &"RESET": SubResource("Animation_qng6p"),
-&"dialog_fight1": SubResource("Animation_7t86j"),
 &"dialog_talk1": SubResource("Animation_o011r"),
+&"dialog_fight1": SubResource("Animation_7t86j"),
 &"intro_dialog": SubResource("Animation_u3cgd"),
 &"dialog_nullman_died": SubResource("Animation_ov8p4")
 }
@@ -213,6 +214,21 @@ _data = {
 &"bullet_move": SubResource("Animation_fi3pt")
 }
 
+[sub_resource type="Animation" id="Animation_iqunj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_e16uw"]
 resource_name = "fade"
 length = 4.0
@@ -227,21 +243,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_iqunj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("screen_fade:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rwue"]
@@ -833,7 +834,6 @@ libraries = {
 }
 
 [node name="screen_fade" type="TextureRect" parent="."]
-visible = false
 modulate = Color(0, 0, 0, 0)
 z_index = 3
 anchors_preset = 8
@@ -919,6 +919,12 @@ horizontal_alignment = 1
 [node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
 text = "Respawn"
+
+[node name="MiniFight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_joj1d")
+volume_db = -5.0
+autoplay = true
+bus = &"music"
 
 [connection signal="body_shape_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="pressed" from="options/VBoxContainer2/Button" to="." method="_on_button_pressed"]

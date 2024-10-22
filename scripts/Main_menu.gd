@@ -63,7 +63,7 @@ func _on_vsync_toggled(toggled_on: bool) -> void:
 func _ready():
 	Engine.time_scale = 1
 	_add_resolution()
-	DisplayServer.window_set_title('The Cube I think - Main Menu')
+	DisplayServer.window_set_title('Adventures of Null! - Main Menu')
 	$AnimationPlayer.play("coin_move")
 
 
@@ -234,6 +234,7 @@ func _on_part_3_pissman_2_pressed() -> void:
 func _on_part_3_pissman_4_pressed() -> void:
 	$ButtonClickSoundEffect.playing = true
 	$Window.visible = true
+	$level_menu.visible = false
 
 
 func _on_window_close_requested() -> void:
