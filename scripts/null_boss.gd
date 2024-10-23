@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 
 func charge():
 	rdn.randomize()
-	var a = rdn.randi_range(4,12)
+	var a = rdn.randi_range(8,15)
 	charge_time = 0
 	await get_tree().create_timer(a).timeout
 	$"../NullDash".playing = true

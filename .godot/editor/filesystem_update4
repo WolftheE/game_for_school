@@ -30,3 +30,5 @@ res://levels/credits_outro.tscn
 res://Menu/Startup_splash.tscn
 res://Others/player.tscn
 res://levels/fight_1.tscn
+res://Menu/main.tscn
+res://scripts/null_boss.gd
