@@ -117,8 +117,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-&"RESET": SubResource("Animation_85qsr"),
-&"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7np8"]

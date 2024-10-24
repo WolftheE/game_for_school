@@ -1,4 +1,4 @@
-res://levels/level_2.tscn
+res://levels/level_4.tscn
 res://Others/BlurGB.gdshader
 res://texture/blurshader.tres
 res://texture/text.tres
@@ -15,7 +15,8 @@ res://texture/materials/Door.tres
 res://texture/materials/floor_pathway.tres
 res://texture/Metal_black.tres
 res://texture/NULL.tres
-res://levels/level_4.tscn
+res://levels/boss_fight.gd
+res://levels/level_2.tscn
 res://levels/level_3.tscn
 res://levels/level_5.tscn
 res://levels/level_6.tscn
@@ -31,4 +32,10 @@ res://Menu/Startup_splash.tscn
 res://Others/player.tscn
 res://levels/fight_1.tscn
 res://Menu/main.tscn
+res://scripts/level_5.gd
+res://scripts/level_3.gd
+res://scripts/level_2.gd
+res://scripts/level_4.gd
+res://scripts/level_6.gd
+res://scripts/fight_1.gd
 res://scripts/null_boss.gd

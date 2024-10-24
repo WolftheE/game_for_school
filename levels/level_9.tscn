@@ -57,7 +57,7 @@ size = Vector2(20, 2750.5)
 size = Vector2(108.5, 70.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tafyk"]
-size = Vector2(900.5, 74)
+size = Vector2(900.5, 389)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0odp"]
 size = Vector2(34.5, 371)
@@ -98,8 +98,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-&"RESET": SubResource("Animation_85qsr"),
-&"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_77mah"]
@@ -435,8 +435,7 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
-text = "Player = NULL 
-Player does not exist"
+text = "ERORR 104: Unknown entity with name of \"NULL\""
 horizontal_alignment = 1
 
 [node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
@@ -1210,7 +1209,7 @@ texture_repeat = 2
 offset_left = -43.0
 offset_top = 36.0
 offset_right = 856.0
-offset_bottom = 113.0
+offset_bottom = 420.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("12_xt857")
@@ -1218,7 +1217,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="stone/stone platform3"]
-position = Vector2(406.75, 73)
+position = Vector2(406.75, 230.5)
 shape = SubResource("RectangleShape2D_tafyk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="stone/stone platform3"]

@@ -10,8 +10,14 @@ func _ready() -> void:
 	$death.play("RESET")
 	Engine.time_scale = 1
 	## 50 numbers in total
-	NullHeath.heath = 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+	NullHeath.heath = (1 + 1 + 1 + 1 + 1 + 1 + 1
+	 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 
+	1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+	+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
+	+ 1 + 1 + 1 + 1 + 1 + 1)
 	PlayerHeath.playerheath = 5
+	await get_tree().create_timer(4).timeout
+	$textbox/Label.hide()
 
 func _process(delta: float) -> void:
 	#pissman Health system
@@ -108,7 +114,7 @@ func shoot():
 		bullet_thing_left.position = Vector2(pos)
 		add_child(bullet_thing_left)
 		$GunShot.playing = true
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.3).timeout
 		can_shoot += 1
 	
 	if Global.left == 0 and can_shoot == 1:
@@ -118,7 +124,7 @@ func shoot():
 		bullet_thing_right.position = Vector2(pos)
 		add_child(bullet_thing_right)
 		$GunShot.playing = true
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.3).timeout
 		can_shoot += 1
 
 

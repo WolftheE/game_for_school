@@ -83,4 +83,5 @@ func _on_stoper_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index
 
 func _on_stoper_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
+		await get_tree().create_timer(1).timeout
 		can_move = 1

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://8qk7rjw44lkv"]
+[gd_scene load_steps=40 format=3 uid="uid://8qk7rjw44lkv"]
 
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_ea8ph"]
 [ext_resource type="Script" path="res://scripts/level_4.gd" id="1_pwekq"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bstdhsw1te717" path="res://texture/coin.png" id="13_ma4xq"]
 [ext_resource type="Texture2D" uid="uid://cg2npjwg7we2c" path="res://texture/The_Missing_textures.webp" id="15_bf055"]
 [ext_resource type="AudioStream" uid="uid://bpmdm467nd4ap" path="res://sound/Coin sound (3).mp3" id="16_8mt0c"]
+[ext_resource type="AudioStream" uid="uid://c7eye7msplno5" path="res://sound/pissman_level_song3.mp3" id="17_dp2yl"]
+[ext_resource type="AudioStream" uid="uid://cnttj7y540eyl" path="res://sound/level_done.mp3" id="18_a7qdg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ggy0"]
 size = Vector2(657, 181)
@@ -176,9 +178,9 @@ script = ExtResource("1_pwekq")
 [node name="sky thing" type="TextureRect" parent="."]
 modulate = Color(0, 0.75, 1, 1)
 z_index = -10
-offset_left = -1130.0
+offset_left = -1360.0
 offset_top = -1136.0
-offset_right = 2620.0
+offset_right = 1783.0
 offset_bottom = 1123.0
 texture = ExtResource("1_ea8ph")
 
@@ -880,6 +882,15 @@ speed_scale = 0.5
 [node name="CoinSound(3)" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_8mt0c")
 pitch_scale = 1.5
+bus = &"sfx"
+
+[node name="PissmanLevelSong3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_dp2yl")
+autoplay = true
+
+[node name="LevelDone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_a7qdg")
+pitch_scale = 2.5
 bus = &"sfx"
 
 [connection signal="body_shape_entered" from="ending/Area2D" to="." method="_on_area_2d_body_shape_entered"]

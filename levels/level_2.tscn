@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b1dcn3nm80sd3"]
+[gd_scene load_steps=25 format=3 uid="uid://b1dcn3nm80sd3"]
 
 [ext_resource type="Script" path="res://scripts/level_2.gd" id="1_i8lpl"]
 [ext_resource type="AudioStream" uid="uid://bccyducga6mx1" path="res://sound/pissman_level_song1.mp3" id="2_hbb88"]
@@ -13,6 +13,7 @@
 [ext_resource type="Theme" uid="uid://flijevvthfaj" path="res://texture/text.tres" id="10_35d77"]
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="11_bjpml"]
 [ext_resource type="AudioStream" uid="uid://bpmdm467nd4ap" path="res://sound/Coin sound (3).mp3" id="13_wcjpl"]
+[ext_resource type="AudioStream" uid="uid://cnttj7y540eyl" path="res://sound/level_done.mp3" id="14_5orea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hatj0"]
 size = Vector2(564, 181)
@@ -478,6 +479,11 @@ shape = SubResource("RectangleShape2D_vg7ro")
 
 [node name="CoinSound(3)" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_wcjpl")
+bus = &"sfx"
+
+[node name="LevelDone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_5orea")
+pitch_scale = 2.5
 bus = &"sfx"
 
 [connection signal="body_shape_entered" from="ending/Area2D" to="." method="_on_area_2d_body_shape_entered"]

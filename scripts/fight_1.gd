@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	$ButtonClickSoundEffect2.playing = true
 	NullHeath.heath -= 1
 	
 	#checking health to save some cpu performance
@@ -61,21 +62,28 @@ func _on_button_pressed() -> void:
 	
 	#bullet_animation
 		$bullet/move_bullet.play("bullet_move")
+		await get_tree().create_timer(1.7).timeout
+		$"NullTalking(1)".playing = true
 		await get_tree().create_timer(2).timeout
 	# check health
 		if NullHeath.heath == 2:
 			pass
 		elif NullHeath.heath == 1:
 			$bullet2/move_bullet.play("bullet_move")
+			await get_tree().create_timer(1.7).timeout
+			$"NullTalking(1)".playing = true
 
 	
-		await get_tree().create_timer(4).timeout
+		await get_tree().create_timer(2).timeout
 		$options.visible = true
 		$bullet/move_bullet.play("RESET")
+		
 
 
 
 func _on_button_2_pressed() -> void:
+	$ButtonClickSoundEffect2.playing = true
+	$ButtonClickSoundEffect.playing = true
 	$options/VBoxContainer2/Button2.disabled = true
 	$dialog.visible = true
 	$options.visible = false

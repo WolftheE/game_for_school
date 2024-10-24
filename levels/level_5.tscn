@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://47ahg1q5c7k4"]
+[gd_scene load_steps=31 format=3 uid="uid://47ahg1q5c7k4"]
 
 [ext_resource type="Texture2D" uid="uid://bfxo8djr5ybh6" path="res://texture/A_white_cube.png" id="1_b7piu"]
 [ext_resource type="Script" path="res://scripts/level_5.gd" id="1_xvhva"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="12_xy4lp"]
 [ext_resource type="Texture2D" uid="uid://bstdhsw1te717" path="res://texture/coin.png" id="13_w3y8k"]
 [ext_resource type="AudioStream" uid="uid://bpmdm467nd4ap" path="res://sound/Coin sound (3).mp3" id="16_p0827"]
+[ext_resource type="AudioStream" uid="uid://c7eye7msplno5" path="res://sound/pissman_level_song3.mp3" id="17_brp6y"]
+[ext_resource type="AudioStream" uid="uid://cnttj7y540eyl" path="res://sound/level_done.mp3" id="18_mgx0j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hr0d7"]
 size = Vector2(78, 77)
@@ -525,8 +527,7 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
-text = "Player = NULL 
-Player does not exist"
+text = "Ok, maybe try to time your jump"
 horizontal_alignment = 1
 
 [node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
@@ -552,6 +553,15 @@ shape = SubResource("RectangleShape2D_6c4gh")
 
 [node name="CoinSound(3)" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("16_p0827")
+bus = &"sfx"
+
+[node name="PissmanLevelSong3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_brp6y")
+autoplay = true
+
+[node name="LevelDone" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_mgx0j")
+pitch_scale = 2.5
 bus = &"sfx"
 
 [connection signal="body_shape_entered" from="ending/Area2D" to="." method="_on_area_2d_body_shape_entered"]

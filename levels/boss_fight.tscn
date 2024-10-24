@@ -58,7 +58,7 @@ font = ExtResource("12_k5tnt")
 font_size = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vyu3"]
-size = Vector2(81, 5)
+size = Vector2(87, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hue3d"]
 size = Vector2(10.3077, 11.907)
@@ -120,9 +120,9 @@ tracks/0/keys = {
 "values": [Vector2(0, -200)]
 }
 
-[sub_resource type="Animation" id="Animation_0vyu3"]
-resource_name = "crush"
-length = 10.0
+[sub_resource type="Animation" id="Animation_14k2e"]
+resource_name = "crush_3"
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,31 +130,15 @@ tracks/0/path = NodePath("spikes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 7.46667, 10),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
-}
-
-[sub_resource type="Animation" id="Animation_14k2e"]
-resource_name = "crush_3"
-length = 10.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("spikes:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5.96667, 10),
+"times": PackedFloat32Array(0, 0.966667, 6.93333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -100), Vector2(0, 130), Vector2(0, -200)]
 }
 
-[sub_resource type="Animation" id="Animation_hue3d"]
-resource_name = "crush_2"
-length = 10.0
+[sub_resource type="Animation" id="Animation_0vyu3"]
+resource_name = "crush"
+length = 6.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -162,7 +146,23 @@ tracks/0/path = NodePath("spikes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.03333, 10),
+"times": PackedFloat32Array(0, 0.866667, 3.33334, 5.86667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -200), Vector2(0, 0), Vector2(0, 0), Vector2(0, -100)]
+}
+
+[sub_resource type="Animation" id="Animation_hue3d"]
+resource_name = "crush_2"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("spikes:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.46667, 5.86667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, -100), Vector2(0, 75), Vector2(0, -50)]
@@ -171,9 +171,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_14k2e"]
 _data = {
 &"RESET": SubResource("Animation_53syl"),
-&"crush_3": SubResource("Animation_14k2e"),
+&"crush_2": SubResource("Animation_hue3d"),
 &"crush": SubResource("Animation_0vyu3"),
-&"crush_2": SubResource("Animation_hue3d")
+&"crush_3": SubResource("Animation_14k2e")
 }
 
 [sub_resource type="Animation" id="Animation_14vae"]
@@ -1218,6 +1218,17 @@ offset_bottom = -637.0
 scale = Vector2(17.5, 17.5)
 text = "NULL:"
 
+[node name="Label" type="Label" parent="textbox"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -121.0
+offset_top = 32.0
+offset_right = 123.0
+offset_bottom = 55.0
+grow_horizontal = 2
+text = "Press \"z\" \"e\" or even \"/\" to shoot"
+
 [node name="levelstuff" type="Node2D" parent="."]
 
 [node name="background" type="Node2D" parent="levelstuff"]
@@ -1548,7 +1559,7 @@ one_way_collision = true
 position = Vector2(685, 238)
 
 [node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
-position = Vector2(0, -27)
+position = Vector2(-16, -26)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1567,7 +1578,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
-position = Vector2(1, -84)
+position = Vector2(-17, -83)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step2"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1586,7 +1597,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
-position = Vector2(-1, -145)
+position = Vector2(-42, -145)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step3"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1605,7 +1616,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform4"]
-position = Vector2(-32, -202)
+position = Vector2(-64, -200)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform4/step4"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1627,7 +1638,7 @@ one_way_collision = true
 position = Vector2(-848, 240)
 
 [node name="step" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
-position = Vector2(0, -27)
+position = Vector2(13, -27)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1646,7 +1657,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step2" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
-position = Vector2(1, -84)
+position = Vector2(21, -84)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step2"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1665,7 +1676,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step3" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
-position = Vector2(-1, -145)
+position = Vector2(32, -145)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step3"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -1684,7 +1695,7 @@ shape = SubResource("RectangleShape2D_0vyu3")
 one_way_collision = true
 
 [node name="step4" type="StaticBody2D" parent="levelstuff/platforms/platform5"]
-position = Vector2(29, -202)
+position = Vector2(49, -202)
 
 [node name="TextureRect" type="TextureRect" parent="levelstuff/platforms/platform5/step4"]
 modulate = Color(0.619489, 0.619489, 0.619489, 1)
@@ -2123,7 +2134,7 @@ stretch_mode = 1
 position = Vector2(0, -41)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spikes/damage_trigger"]
-position = Vector2(-72.5, 4.5)
+position = Vector2(-72.5, -4.5)
 shape = SubResource("RectangleShape2D_53syl")
 debug_color = Color(0.989844, 0, 0.285604, 0.42)
 

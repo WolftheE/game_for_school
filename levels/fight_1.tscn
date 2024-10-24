@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://dynt3lodq1cno"]
+[gd_scene load_steps=44 format=3 uid="uid://dynt3lodq1cno"]
 
 [ext_resource type="Texture2D" uid="uid://bo7d3b7hpqtin" path="res://texture/just_a_cube.png" id="1_gco03"]
 [ext_resource type="Script" path="res://scripts/fight_1.gd" id="1_i3p12"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://i0n4uvlbyce3" path="res://texture/null_bullet.png" id="11_f0q14"]
 [ext_resource type="AudioStream" uid="uid://qhjllm5eb6va" path="res://sound/mini_fight.mp3" id="14_joj1d"]
 [ext_resource type="Shader" path="res://Others/BlurGB.gdshader" id="15_4xuwl"]
+[ext_resource type="AudioStream" uid="uid://dyecefs4voyhq" path="res://sound/null_talking (1).wav" id="15_uc5sn"]
+[ext_resource type="AudioStream" uid="uid://xvxbtaw6o2vy" path="res://sound/Button_click_sound_effect.wav" id="16_x0low"]
 [ext_resource type="FontFile" uid="uid://cnjcheyut2dew" path="res://texture/fonts/Handjet-SemiBold.ttf" id="19_kvm64"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wunp3"]
@@ -53,6 +55,24 @@ tracks/0/keys = {
 "values": [""]
 }
 
+[sub_resource type="Animation" id="Animation_o011r"]
+resource_name = "dialog_talk1"
+length = 6.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dialog/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 6.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": ["", "Pissman tries to talk to Nullman but he just looks at you
+and continues fighting", "Pissman tries to talk to Nullman but he just looks at you
+and continues fighting"]
+}
+
 [sub_resource type="Animation" id="Animation_7t86j"]
 resource_name = "dialog_fight1"
 length = 5.0
@@ -86,24 +106,6 @@ tracks/0/keys = {
 "values": ["", "Pissman: Um it looks like I'm in some kind of boss fight"]
 }
 
-[sub_resource type="Animation" id="Animation_o011r"]
-resource_name = "dialog_talk1"
-length = 6.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("dialog/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 6.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": ["", "Pissman tries to talk to Nullman but he just looks at you
-and continues fighting", "Pissman tries to talk to Nullman but he just looks at you
-and continues fighting"]
-}
-
 [sub_resource type="Animation" id="Animation_ov8p4"]
 resource_name = "dialog_nullman_died"
 length = 3.0
@@ -123,10 +125,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsxyx"]
 _data = {
 &"RESET": SubResource("Animation_qng6p"),
+&"dialog_nullman_died": SubResource("Animation_ov8p4"),
 &"dialog_talk1": SubResource("Animation_o011r"),
-&"dialog_fight1": SubResource("Animation_7t86j"),
 &"intro_dialog": SubResource("Animation_u3cgd"),
-&"dialog_nullman_died": SubResource("Animation_ov8p4")
+&"dialog_fight1": SubResource("Animation_7t86j")
 }
 
 [sub_resource type="Animation" id="Animation_ike7r"]
@@ -247,8 +249,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rwue"]
 _data = {
-&"RESET": SubResource("Animation_iqunj"),
-&"fade": SubResource("Animation_e16uw")
+&"fade": SubResource("Animation_e16uw"),
+&"RESET": SubResource("Animation_iqunj")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hbdc"]
@@ -912,19 +914,29 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
-text = "Player = NULL 
-Player does not exist"
+text = "Well..."
 horizontal_alignment = 1
 
 [node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
 text = "Respawn"
 
+[node name="ButtonClickSoundEffect2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_x0low")
+volume_db = -5.0
+bus = &"sfx"
+
+[node name="NullTalking(1)" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_uc5sn")
+
 [node name="MiniFight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_joj1d")
 volume_db = -5.0
 autoplay = true
 bus = &"music"
+
+[node name="ButtonClickSoundEffect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_x0low")
 
 [connection signal="body_shape_entered" from="Node2D/Area2D" to="." method="_on_area_2d_body_shape_entered"]
 [connection signal="pressed" from="options/VBoxContainer2/Button" to="." method="_on_button_pressed"]

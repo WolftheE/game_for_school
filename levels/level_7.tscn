@@ -176,8 +176,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j823r"]
 _data = {
-&"RESET": SubResource("Animation_85qsr"),
-&"fade": SubResource("Animation_tiwge")
+&"fade": SubResource("Animation_tiwge"),
+&"RESET": SubResource("Animation_85qsr")
 }
 
 [node name="Level7" type="Node2D"]
@@ -623,8 +623,7 @@ vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="textbox/death_screen/BoxContainer"]
 layout_mode = 2
-text = "Player = NULL 
-Player does not exist"
+text = "Stop looking at the source code"
 horizontal_alignment = 1
 
 [node name="respawn_button" type="Button" parent="textbox/death_screen/BoxContainer"]

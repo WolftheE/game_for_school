@@ -37,6 +37,7 @@ func _on_death_trigger_body_shape_entered(body_rid: RID, body: Node2D, body_shap
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	if "player" in body.name:
+		$LevelDone.playing = true
 		$textbox/level_done.visible = true
 		Engine.time_scale = 0
 
