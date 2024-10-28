@@ -61,6 +61,7 @@ func _on_vsync_toggled(toggled_on: bool) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	Engine.time_scale = 1
 	_add_resolution()
 	DisplayServer.window_set_title('Adventures of Null! - Main Menu')

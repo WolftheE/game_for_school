@@ -663,21 +663,6 @@ mouse_default_cursor_shape = 16
 theme = ExtResource("3_0wrcm")
 text = "        Credits        "
 
-[node name="Credits" type="Label" parent="."]
-z_index = 2
-offset_top = 282.0
-offset_right = 406.0
-offset_bottom = 617.0
-text = "Ver 1.1 BETA
-- Game is almost ready to be made public
-- Fixed soo many bugs
-- Fixed the words gamma 
-- Fixed dialog
-- Boss fight almost done
-- Ending screen added with 2 options
-- so much more!
-- fixed a issue on low end hardware"
-
 [node name="World_enviroment" parent="." instance=ExtResource("2_wue4d")]
 script = ExtResource("3_wgfvn")
 
@@ -729,13 +714,20 @@ vertical = true
 layout_mode = 2
 theme = ExtResource("3_0wrcm")
 text = "SDFGI (RTX BETA)
-EXTREAM IMPACT 
-NOTE: NEVER USE THIS WITH THE \"The intro (but high quality)\""
+(VERY HIGH)
+NOTE: DO NOT USE WITH \"Voxel GI\""
+
+[node name="VoxelGI_button" type="CheckButton" parent="Control/graphics_box"]
+layout_mode = 2
+theme = ExtResource("3_0wrcm")
+text = "Voxel GI (RTX)
+(high to Very High)
+Note: DO NOT USE WITH SDFGI"
 
 [node name="SSAO_button" type="CheckButton" parent="Control/graphics_box"]
 layout_mode = 2
 theme = ExtResource("3_0wrcm")
-text = " Screen Space Ambient Occlusion
+text = "Screen Space Ambient Occlusion
 (mid to ver y high)"
 
 [node name="SSR_button" type="CheckButton" parent="Control/graphics_box"]
@@ -749,18 +741,12 @@ layout_mode = 2
 theme = ExtResource("3_0wrcm")
 text = "Screen-space indirect lighting 
 (low to mid) 
-Note: Please dont use it,  it doesnt even look good"
-
-[node name="VoxelGI_button" type="CheckButton" parent="Control/graphics_box"]
-layout_mode = 2
-theme = ExtResource("3_0wrcm")
-text = "Voxel GI (RTX)
-Extreamly high
-Note: DO NOT USE WITH SDFGI"
+"
 
 [node name="GLOW_button" type="CheckButton" parent="Control/graphics_box"]
 layout_mode = 2
 theme = ExtResource("3_0wrcm")
+button_pressed = true
 text = "Bloom/Glow (mid)"
 
 [node name="Close_options_menu" type="Button" parent="Control"]
@@ -819,12 +805,6 @@ text = "Sound"
 [node name="Label3" type="Label" parent="Control/graphic_option"]
 layout_mode = 2
 
-[node name="help" type="Button" parent="Control/graphic_option"]
-texture_filter = 1
-layout_mode = 2
-theme = ExtResource("3_0wrcm")
-text = "Help"
-
 [node name="Video" type="BoxContainer" parent="Control"]
 visible = false
 layout_mode = 0
@@ -838,7 +818,9 @@ vertical = true
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/Video/BoxContainer"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Resolution for window"
 
 [node name="Option_reso" type="OptionButton" parent="Control/Video/BoxContainer"]
@@ -852,15 +834,21 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="fullscreen" type="Button" parent="Control/Video/BoxContainer2"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Fullscreen"
 
 [node name="windowed" type="Button" parent="Control/Video/BoxContainer2"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Windowed"
 
 [node name="windowed_max" type="Button" parent="Control/Video/BoxContainer2"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Maximized"
 
 [node name="space" type="Label" parent="Control/Video"]
@@ -870,7 +858,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/Video/BoxContainer3"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Vsync"
 
 [node name="vsync" type="CheckBox" parent="Control/Video/BoxContainer3"]
@@ -881,7 +871,9 @@ button_pressed = true
 layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/Video/BoxContainer4"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Show fps"
 
 [node name="showfps_button" type="CheckBox" parent="Control/Video/BoxContainer4"]
@@ -900,7 +892,9 @@ layout_mode = 2
 vertical = true
 
 [node name="Label" type="Label" parent="Control/soundbox/volume_main"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Master Sound"
 horizontal_alignment = 1
 
@@ -922,7 +916,9 @@ layout_mode = 2
 vertical = true
 
 [node name="Label" type="Label" parent="Control/soundbox/volume_music"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "Music Sound"
 horizontal_alignment = 1
 
@@ -944,7 +940,9 @@ layout_mode = 2
 vertical = true
 
 [node name="Label" type="Label" parent="Control/soundbox/volume_sfx"]
+texture_filter = 1
 layout_mode = 2
+theme = ExtResource("3_0wrcm")
 text = "SFX Sound"
 horizontal_alignment = 1
 
@@ -1138,7 +1136,6 @@ text = "WARNING!"
 label_settings = SubResource("LabelSettings_t3x84")
 
 [node name="credits_menu" type="Control" parent="."]
-visible = false
 z_index = 5
 layout_mode = 3
 anchors_preset = 0
@@ -1210,18 +1207,18 @@ text = "x"
 [node name="mrcrip" type="Label" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 170.0
+offset_left = 174.0
 offset_top = 171.0
-offset_right = 588.0
+offset_right = 592.0
 offset_bottom = 206.0
 theme = SubResource("Theme_26cmr")
-text = "MrCrip (\"Put Quote Here\")"
+text = "MrCrip "
 
 [node name="Label" type="Label" parent="credits_menu/mrcrip"]
 layout_mode = 0
-offset_left = 18.0
+offset_left = 5.0
 offset_top = 35.0
-offset_right = 316.0
+offset_right = 303.0
 offset_bottom = 70.0
 theme = SubResource("Theme_kusq5")
 text = "For the 2d textures and sound effect"
@@ -1229,9 +1226,9 @@ text = "For the 2d textures and sound effect"
 [node name="Label3" type="Label" parent="credits_menu/mrcrip"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 25.0
+offset_left = 9.0
 offset_top = 63.0
-offset_right = 445.0
+offset_right = 429.0
 offset_bottom = 129.0
 text = "'Why did I had to work with this furry?'
 Discord - @mister_crip"
@@ -1240,18 +1237,18 @@ label_settings = SubResource("LabelSettings_7rxuq")
 [node name="wolfe" type="Label" parent="credits_menu"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 164.0
+offset_left = 166.0
 offset_top = -5.0
-offset_right = 591.0
+offset_right = 593.0
 offset_bottom = 30.0
 theme = SubResource("Theme_26cmr")
-text = "Wolfe (\"No body hates coding more then the coders\")"
+text = "Wolfe"
 
 [node name="Label" type="Label" parent="credits_menu/wolfe"]
 layout_mode = 0
-offset_left = 14.0
+offset_left = 6.0
 offset_top = 32.0
-offset_right = 312.0
+offset_right = 304.0
 offset_bottom = 67.0
 theme = SubResource("Theme_kusq5")
 text = "For all of that bad coding and 3d modeling."
@@ -1259,9 +1256,9 @@ text = "For all of that bad coding and 3d modeling."
 [node name="Label2" type="Label" parent="credits_menu/wolfe"]
 texture_filter = 1
 layout_mode = 0
-offset_left = 21.0
+offset_left = 13.0
 offset_top = 55.0
-offset_right = 441.0
+offset_right = 433.0
 offset_bottom = 136.0
 text = "'A Group poject that I had to make for school. 
 It took a total of \"DAY\" to make. In the end, this is what happen. 
@@ -1544,16 +1541,15 @@ centered = false
 [connection signal="pressed" from="BoxContainer3/BoxContainer/quit_menu" to="." method="_on_quit_menu_pressed"]
 [connection signal="pressed" from="BoxContainer3/BoxContainer/credits" to="." method="_on_credits_pressed"]
 [connection signal="toggled" from="Control/graphics_box/SDFGI_button" to="." method="_on_sdfgi_button_toggled"]
+[connection signal="toggled" from="Control/graphics_box/VoxelGI_button" to="." method="_on_voxel_gi_button_toggled"]
 [connection signal="toggled" from="Control/graphics_box/SSAO_button" to="." method="_on_ssao_button_toggled"]
 [connection signal="toggled" from="Control/graphics_box/SSR_button" to="." method="_on_ssr_button_toggled"]
 [connection signal="toggled" from="Control/graphics_box/SSIL_button" to="." method="_on_ssil_button_toggled"]
-[connection signal="toggled" from="Control/graphics_box/VoxelGI_button" to="." method="_on_voxel_gi_button_toggled"]
 [connection signal="toggled" from="Control/graphics_box/GLOW_button" to="." method="_on_glow_button_toggled"]
 [connection signal="pressed" from="Control/Close_options_menu" to="." method="_on_close_options_menu_pressed"]
 [connection signal="pressed" from="Control/graphic_option/video" to="." method="_on_video_pressed"]
 [connection signal="pressed" from="Control/graphic_option/graphics" to="." method="_on_graphics_pressed"]
 [connection signal="pressed" from="Control/graphic_option/sound" to="." method="_on_sound_pressed"]
-[connection signal="pressed" from="Control/graphic_option/help" to="." method="_on_help_pressed"]
 [connection signal="item_selected" from="Control/Video/BoxContainer/Option_reso" to="." method="_on_option_reso_item_selected"]
 [connection signal="pressed" from="Control/Video/BoxContainer2/fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="Control/Video/BoxContainer2/windowed" to="." method="_on_windowed_pressed"]

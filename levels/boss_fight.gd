@@ -14,7 +14,7 @@ func _ready() -> void:
 	 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 
 	1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
 	+ 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 
-	+ 1 + 1 + 1 + 1 + 1 + 1)
+	+ 1 + 1 + 1 + 1 + 1 + 1 )
 	PlayerHeath.playerheath = 5
 	await get_tree().create_timer(4).timeout
 	$textbox/Label.hide()
@@ -54,15 +54,15 @@ func _process(delta: float) -> void:
 		if stage == 0:
 			stage = 1
 			$"wall_crusher".play("crush")
-	elif NullHeath.heath == 37:
+	elif NullHeath.heath == 38:
 		if stage == 1:
 			stage = 2
 			$"wall_crusher".play("crush_2")
-	elif NullHeath.heath == 30:
+	elif NullHeath.heath == 33:
 		$"textbox/nullman_health/BoxContainer/TextureRect5".hide()
 		if stage == 2:
 			stage3()
-	elif NullHeath.heath == 15:
+	elif NullHeath.heath == 20:
 		$"textbox/nullman_health/BoxContainer/TextureRect4".hide()
 	elif NullHeath.heath == 10:
 		$"textbox/nullman_health/BoxContainer/TextureRect3".hide()
@@ -78,9 +78,9 @@ func _physics_process(delta: float) -> void:
 func stage3():
 	stage = 3
 	$"wall_crusher".play("crush_3")
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(7).timeout
 	$"spikes_fall_ani".play("spike_fall")
-	await get_tree().create_timer(30).timeout
+	await get_tree().create_timer(20).timeout
 	$"floor_move_up".play("floor_up")
 
 
@@ -114,7 +114,7 @@ func shoot():
 		bullet_thing_left.position = Vector2(pos)
 		add_child(bullet_thing_left)
 		$GunShot.playing = true
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.4).timeout
 		can_shoot += 1
 	
 	if Global.left == 0 and can_shoot == 1:
@@ -124,7 +124,7 @@ func shoot():
 		bullet_thing_right.position = Vector2(pos)
 		add_child(bullet_thing_right)
 		$GunShot.playing = true
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.4).timeout
 		can_shoot += 1
 
 

@@ -55,9 +55,9 @@ tracks/0/keys = {
 "values": [""]
 }
 
-[sub_resource type="Animation" id="Animation_o011r"]
-resource_name = "dialog_talk1"
-length = 6.5
+[sub_resource type="Animation" id="Animation_u3cgd"]
+resource_name = "intro_dialog"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,12 +65,10 @@ tracks/0/path = NodePath("dialog/Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 6.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": ["", "Pissman tries to talk to Nullman but he just looks at you
-and continues fighting", "Pissman tries to talk to Nullman but he just looks at you
-and continues fighting"]
+"values": ["", "Pissman: Um it looks like I'm in some kind of boss fight"]
 }
 
 [sub_resource type="Animation" id="Animation_7t86j"]
@@ -90,9 +88,9 @@ tracks/0/keys = {
 Dealing 1 damage!"]
 }
 
-[sub_resource type="Animation" id="Animation_u3cgd"]
-resource_name = "intro_dialog"
-length = 3.0
+[sub_resource type="Animation" id="Animation_o011r"]
+resource_name = "dialog_talk1"
+length = 6.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,10 +98,12 @@ tracks/0/path = NodePath("dialog/Label:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 6.46667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": ["", "Pissman: Um it looks like I'm in some kind of boss fight"]
+"values": ["", "Pissman tries to talk to Nullman but he just looks at you
+and continues fighting", "Pissman tries to talk to Nullman but he just looks at you
+and continues fighting"]
 }
 
 [sub_resource type="Animation" id="Animation_ov8p4"]
@@ -125,9 +125,9 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nsxyx"]
 _data = {
 &"RESET": SubResource("Animation_qng6p"),
-&"dialog_nullman_died": SubResource("Animation_ov8p4"),
-&"dialog_talk1": SubResource("Animation_o011r"),
 &"intro_dialog": SubResource("Animation_u3cgd"),
+&"dialog_talk1": SubResource("Animation_o011r"),
+&"dialog_nullman_died": SubResource("Animation_ov8p4"),
 &"dialog_fight1": SubResource("Animation_7t86j")
 }
 
@@ -216,21 +216,6 @@ _data = {
 &"bullet_move": SubResource("Animation_fi3pt")
 }
 
-[sub_resource type="Animation" id="Animation_iqunj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("screen_fade:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_e16uw"]
 resource_name = "fade"
 length = 4.0
@@ -247,10 +232,25 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_iqunj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("screen_fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3rwue"]
 _data = {
-&"fade": SubResource("Animation_e16uw"),
-&"RESET": SubResource("Animation_iqunj")
+&"RESET": SubResource("Animation_iqunj"),
+&"fade": SubResource("Animation_e16uw")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2hbdc"]
@@ -931,7 +931,7 @@ stream = ExtResource("15_uc5sn")
 
 [node name="MiniFight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_joj1d")
-volume_db = -5.0
+volume_db = 3.0
 autoplay = true
 bus = &"music"
 

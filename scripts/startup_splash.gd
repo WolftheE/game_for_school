@@ -7,6 +7,7 @@ func _ready() -> void:
 	$AnimationPlayer.play("logo Intro")
 	$IntroSound.playing = true
 	await get_tree().create_timer(3.5).timeout
+	$CanvasLayer.hide()
 	$IntroSound.pitch_scale = 0.6
 	$IntroSound.playing = true
 	if get_tree() == null:

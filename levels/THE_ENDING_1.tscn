@@ -73,114 +73,6 @@ tracks/3/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_3oott"]
-resource_name = "script_2"
-length = 18.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 3.2, 3.23333, 5.16667, 6.96667, 6.96677, 7, 10.0667, 13, 13.0333, 16.1, 17.7667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": ["", "Ok, sure", "Ok, sure", "", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "", "Alright, sorry about this we have some
-bugs going around but we can 
-ensure it won't happen again", "Alright, sorry about this we have some
-bugs going around but we can 
-ensure it won't happen again", "", "And... ok one done, now you Pissman", "And... ok one done, now you Pissman"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.23333, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.23333, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 3.23333, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
-
-[sub_resource type="Animation" id="Animation_a8ish"]
-resource_name = "script_3"
-length = 16.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.93333, 3.53333, 3.56667, 5.8, 8.53333, 8.56667, 10.5, 12.2333, 12.2667, 14, 15.9667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": ["", "I want to go back home", "I want to go back home", "", "Oh, its fine", "Oh, its fine", "", "Ok, sure", "Ok, sure", "", "Ok, bye and thanks for your help!", "Ok, bye and thanks for your help!"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, false, true, false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [true, false, false, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.0333333, 3.53333, 8.6, 12.2667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true]
-}
-
 [sub_resource type="Animation" id="Animation_srv6x"]
 resource_name = "script_1"
 length = 23.0
@@ -237,11 +129,119 @@ tracks/3/keys = {
 "values": [true, false, false, false, false]
 }
 
+[sub_resource type="Animation" id="Animation_a8ish"]
+resource_name = "script_3"
+length = 16.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.93333, 3.53333, 3.56667, 5.8, 8.53333, 8.56667, 10.5, 12.2333, 12.2667, 14, 15.9667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "I want to go back home", "I want to go back home", "", "Oh, its fine", "Oh, its fine", "", "Ok, sure", "Ok, sure", "", "Ok, bye and thanks for your help!", "Ok, bye and thanks for your help!"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 3.53333, 8.6, 12.2667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3oott"]
+resource_name = "script_2"
+length = 18.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/script_bg/script_text:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.2, 3.23333, 5.16667, 6.96667, 6.96677, 7, 10.0667, 13, 13.0333, 16.1, 17.7667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": ["", "Ok, sure", "Ok, sure", "", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "Oh thanks Pissman for coming with me", "", "Alright, sorry about this we have some
+bugs going around but we can 
+ensure it won't happen again", "Alright, sorry about this we have some
+bugs going around but we can 
+ensure it won't happen again", "", "And... ok one done, now you Pissman", "And... ok one done, now you Pissman"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/script_bg/dev:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/script_bg/pissman:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/script_bg/grassman:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.23333, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_imx38"]
 _data = {
 &"RESET": SubResource("Animation_s3f5x"),
-&"script_1": SubResource("Animation_srv6x"),
 &"script_3": SubResource("Animation_a8ish"),
+&"script_1": SubResource("Animation_srv6x"),
 &"script_2": SubResource("Animation_3oott")
 }
 
@@ -436,7 +436,7 @@ offset_left = -417.0
 offset_top = 44.0
 offset_right = -344.0
 offset_bottom = 67.0
-text = "Piss Man:"
+text = "Pissman:"
 
 [node name="grassman" type="TextureRect" parent="CanvasLayer/script_bg"]
 texture_filter = 1

@@ -15,10 +15,10 @@
 [ext_resource type="AudioStream" uid="uid://bccyducga6mx1" path="res://sound/pissman_level_song1.mp3" id="13_fh1gw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yb6x2"]
-size = Vector2(564, 181)
+size = Vector2(567, 181)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pi2p"]
-size = Vector2(82, 77)
+size = Vector2(86, 77)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3qe0"]
 size = Vector2(40, 40)
@@ -157,6 +157,21 @@ shader_parameter/color_over = Color(0.523532, 0, 0, 1)
 font = ExtResource("10_ajexw")
 font_size = 40
 
+[sub_resource type="Animation" id="Animation_ybj5a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("textbox/Panel/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Um where am I?"]
+}
+
 [sub_resource type="Animation" id="Animation_68l5w"]
 resource_name = "dialog"
 length = 0.35
@@ -171,21 +186,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": ["", "U", "Um", "Um W", "Um Wh", "Um Whe", "Um Wher", "Um Where ", "Um Where a", "Um Where am I", "Um Where am I?"]
-}
-
-[sub_resource type="Animation" id="Animation_ybj5a"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("textbox/Panel/Label:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Um where am I?"]
 }
 
 [sub_resource type="Animation" id="Animation_qnm8l"]
@@ -233,7 +233,7 @@ position = Vector2(1, -789)
 [node name="grass platform" type="StaticBody2D" parent="grass"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="grass/grass platform"]
-position = Vector2(239, 128.5)
+position = Vector2(240.5, 128.5)
 shape = SubResource("RectangleShape2D_yb6x2")
 
 [node name="TextureRect" type="TextureRect" parent="grass/grass platform"]

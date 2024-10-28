@@ -526,6 +526,7 @@ text = "Respawn"
 modulate = Color(0, 0, 0, 0)
 offset_right = 1334.0
 offset_bottom = 891.0
+mouse_filter = 2
 texture = ExtResource("1_5eoi8")
 
 [node name="stone" type="Node2D" parent="."]
